@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "GamesLibrary_WebApplication/1.0.0": {
+        "runtime": {
+          "GamesLibrary_WebApplication.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GamesLibrary_WebApplication/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
