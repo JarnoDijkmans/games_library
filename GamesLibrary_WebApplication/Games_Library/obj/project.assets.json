@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jarno\\Desktop\\Game_Library\\GamesLibrary_WebApplication\\Games_Library\\Games_Library.csproj",
+      "projectUniqueName": "C:\\Users\\jarno\\Projects\\games-library\\GamesLibrary_WebApplication\\Games_Library\\Games_Library.csproj",
       "projectName": "Games_Library",
-      "projectPath": "C:\\Users\\jarno\\Desktop\\Game_Library\\GamesLibrary_WebApplication\\Games_Library\\Games_Library.csproj",
+      "projectPath": "C:\\Users\\jarno\\Projects\\games-library\\GamesLibrary_WebApplication\\Games_Library\\Games_Library.csproj",
       "packagesPath": "C:\\Users\\jarno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jarno\\Desktop\\Game_Library\\GamesLibrary_WebApplication\\Games_Library\\obj\\",
+      "outputPath": "C:\\Users\\jarno\\Projects\\games-library\\GamesLibrary_WebApplication\\Games_Library\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Games_Library
-build_property.ProjectDir = C:\Users\jarno\Desktop\Game_Library\GamesLibrary_WebApplication\Games_Library\
+build_property.ProjectDir = C:\Users\jarno\Projects\games-library\GamesLibrary_WebApplication\Games_Library\
