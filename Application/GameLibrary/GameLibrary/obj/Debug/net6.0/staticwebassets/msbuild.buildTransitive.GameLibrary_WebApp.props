@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\GameLibrary_WebApp.props" />
+</Project>
