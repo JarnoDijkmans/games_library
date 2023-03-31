@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tfhb0APjorBmiDwkp1MGXzhIWx2GN9wzgkn3uyB3HrTbntESwbdbzKtDsui2m9s7J+crQW1h0xCkZzDfbPJMrQ==",
+  "dgSpecHash": "8tEA/UEuSJjFwKk2yDRHkHwhh/tKUaO9S02KHbDq2waCpk323dDtY435q9iSklp+4s6Sba41vPn2W1/87M9iwQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jarno\\Desktop\\GameLibrary\\GameLibrary\\WebApp.csproj",
+  "projectFilePath": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\WebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

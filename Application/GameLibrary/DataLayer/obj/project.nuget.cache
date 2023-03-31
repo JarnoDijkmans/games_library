@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5ZgTbaSTBXdiXwaaDU12qMCv7xL99ke80jYJG60mt6d69IyLKTv4HGnfrhYESkNwySAh1NzUEIIi/cMBrs1Q1Q==",
+  "dgSpecHash": "k0uZ+ZU6cQtCisEd/0vUqGRKst6zyKxgehQmrUkAnAYMUkRHme+vQzacjs0HvPa1ioPM/f8OH8DGKlgChwbyRA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jarno\\Desktop\\GameLibrary\\DataLayer\\DataLayer.csproj",
+  "projectFilePath": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\DataLayer\\DataLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

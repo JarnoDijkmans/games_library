@@ -14,5 +14,10 @@ namespace Factory
 			return new RegisterUser();
 		}
 
+		public static loginUser CreateLoginUser()
+		{
+			return new loginUser();
+		}
+
 	}	
 }

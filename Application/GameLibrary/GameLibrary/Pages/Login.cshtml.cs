@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
+using LogicLayer.Models;
+using DataLayer.DAL;
 
 namespace WebApp.Pages
 {
@@ -15,14 +17,14 @@ namespace WebApp.Pages
 	{
 		private readonly ILogger<IndexModel> _logger;
 		public string Message { get; private set; }
-
-		private readonly Login login;
+		
+		public Login login;
 
 		[BindProperty]
-		public Costumer customer { get; set; }
-		
-		
-		
+		public loginUser FormLogin { get; set; } = new loginUser();
+
+
+
 
 		public LoginModel(ILogger<IndexModel> logger)
 		{
@@ -31,34 +33,26 @@ namespace WebApp.Pages
 
 		public void OnGet()
 		{
+			ModelState.Clear();
 			UserService userService = UserFactory.userservice;
 			List<User> users = new List<User>();
 			users.AddRange(userService.GetUsers());
+			loginUser FormLogin = UserFactory.CreateLoginUser();
+
 		}
 
-		public async Task OnPostAsync()
+		public IActionResult OnPostAsync()
 		{
-			string username = Request.Form["username"];
-			string password = Request.Form["password"];
-			User? loggedInUser = login.validateUserCredentials(username, password);
+			User? loggedInUser = login.validateUserCredentials(FormLogin.Email, FormLogin.Password);
 
 			// Validate by simulating a database call (IsUserValid)
 			if (ModelState.IsValid && loggedInUser != null)
 			{
-				ClaimsIdentity claimsIdentity = new ClaimsIdentity(
-					new Claim[]
-					{
-						new Claim("id", "john@fontys.nl"),
-						new Claim(ClaimTypes.Name, "John Wijnen"),
-						new Claim(ClaimTypes.Role, "Admin"),
-						new Claim(ClaimTypes.Role, "PremiumCustomer"),
-					}, CookieAuthenticationDefaults.AuthenticationScheme);
-				ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-				await HttpContext.SignInAsync(claimsPrincipal);
+				return RedirectToPage("Index");
 			}
 			else
 			{
-				await HttpContext.ForbidAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+				return Page();
 			}
 		}
 	}

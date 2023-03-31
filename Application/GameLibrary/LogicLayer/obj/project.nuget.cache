@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ak45ZEtIWSCl0xZOjc4stW8iupHltEN3gEN6TsAvm7dyD50Fl4ySYHmOPnXPqssMfTPdWJ0U/6H6cvsRe/CUnw==",
+  "dgSpecHash": "a+DA3WC1VtTzLPj3qg1+wSAQH0OfcEXFy2/PyGlqlhlW1naF/Ytyjpd9GDyRSoKZAwVYwoNcHy75VNPNQcIceA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jarno\\Desktop\\GameLibrary\\LogicLayer\\LogicLayer.csproj",
+  "projectFilePath": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\LogicLayer\\LogicLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

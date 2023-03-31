@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NkXgg8pGE0Bh4ZPa5oabNsfvJhFa/4WIsRi1TGhOXmWnPlKxfIQDrqkeEnegfZP7KxVdxL4SM3VLtFhuleeRCA==",
+  "dgSpecHash": "IEUXbk4epxKcQ0MHSPI8j++ZcAq/brYCrAWYLPRyFvFvbn8m8Vf0g3BFK6LDIN6Zd3F7yo5jN6b7KfUFcAStow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jarno\\Desktop\\GameLibrary\\Factory\\Factory.csproj",
+  "projectFilePath": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\Factory\\Factory.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

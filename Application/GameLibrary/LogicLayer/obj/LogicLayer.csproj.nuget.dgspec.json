@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jarno\\Desktop\\GameLibrary\\LogicLayer\\LogicLayer.csproj": {}
+    "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\LogicLayer\\LogicLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jarno\\Desktop\\GameLibrary\\LogicLayer\\LogicLayer.csproj": {
+    "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\LogicLayer\\LogicLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jarno\\Desktop\\GameLibrary\\LogicLayer\\LogicLayer.csproj",
+        "projectUniqueName": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\LogicLayer\\LogicLayer.csproj",
         "projectName": "LogicLayer",
-        "projectPath": "C:\\Users\\jarno\\Desktop\\GameLibrary\\LogicLayer\\LogicLayer.csproj",
+        "projectPath": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\LogicLayer\\LogicLayer.csproj",
         "packagesPath": "C:\\Users\\jarno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jarno\\Desktop\\GameLibrary\\LogicLayer\\obj\\",
+        "outputPath": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\LogicLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
