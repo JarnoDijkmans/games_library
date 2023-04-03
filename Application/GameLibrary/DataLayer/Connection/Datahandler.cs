@@ -68,5 +68,27 @@ namespace DataLayer.Connection
 			}
 
 		}
+
+		public int executeIdScalar(string query)
+		{
+			try
+			{
+				con.Open();
+				using (var command = new SqlCommand())
+				{
+					command.Connection = (SqlConnection)con;
+					command.CommandText = query;
+					int newId = (int)command.ExecuteScalar();
+
+					return newId;
+				}
+			}
+			catch { return 0; }
+
+			finally
+			{
+				con.Close();
+			}
+		}
 	}
 }

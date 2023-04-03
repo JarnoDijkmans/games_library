@@ -26,8 +26,10 @@ namespace DataLayer.Converting
 			string email = Convert.ToString(row["email"])!;
 			string password = Convert.ToString(row["passwordhash"])!;
 			string salt = Convert.ToString(row["salt"])!;
+			string username = Convert.ToString(row["username"])!;
 
-			Costumer customer = new Costumer(id, firstName, lastName, displayName, birthday, phone, country, address, city, imageUrl, role, email, password, salt);
+
+			Costumer customer = new Costumer(id, firstName, lastName, displayName, birthday, phone, country, address, city, imageUrl, role, email, password, salt, username);
 
 			return customer;
 

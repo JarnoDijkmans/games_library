@@ -1,4 +1,5 @@
 ﻿using DataLayer.DAL;
+using LogicLayer;
 using LogicLayer.Models;
 using LogicLayer.Services;
 
@@ -14,9 +15,9 @@ namespace Factory
 			return new RegisterUser();
 		}
 
-		public static loginUser CreateLoginUser()
+		public static Verify CreateLoginUser()
 		{
-			return new loginUser();
+			return new Verify(new UserDAL());
 		}
 
 	}	

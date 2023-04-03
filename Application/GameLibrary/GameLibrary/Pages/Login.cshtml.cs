@@ -17,14 +17,10 @@ namespace WebApp.Pages
 	{
 		private readonly ILogger<IndexModel> _logger;
 		public string Message { get; private set; }
-		
-		public Login login;
+		Verify Ac = UserFactory.CreateLoginUser();
 
 		[BindProperty]
 		public loginUser FormLogin { get; set; } = new loginUser();
-
-
-
 
 		public LoginModel(ILogger<IndexModel> logger)
 		{
@@ -37,16 +33,14 @@ namespace WebApp.Pages
 			UserService userService = UserFactory.userservice;
 			List<User> users = new List<User>();
 			users.AddRange(userService.GetUsers());
-			loginUser FormLogin = UserFactory.CreateLoginUser();
-
 		}
 
 		public IActionResult OnPostAsync()
 		{
-			User? loggedInUser = login.validateUserCredentials(FormLogin.Email, FormLogin.Password);
+			User? loggedInUser = Ac.validateUserCredentials(FormLogin.Email, FormLogin.Password);
 
 			// Validate by simulating a database call (IsUserValid)
-			if (ModelState.IsValid && loggedInUser != null)
+			if (loggedInUser != null)
 			{
 				return RedirectToPage("Index");
 			}

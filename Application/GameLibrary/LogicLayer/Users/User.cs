@@ -24,8 +24,10 @@ namespace LogicLayer.Users
 		public string Email { get; set; }
 		public string password { get; set; }
 		public string salt { get; set; }
+		public string username { get; set; }
 
-		protected User(int id, string firstName, string lastName, string displayName, string birthdate, string phone, string country, string address, string city, string imageURL, int role, string email, string password, string salt)
+
+		protected User(int id, string firstName, string lastName, string displayName, string birthdate, string phone, string country, string address, string city, string imageURL, int role, string email, string password, string salt, string username)
 		{
 			this.Id = id;
 			this.Firstname = firstName;
@@ -41,18 +43,19 @@ namespace LogicLayer.Users
 			this.Email = email;
 			this.password = password;
 			this.salt = salt;
+			this.username = username;
 		}
 
-		protected User(int id, string firstName, string lastName, string displayName, string country, string address, string city, string email, string password)
+		protected User(int id, string firstName, string lastName, string displayName, string email, string country, string city, string address, string password)
 		{
 			this.Id = id;
 			this.Firstname = firstName;
 			this.Lastname = lastName;
 			this.DisplayName = displayName;
-			this.Country = country;
-			this.Address = address;
-			this.City = city;
 			this.Email = email;
+			this.Country = country;
+			this.City = city;
+			this.Address = address;
 			this.password = password;
 		}
 	}

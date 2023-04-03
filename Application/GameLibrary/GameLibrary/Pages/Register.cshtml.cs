@@ -16,9 +16,6 @@ namespace WebApp.Pages
 {
 	public class RegisterModel : PageModel
 	{
-
-		
-		
 		[BindProperty]
 		public RegisterUser FormRegister { get; set; } = new RegisterUser();
 
@@ -27,8 +24,6 @@ namespace WebApp.Pages
 		public void OnGet()
 		{
 			ModelState.Clear();
-			RegisterUser FormRegister = UserFactory.CreateRegisterUser();
-
 		}
 
 		public IActionResult OnPost()
@@ -38,12 +33,12 @@ namespace WebApp.Pages
 				return Page();
 			}
 
-			TempData["Register"] = JsonSerializer.Serialize(FormRegister);
+			//TempData["Register"] = JsonSerializer.Serialize(FormRegister);
 			UserService userService = UserFactory.userservice;
 			Costumer user = new Costumer(0, FormRegister.FirstName, FormRegister.LastName,
-			FormRegister.DisplayName, FormRegister.Email, FormRegister.Password, FormRegister.Country,
-			FormRegister.City, FormRegister.Address);
-
+			FormRegister.DisplayName, FormRegister.Email, FormRegister.Country, FormRegister.Address,
+			FormRegister.City, FormRegister.Password);
+			
 			userService.RegisterUser(user);
 
 			return RedirectToPage("Index");

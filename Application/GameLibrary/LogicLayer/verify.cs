@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace LogicLayer
 {
-	public class Login
+	public class Verify
 	{
 		private readonly IUserDAL dalUser;
 
-		public Login(IUserDAL dalUser)
+		public Verify(IUserDAL dalUser)
 		{
 			this.dalUser = dalUser;
 		}
@@ -22,10 +22,11 @@ namespace LogicLayer
 			List<User> users = new List<User>();
 			users.AddRange((dalUser.retrieveUsers()));
 			User? foundUser = null;
-			User? user = null;
+			User? user = null;	
 			foreach (User u in users)
 			{
-				if (u.Email == email && u.password == password)
+				string hashCreate = Security.CreateHash(u.salt, password);
+				if (u.username == email && u.password == hashCreate)
 				{
 					user = u;
 				}
@@ -34,7 +35,7 @@ namespace LogicLayer
 			{
 				if (user.Role == 1)
 				{
-					foundUser = new Costumer(user.Id, user.Firstname, user.Lastname, user.DisplayName, user.Birthdate, user.Phone, user.Country, user.Address, user.City, user.ImageUrl, user.Role, user.Email, user.password, user.salt);
+					foundUser = new Costumer(user.Id, user.Firstname, user.Lastname, user.DisplayName, user.Birthdate, user.Phone, user.Country, user.Address, user.City, user.ImageUrl, user.Role, user.Email, user.password, user.salt, user.username);
 				}
 			}
 			return foundUser!;

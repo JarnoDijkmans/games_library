@@ -15,19 +15,19 @@ namespace LogicLayer.Users
 	public class Costumer : User
 	{
 		UserService _userService;
-		public Costumer(int id, string firstName, string lastName, string displayName, string birthdate, string phone,string country, string address, string city, string imageURL, int role, string email, string password, string salt) : base(id, firstName, lastName, displayName, birthdate, phone, country, address, city, imageURL, role, email, password, salt)
+		public Costumer(int id, string firstName, string lastName, string displayName, string birthdate, string phone,string country, string address, string city, string imageURL, int role, string email, string password, string salt, string username) : base(id, firstName, lastName, displayName, birthdate, phone, country, address, city, imageURL, role, email, password, salt, username)
 		{
 		}
-		public Costumer(int id, string firstName, string lastName, string displayName, string country, string address, string city, string email, string password) : base(id, firstName, lastName, displayName, country, address, city, email, password)
+		public Costumer(int id, string firstName, string lastName, string displayName, string email, string country, string address, string city, string password) : base(id, firstName, lastName, displayName, email, country, address, city,  password)
 		{
 			this.Id = id;
 			this.Firstname= firstName;
 			this.Lastname= lastName;
 			this.DisplayName= displayName;
+			this.Email = email;
 			this.Country= country;
 			this.Address= address;
 			this.City = city;
-			this.Email= email;
 			this.password= password;
 		}
 	public bool RegisterNewCostumer(User user)
