@@ -4,11 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LogicLayer.Users;
+using LogicLayer.Models;
 
 namespace DataLayer.Converting
 {
-	public static class ConvertDataCustomer
+    public static class ConvertDataCustomer
 	{
 		public static Costumer ConvertDataRowToCustomer(DataRow row)
 		{

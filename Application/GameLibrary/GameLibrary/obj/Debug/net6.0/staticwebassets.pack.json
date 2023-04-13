@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\WebApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Spotlight.png",
+      "PackagePath": "staticwebassets\\Images\\CyberPunk_Spotlight.png"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\ImageExample_1.png",
       "PackagePath": "staticwebassets\\Images\\ImageExample_1.png"
     },
@@ -17,16 +21,24 @@
       "PackagePath": "staticwebassets\\Images\\ImageExample_3.png"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\css\\index.css",
+      "PackagePath": "staticwebassets\\Images\\css\\index.css"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\css\\site.css",
+      "PackagePath": "staticwebassets\\Images\\css\\site.css"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\imageLogin.png",
       "PackagePath": "staticwebassets\\Images\\imageLogin.png"
     },
     {
-      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
-    },
-    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\js\\index.js",
+      "PackagePath": "staticwebassets\\js\\index.js"
     },
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\js\\site.js",

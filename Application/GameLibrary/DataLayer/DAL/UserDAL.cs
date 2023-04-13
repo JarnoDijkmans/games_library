@@ -6,16 +6,16 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LogicLayer.Users;
 using System.Reflection;
 using System.Diagnostics.Metrics;
 using System.Net;
 using System.Numerics;
-using LogicLayer;
+using LogicLayer.Verify;
+using LogicLayer.Models;
 
 namespace DataLayer.DAL
 {
-	public class UserDAL : Datahandler, IUserDAL
+    public class UserDAL : Datahandler, IUserDAL
 	{
 		protected override string cmd
 		{

@@ -13,14 +13,17 @@
                     <div style="display: flex; flex-direction: column;">
                         <label asp-for="FormLogin.Email"></label>
                         <input asp-for="FormLogin.Email" type="text" placeholder="Enter Email..." />
+                        <span asp-validation-for="FormLogin.Email" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <div style="display: flex; flex-direction: column;">
                         <label asp-for="FormLogin.Password"></label>
                         <input asp-for="FormLogin.Password" type="password" placeholder= "Enter password..." />
+                        <span asp-validation-for="FormLogin.Password" class="text-danger"></span>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Login</button>
@@ -36,7 +39,24 @@
                         Continue as guest? <a href="/">Click here</a>
                     </div>
                 </div>
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                            {
+                                <li>@error.ErrorMessage</li>
+                            }
+                        </ul>
+                    </div>
+                }
             </form>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

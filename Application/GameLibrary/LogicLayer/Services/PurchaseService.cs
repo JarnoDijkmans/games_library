@@ -1,4 +1,5 @@
 ﻿using DataLayer.DAL;
+using LogicLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LogicLayer.Services
 {
-	public class PurchaseService
+    public class PurchaseService
 	{
 		private readonly IPurchaseDAL dal;
 		private List<Purchase> purchase = new List<Purchase>();

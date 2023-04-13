@@ -45,6 +45,7 @@ namespace DataLayer.Connection
 			return dt;
 		}
 
+
 		//Executes a given SQL query and returns the number of rows affected
 		public int executeQuery(string query)
 		{

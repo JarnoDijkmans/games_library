@@ -1,9 +1,10 @@
-﻿using LogicLayer;
+﻿using LogicLayer.Models.GamesFolder;
 
 namespace DataLayer.DAL
 {
-	public interface IGameDAL
-	{
-		List<Game> GetAll();
-	}
+    public interface IGameDAL
+    {
+        bool AddGame(Game game);
+        public List<Game> RetrieveData();
+    }
 }

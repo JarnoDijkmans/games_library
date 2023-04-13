@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer.DAL;
-
+using LogicLayer.Models.GamesFolder;
 
 namespace LogicLayer.Services
 {
-	public class GameService
+    public class GameService
 	{
 		private readonly IGameDAL dal;
 		private List<Game> games = new List<Game>();
@@ -20,19 +20,13 @@ namespace LogicLayer.Services
 
 		public List<Game> GetGames()
 		{
-			// haal alles op van database
-			games = dal.GetAll();
-
-			// zet om naar een game dao
-			var listOfGameDao = new List<Game>();
-			foreach (var item in games)
-			{
-				var game = new Game(item.GameId, item.GameName, item.Price, item.Description, item.Catagory, item.ImageURL);
-				listOfGameDao.Add(game);
-			}
-
-			return listOfGameDao;
+			// Get everything out of datalayer
+			return dal.RetrieveData();
 		}
 
+		public bool AddGame(Game game)
+		{
+			return dal.AddGame(game);
+		}
 	}
 }

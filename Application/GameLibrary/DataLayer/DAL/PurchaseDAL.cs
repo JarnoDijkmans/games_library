@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LogicLayer;
+using LogicLayer.Models;
 
 namespace DataLayer.DAL
 {
-	public class PurchaseDAL : IPurchaseDAL
+    public class PurchaseDAL : IPurchaseDAL
 	{
 		public List<Purchase> GetAll()
 		{

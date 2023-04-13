@@ -1,5 +1,5 @@
 ﻿using DataLayer.DAL;
-using LogicLayer.Users;
+using LogicLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LogicLayer.Services
 {
-	public class UserService
+    public class UserService
 	{
 		private readonly IUserDAL dal;
 		public List<User> user = new List<User>();

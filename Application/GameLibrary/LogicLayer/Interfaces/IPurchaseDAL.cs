@@ -1,7 +1,8 @@
-﻿using LogicLayer;
+﻿using LogicLayer.Models;
+
 namespace DataLayer.DAL
 {
-	public interface IPurchaseDAL
+    public interface IPurchaseDAL
 	{
 		List<Purchase> GetAll();
 	}

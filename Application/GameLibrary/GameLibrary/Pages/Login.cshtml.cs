@@ -1,8 +1,6 @@
 using Factory;
 using GameLibrary.Pages;
 using LogicLayer.Services;
-using LogicLayer.Users;
-using LogicLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -10,10 +8,11 @@ using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 using LogicLayer.Models;
 using DataLayer.DAL;
+using LogicLayer.Verify;
 
 namespace WebApp.Pages
 {
-	public class LoginModel : PageModel
+    public class LoginModel : PageModel
 	{
 		private readonly ILogger<IndexModel> _logger;
 		public string Message { get; private set; }
@@ -37,16 +36,26 @@ namespace WebApp.Pages
 
 		public IActionResult OnPostAsync()
 		{
-			User? loggedInUser = Ac.validateUserCredentials(FormLogin.Email, FormLogin.Password);
-
-			// Validate by simulating a database call (IsUserValid)
-			if (loggedInUser != null)
+			if (FormLogin.Email != null && FormLogin.Password != null )
 			{
-				return RedirectToPage("Index");
-			}
+                User? loggedInUser = UserFactory.CreateLoginUser().validateUserCredentials(FormLogin.Email, FormLogin.Password);
+                if (loggedInUser != null)
+                {
+                    return RedirectToPage("Index");
+                }
+
+				else
+				{
+                    ModelState.AddModelError(string.Empty, "Combination incorrect, please enter email and password");
+                    return Page();
+				}
+            }
+			
+			// Validate by simulating a database call (IsUserValid)
 			else
 			{
-				return Page();
+                ModelState.AddModelError(string.Empty, "Combination incorrect, please enter email and password");
+                return Page();
 			}
 		}
 	}

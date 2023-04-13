@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace LogicLayer
+namespace LogicLayer.Verify
 {
     public static class Security
     {
@@ -13,7 +13,7 @@ namespace LogicLayer
         {
             byte[] salt_bytes = RandomNumberGenerator.GetBytes(keySize);
             string salt = Convert.ToHexString(salt_bytes);
-            string hashedPassword = Security.CreateHash(salt, password);
+            string hashedPassword = CreateHash(salt, password);
             return (salt, hashedPassword);
         }
 

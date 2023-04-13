@@ -1,6 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
+    Layout = "_layoutIndex";
     // Load the image paths into an array
     ViewData["Title"] = "Home";
     string[] images = new string[] {
@@ -9,38 +10,70 @@
         "/images/Example-3.png"
     };
 }
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Game Library</title>
+    <title>Game Library</title> 
 </head>
-<body>
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Image 1"></button>
-            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="image 2"></button>
-            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="image 3"></button>
+    <body>
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Image 1"></button>
+                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="image 2"></button>
+                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="image 3"></button>
+            </div>
+            <div class="carousel-inner" data-bs-wrap="true">
+                <div class="carousel-item active" data-bs-interval="4000">
+                    <img src="~/images/ImageExample_1.png" class="d-block w-100" alt="Image Slideshow">
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="~/images/ImageExample_2.png" class="d-block w-100" alt="Image Slideshow">
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="~/images/ImageExample_3.png" class="d-block w-100" alt="Image Slideshow">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            <main>
+                <div class="container">
+                    <h1 class="text-center mt-5">Welcome to the Game Store</h1>
+                    <div class="row mt-5">
+                        @foreach (var game in Model.Games)
+                        {
+                            <div class="col-md-4 col-lg-3 mb-4">
+                                <div class="card h-100">
+                                    <img src= "@game.Trailer" class="card-img-top" alt="@game.Title">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@game.Title</h5>
+                                        <p class="card-text">@game.Description</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">Price: @game.Price.ToString("C")</small>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </main>
         </div>
-        <div class="carousel-inner" data-bs-wrap="true">
-            <div class="carousel-item active" data-bs-interval="4000">
-                <img src="~/images/ImageExample_1.png" class="d-block w-100" alt="Image Slideshow">
-            </div>
-            <div class="carousel-item" data-bs-interval="4000">
-                <img src="~/images/ImageExample_2.png" class="d-block w-100" alt="Image Slideshow">
-            </div>
-            <div class="carousel-item" data-bs-interval="4000">
-                <img src="~/images/ImageExample_3.png" class="d-block w-100" alt="Image Slideshow">
-            </div>
+        <div id="search" class="Search bar">
+            <form action="/search">
+                <input type="text" id="search" name="search" placeholder="Search store" />
+                <button type="submit">Search</button>
+            </form>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</body>
+    
+    @section Scripts {  
+       <partial name="_ValidationScriptsPartial" />
+    }
+    </body>
 </html>
