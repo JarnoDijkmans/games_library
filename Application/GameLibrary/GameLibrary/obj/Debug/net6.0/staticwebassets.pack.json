@@ -5,6 +5,22 @@
       "PackagePath": "staticwebassets\\WebApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Detail0.png",
+      "PackagePath": "staticwebassets\\Images\\CyberPunk_Detail0.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Detail1.png",
+      "PackagePath": "staticwebassets\\Images\\CyberPunk_Detail1.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Detail2.png",
+      "PackagePath": "staticwebassets\\Images\\CyberPunk_Detail2.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Detail3.png",
+      "PackagePath": "staticwebassets\\Images\\CyberPunk_Detail3.png"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Spotlight.png",
       "PackagePath": "staticwebassets\\Images\\CyberPunk_Spotlight.png"
     },

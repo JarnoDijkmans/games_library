@@ -24,3 +24,63 @@
     For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
     and restarting the app.
 </p>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>Image Slider Carousel With Thumbas</title>
+
+    <style>
+        body {
+            background: #ccc;
+        }
+
+        .carousel-indicators {
+            margin-bottom: 70px;
+        }
+
+            .carousel-indicators button[data-bs-target] {
+                width: 200px;
+            }
+    </style>
+
+</head>
+
+<body>
+    <!-- Carousel Start -->
+    <div id="carouselsliderdemo" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/img2.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="img/img3.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="img/img5.jpg" class="d-block w-100">
+            </div>
+        </div>
+        <!-- Indicator start -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselsliderdemo" class="active img-thumbnail" data-bs-slide-to="0">
+                <img src="img/indicator-img/img2.jpg" alt="" class="d-block w-100">
+            </button>
+            <button type="button" data-bs-target="#carouselsliderdemo" class="img-thumbnail" data-bs-slide-to="1">
+                <img src="img/indicator-img/img3.jpg" alt="" class="d-block w-100">
+            </button>
+            <button type="button" data-bs-target="#carouselsliderdemo" class="img-thumbnail" data-bs-slide-to="2">
+                <img src="img/indicator-img/img5.jpg" alt="" class="d-block w-100">
+            </button>
+        </div>
+        <!-- Indicator Close -->
+    </div>
+    <!-- Carousel Close -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
