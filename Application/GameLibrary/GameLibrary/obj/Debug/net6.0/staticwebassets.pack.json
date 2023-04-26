@@ -9,6 +9,18 @@
       "PackagePath": "staticwebassets\\Images\\CyberPunk_Spotlight.png"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\DeathStanding_Spotlight.png",
+      "PackagePath": "staticwebassets\\Images\\DeathStanding_Spotlight.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\GTA_CoverArt.png",
+      "PackagePath": "staticwebassets\\Images\\GTA_CoverArt.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\GTA_Spotlight.png",
+      "PackagePath": "staticwebassets\\Images\\GTA_Spotlight.png"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\ImageExample_1.png",
       "PackagePath": "staticwebassets\\Images\\ImageExample_1.png"
     },
@@ -21,16 +33,20 @@
       "PackagePath": "staticwebassets\\Images\\ImageExample_3.png"
     },
     {
-      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\css\\index.css",
-      "PackagePath": "staticwebassets\\Images\\css\\index.css"
-    },
-    {
-      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\css\\site.css",
-      "PackagePath": "staticwebassets\\Images\\css\\site.css"
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Spotlight.png",
+      "PackagePath": "staticwebassets\\Images\\StarWars_FallenOrder_Spotlight.png"
     },
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\imageLogin.png",
       "PackagePath": "staticwebassets\\Images\\imageLogin.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\css\\index.css",
+      "PackagePath": "staticwebassets\\css\\index.css"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\favicon.ico",

@@ -4,11 +4,6 @@
     Layout = "_layoutIndex";
     // Load the image paths into an array
     ViewData["Title"] = "Home";
-    string[] images = new string[] {
-        "/images/Example-2.png",
-        "/images/Example-1.png",
-        "/images/Example-3.png"
-    };
 }
 <!DOCTYPE html>
 <html>
@@ -18,20 +13,25 @@
     <body>
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Image 1"></button>
-                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="image 2"></button>
-                <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="image 3"></button>
+            @foreach (var game in Model.Games.OrderByDescending(g => g.ReleaseDate).Take(3))
+                {
+                    var images = game.Images.Where(image => image.ImageType == "Cover Art");
+                    var index = Model.Games.IndexOf(game);
+                    <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="@index" class="@((index == 0) ? "active" : "")" aria-current="@((index == 0).ToString().ToLower())" aria-label="Image @(index + 1)"></button>
+                }
             </div>
             <div class="carousel-inner" data-bs-wrap="true">
-                <div class="carousel-item active" data-bs-interval="4000">
-                    <img src="~/images/ImageExample_1.png" class="d-block w-100" alt="Image Slideshow">
+            @foreach (var game in Model.Games.OrderByDescending(g => g.ReleaseDate).Take(3))
+            {
+                var images = game.Images.Where(image => image.ImageType == "Cover Art");
+                var index = Model.Games.IndexOf(game);
+                <div class="carousel-item @(index == 0 ? "active" : "")" data-bs-interval="4000">
+                    @foreach (var image in images)
+                    {
+                        <img src="@image.ImageURL" class="d-block w-100" alt="Image Slideshow">
+                    }
                 </div>
-                <div class="carousel-item" data-bs-interval="4000">
-                    <img src="~/images/ImageExample_2.png" class="d-block w-100" alt="Image Slideshow">
-                </div>
-                <div class="carousel-item" data-bs-interval="4000">
-                    <img src="~/images/ImageExample_3.png" class="d-block w-100" alt="Image Slideshow">
-                </div>
+            }
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -42,28 +42,29 @@
                 <span class="visually-hidden">Next</span>
             </button>
 
-            <main>
-                <div class="container">
-                    <h1 class="text-center mt-5">Welcome to the Game Store</h1>
-                    <div class="row mt-5">
-                        @foreach (var game in Model.Games)
-                        {
-                            <div class="col-md-4 col-lg-3 mb-4">
-                                <div class="card h-100">
-                                    <img src= "@game.Trailer" class="card-img-top" alt="@game.Title">
-                                    <div class="card-body">
-                                        <h5 class="card-title">@game.Title</h5>
-                                        <p class="card-text">@game.Description</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">Price: @game.Price.ToString("C")</small>
-                                    </div>
+        <main>
+            <div class="container">
+                <div class="row mt-5">
+                    @foreach (var game in Model.Games)
+                    {
+                        var artCoverImages = game.Images.Where(image => image.ImageType == "Spotlight");
+
+                        <div class="col-md-2 mb-2 card-column">
+                            <div class="card h-70">
+                                @foreach (var image in artCoverImages)
+                                {
+                                    <img src="@image.ImageURL" class="card-img-top" alt="@game.Title">
+                                }
+                                <h5 class="card-title">@game.Title</h5>
+                                <div class="card-footer">
+                                    <small class="text-muted">Price: @game.Price.ToString("C")</small>
                                 </div>
                             </div>
-                        }
-                    </div>
+                        </div>
+                    }
                 </div>
-            </main>
+            </div>
+        </main>
         </div>
         <div id="search" class="Search bar">
             <form action="/search">

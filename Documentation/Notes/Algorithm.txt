@@ -1,0 +1,8 @@
+WebShop								Library
+					
+Discount							Recommendation
+Upselling (Suggestion, Recommendation)		Complex filter/sort
+Predictions							Weighted Rating
+Complex filtering
+
+							

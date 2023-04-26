@@ -19,8 +19,7 @@ namespace GameLibrary.Pages
         {
             ModelState.Clear();
             GameService gameService = GameFactory.gameservice;
-            List<Game> Games = new List<Game>();
-            Games.AddRange(gameService.GetGames());
+            Games = gameService.GetGames();
         }
     }
 }

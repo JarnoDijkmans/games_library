@@ -10,7 +10,7 @@ namespace DataLayer.Connection
 {
 	public abstract class BaseDAL
 	{
-		private readonly string _connectionString = "Server=mssqlstud.fhict.local;Database=dbi513745;User Id=dbi513745;Password=Egh8c4pTS0;";
+		private readonly string _connectionString = "Server=mssqlstud.fhict.local;Database=dbi513745;User Id=dbi513745;Password=jarno123;";
 
 		protected IDbConnection GetConnection()
 		{
