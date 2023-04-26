@@ -28,5 +28,10 @@ namespace LogicLayer.Services
 		{
 			return dal.AddGame(game);
 		}
+
+		public Game GetGameById(int id)
+		{ 
+			return dal.GetGameById(id);
+		}
 	}
 }

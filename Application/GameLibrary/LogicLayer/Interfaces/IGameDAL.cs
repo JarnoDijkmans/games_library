@@ -6,5 +6,6 @@ namespace DataLayer.DAL
     {
         bool AddGame(Game game);
         public List<Game> RetrieveData();
+        public Game GetGameById(int id);
     }
 }

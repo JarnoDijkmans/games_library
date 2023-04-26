@@ -16,8 +16,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsLmNzaHRtbA==
+[C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Error.cshtml]

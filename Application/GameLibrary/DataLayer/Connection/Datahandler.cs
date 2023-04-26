@@ -5,6 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LogicLayer.Models.GamesFolder;
+using DataLayer.Converting.GamesDataConvert;
+using DataLayer.DAL;
 
 namespace DataLayer.Connection
 {
@@ -91,5 +94,60 @@ namespace DataLayer.Connection
 				con.Close();
 			}
 		}
-	}
+
+        public DataTable ReadDataQuery(string query)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = (SqlConnection)con;
+                    command.CommandText = query;
+                    var data = command.ExecuteReader();
+                    dt.Load(data);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+
+
+
+
+
+        //     private Game ExecuteQueryAndReturnGame(string query)
+        //     {
+        //         try
+        //{
+        //	con.Open();
+        //                using (SqlCommand command = new SqlCommand(query))
+        //                {
+        //                    using (SqlDataReader reader = command.ExecuteReader())
+        //                    {
+        //                       if (reader.Read())
+        //                       {
+        //                          // Convert the SqlDataReader to a DataRow
+        //                          DataTable dt = new DataTable();
+        //                          dt.Load(reader);
+        //                          DataRow row = dt.Rows[0];
+
+        //				// Call the CreateGameFromDataRow method
+        //                          return DataConvertingGames.ConvertDataRowToGame(row, GameDAL gameDal);
+        //                       }
+        //                    }
+        //                }
+        //         }
+        //                 return null;
+        //     }
+    }
 }

@@ -28,7 +28,9 @@
                 <div class="carousel-item @(index == 0 ? "active" : "")" data-bs-interval="4000">
                     @foreach (var image in images)
                     {
-                        <img src="@image.ImageURL" class="d-block w-100" alt="Image Slideshow">
+                        <a href="/Details/@game.GameId">
+                            <img src="@image.ImageURL" class="d-block w-100" alt="Image Slideshow">
+                        </a>
                     }
                 </div>
             }
@@ -53,7 +55,9 @@
                             <div class="card h-70">
                                 @foreach (var image in artCoverImages)
                                 {
-                                    <img src="@image.ImageURL" class="card-img-top" alt="@game.Title">
+                                    <a href="/Details/@game.GameId">
+                                        <img src="@image.ImageURL" class="card-img-top" alt="@game.Title">
+                                    </a>
                                 }
                                 <h5 class="card-title">@game.Title</h5>
                                 <div class="card-footer">

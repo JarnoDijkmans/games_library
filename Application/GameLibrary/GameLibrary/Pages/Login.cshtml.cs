@@ -1,5 +1,4 @@
 using Factory;
-using GameLibrary.Pages;
 using LogicLayer.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,6 +8,7 @@ using System.Security.Claims;
 using LogicLayer.Models;
 using DataLayer.DAL;
 using LogicLayer.Verify;
+using GameLibrary.Pages;
 
 namespace WebApp.Pages
 {
