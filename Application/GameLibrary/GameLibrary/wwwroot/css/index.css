@@ -1,3 +1,4 @@
+
 #carouselExampleInterval .carousel-item img {
     max-width: 80%;
     max-height: 80%;
@@ -57,4 +58,11 @@
 
 .carousel-indicators button[data-bs-target] {
     width: 200px;
+}
+
+.video-container iframe {
+    width: 100%;
+    max-width: 77%;
+    height: 59vh;
+    border-radius: 25px;
 }

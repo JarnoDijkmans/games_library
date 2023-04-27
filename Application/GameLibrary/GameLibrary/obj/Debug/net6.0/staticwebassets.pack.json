@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\Images\\CyberPunk_Spotlight.png"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Tumpnail.png",
+      "PackagePath": "staticwebassets\\Images\\CyberPunk_Tumpnail.png"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\DeathStanding_Spotlight.png",
       "PackagePath": "staticwebassets\\Images\\DeathStanding_Spotlight.png"
     },

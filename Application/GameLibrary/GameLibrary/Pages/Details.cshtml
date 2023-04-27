@@ -15,37 +15,48 @@
 
 <body>
     <!-- Carousel Start -->
-    <div id="carouselsliderdemo" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="~/Images/CyberPunk_Detail1.png" class="d-block w-70">
-            </div>
-            <div class="carousel-item">
-                <img src="~/Images/CyberPunk_Detail0.png" class="d-block w-70">
-            </div>
-            <div class="carousel-item">
-                <img src="~/Images/CyberPunk_Detail2.png" class="d-block w-70">
-            </div>
-            <div class="carousel-item">
-                <img src="~/Images/CyberPunk_Detail3.png" class="d-block w-70">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="carouselsliderdemo" class="carousel slide">
+                <div class="carousel-inner">
+                    <!-- Trailer Slide-->
+                    <div class="carousel-item active">
+                        <div class="video-container">
+                            <iframe id="game-trailer" src="@Model.Game.Trailer" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Images/CyberPunk_Detail1.png" class="d-block w-70">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Images/CyberPunk_Detail0.png" class="d-block w-70">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Images/CyberPunk_Detail2.png" class="d-block w-70">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Images/CyberPunk_Detail3.png" class="d-block w-70">
+                    </div>
+                </div>
+                <!-- Indicator start -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselsliderdemo" class="active img-thumbnail" data-bs-slide-to="0">
+                        <img src="~/Images/CyberPunk_Tumpnail.png" alt="Video thumbnail" class="d-block w-100">
+                    </button>
+                    @{
+                        int indicatorIndex = 1;
+                        foreach (var image in Model.Game.Images.Where(i => i.ImageType == "Detail"))
+                        {
+                            <button type="button" data-bs-target="#carouselsliderdemo" class="img-thumbnail" data-bs-slide-to="@indicatorIndex">
+                                <img src="@image.ImageURL" alt="DetailImage" class="d-block w-100">
+                            </button>
+                            indicatorIndex++;
+                        }
+                    }
+                </div>
+                <!-- Indicator Close -->
             </div>
         </div>
-        <!-- Indicator start -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselsliderdemo" class="active img-thumbnail" data-bs-slide-to="0">
-                <img src="~/Images/CyberPunk_Detail1.png" alt="" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#carouselsliderdemo" class="img-thumbnail" data-bs-slide-to="1">
-                <img src="~/Images/CyberPunk_Detail0.png" alt="" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#carouselsliderdemo" class="img-thumbnail" data-bs-slide-to="2">
-                <img src="~/Images/CyberPunk_Detail2.png" alt="" class="d-block w-100">
-            </button>
-            <button type="button" data-bs-target="#carouselsliderdemo" class="img-thumbnail" data-bs-slide-to="3">
-                <img src="~/Images/CyberPunk_Detail3.png" alt="" class="d-block w-100">
-            </button>
-        </div>
-        <!-- Indicator Close -->
     </div>
     <!-- Carousel Close -->
     <script src="js/bootstrap.bundle.min.js"></script>

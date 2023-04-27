@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "I1b+P9dzW4gJd2LYKyQe7I6K7pqJGsFApeJpCFpgOPQ=",
+  "Hash": "q/D+qqzWQ1liSIbMCi0ym15KfvMvyOyKkXJ9ga2uE4E=",
   "Source": "WebApp",
   "BasePath": "_content/WebApp",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\CyberPunk_Spotlight.png"
+    },
+    {
+      "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Tumpnail.png",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "Images/CyberPunk_Tumpnail.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\CyberPunk_Tumpnail.png"
     },
     {
       "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\DeathStanding_Spotlight.png",
