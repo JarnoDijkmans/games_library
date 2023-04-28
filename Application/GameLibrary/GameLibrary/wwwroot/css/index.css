@@ -26,9 +26,9 @@
     transition: 0.3s;
     color: white;
     max-width: 200px;
-    background-color:black;
+    background-color: black !important;
     background-size: cover;
-    border-radius: 20px;
+    border-radius: 25px !important;
 }
 
 .card-title {
@@ -53,16 +53,53 @@
 
 
 .carousel-indicators {
-    margin-bottom: 70px;
+    position: absolute;
+    bottom: -20px;
+    display: flex;
 }
 
 .carousel-indicators button[data-bs-target] {
     width: 200px;
+    max-width:120px;
+    max-height:69px;
+}
+
+.carousel-indicators img {
+     max-width: 120px;
+     max-height: 69px;
+     width: auto;
+     height: auto;
+     object-fit: cover;
+ }
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 25px;
 }
 
 .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 77%;
-    height: 59vh;
+    height: 100%;
     border-radius: 25px;
+}
+
+.carousel-item img {
+    width: 100%;
+    max-height: 80%;
+    object-fit: cover;
+}
+
+.custom-hr {
+    margin: 5rem 0;
+    border: 0;
+    color: black;
+    opacity: .90;
+    height:4px !important;
 }
