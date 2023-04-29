@@ -51,6 +51,9 @@
     box-shadow: 0 8px 16px 0 white;
 }
 
+.carouselsliderdemo {
+    top: 30px;
+}
 
 .carousel-indicators {
     position: absolute;
@@ -97,7 +100,7 @@
 }
 
 .custom-hr {
-    margin: 5rem 0;
+    margin: 3rem 0;
     border: 0;
     color: black;
     opacity: .90;

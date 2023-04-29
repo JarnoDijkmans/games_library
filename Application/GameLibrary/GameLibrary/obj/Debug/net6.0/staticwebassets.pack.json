@@ -25,8 +25,8 @@
       "PackagePath": "staticwebassets\\Images\\CyberPunk_Spotlight.png"
     },
     {
-      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Tumpnail.png",
-      "PackagePath": "staticwebassets\\Images\\CyberPunk_Tumpnail.png"
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Tumbnail.png",
+      "PackagePath": "staticwebassets\\Images\\CyberPunk_Tumbnail.png"
     },
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\DeathStanding_Spotlight.png",
@@ -67,6 +67,10 @@
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\LeagueOfLegends_Spotlight.png",
       "PackagePath": "staticwebassets\\Images\\LeagueOfLegends_Spotlight.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\LeagueOfLegends_Tumbnail.png",
+      "PackagePath": "staticwebassets\\Images\\LeagueOfLegends_Tumbnail.png"
     },
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Spotlight.png",

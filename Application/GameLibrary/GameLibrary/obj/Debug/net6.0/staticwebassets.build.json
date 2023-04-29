@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "p0yBwmi/LznLU1NDSmF76nnSzr8BEQTeb5zHVm7TmrQ=",
+  "Hash": "92i03QNd/69S7cGqBuXHHryFm2NpnlCUfU/KXKhY5Ng=",
   "Source": "WebApp",
   "BasePath": "_content/WebApp",
   "Mode": "Default",
@@ -187,12 +187,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\CyberPunk_Spotlight.png"
     },
     {
-      "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Tumpnail.png",
+      "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Tumbnail.png",
       "SourceId": "WebApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\",
       "BasePath": "_content/WebApp",
-      "RelativePath": "Images/CyberPunk_Tumpnail.png",
+      "RelativePath": "Images/CyberPunk_Tumbnail.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -201,7 +201,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\CyberPunk_Tumpnail.png"
+      "OriginalItemSpec": "wwwroot\\Images\\CyberPunk_Tumbnail.png"
     },
     {
       "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\DeathStanding_Spotlight.png",
@@ -389,6 +389,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\LeagueOfLegends_Spotlight.png"
+    },
+    {
+      "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\LeagueOfLegends_Tumbnail.png",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "Images/LeagueOfLegends_Tumbnail.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\LeagueOfLegends_Tumbnail.png"
     },
     {
       "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Spotlight.png",

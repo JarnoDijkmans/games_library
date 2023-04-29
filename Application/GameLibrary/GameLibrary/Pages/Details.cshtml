@@ -9,13 +9,12 @@
 <html lang="en">
 
 <head>
-    <title>Image Slider Carousel With Thumbas</title>
 
 </head>
 
 <body>
     <!-- Carousel Start -->
-    <div class="container">
+    <div class="container" style="margin-top: 30px;">
         <div class="row">
             <div class="col-lg-9">
                 <div id="carouselsliderdemo" class="carousel slide">
@@ -37,9 +36,16 @@
                     <!-- Indicator start -->
                     <div class="carousel-indicators-wrapper">
                         <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselsliderdemo" class="active img-thumbnail" data-bs-slide-to="0">
-                                    <img src="~/Images/CyberPunk_Tumpnail.png" alt="Video thumbnail" class="d-block w-100">
-                                </button>
+                            @{
+                                foreach (var image in Model.Game.Images.Where(i => i.ImageType == "Thumbnail"))
+                                {
+                                    <button type="button" data-bs-target="#carouselsliderdemo" class="active img-thumbnail" data-bs-slide-to="0">
+                                        <img src="@image.ImageURL" alt="Video thumbnail" class="d-block w-100">
+                                    </button>
+                                }
+                               
+                              }
+                               
                                 @{
                                     int indicatorIndex = 1;
                                     foreach (var image in Model.Game.Images.Where(i => i.ImageType == "Detail"))
@@ -62,6 +68,30 @@
                     <p>Purchase Area :)</p>
                     <p>Incoming very soon!</p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="Genrebox">
+                    @foreach(var genre in Model.Game.Genres)
+                    {
+                        <p>@Model.Game.Genres</p>
+                    }
+                    
+                </div>
+                <h2>@Model.Game.Title</h2>
+                <p>@Model.Game.Description</p>
+
+                <h3>System Requirements</h3>
+                <p>@Model.Game.Requirements</p>
+            </div>
+            <div class="col-lg-3">
+                <!-- You can add any additional information or widgets in this column -->
+                <h3>Additional Info</h3>
+                <p>Any extra details or features you'd like to mention.</p>
             </div>
         </div>
     </div>
