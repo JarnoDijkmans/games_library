@@ -24,8 +24,8 @@ namespace DataLayer.Converting.GamesDataConvert
             string Title = Convert.ToString(row["Title"])!;
             decimal Price = Convert.ToDecimal(row["Price"])!;
             string Description = Convert.ToString(row["Description"])!;
-            string Requirements = Convert.ToString(row["Requirements"])!;
             string ReleaseDate = Convert.ToString(row["Release_date"])!;
+            string Publisher = Convert.ToString(row["Publisher"])!;
             string Trailer = Convert.ToString(row["Trailer"])!;
 
             List<Genre> genres = new List<Genre>();
@@ -68,8 +68,21 @@ namespace DataLayer.Converting.GamesDataConvert
 
             }
 
+            List <Specification> specifications = new List<Specification>();
+            DataTable specificationTable = gameDal.ReadData();
 
-            Game game = new Game(GameId, Title, Price, Description, Requirements, ReleaseDate, gameImages, genres, features, Trailer);
+            foreach (DataRow SpecificationRow in specificationTable.Rows)
+            {
+                int specificationGameId = Convert.ToInt32(SpecificationRow["GameID"]);
+                if (specificationGameId == GameId) 
+                {
+                    List<Specification> specification = DataConvertingSpecifications.ConvertDataToSpecification(SpecificationRow);
+                    specifications.AddRange(specification);
+                }
+            }
+
+
+            Game game = new Game(GameId, Title, Price, Description, ReleaseDate, Publisher, gameImages, genres, features, specifications, Trailer);
             return game;
         }
     }
