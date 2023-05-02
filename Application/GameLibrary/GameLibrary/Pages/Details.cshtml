@@ -9,7 +9,6 @@
 <html lang="en">
 
 <head>
-
 </head>
 
 <body>
@@ -73,23 +72,43 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-9">
-                <div class="Genrebox">
-                    @foreach(var genre in Model.Game.Genres)
-                    {
-                        <p>@Model.Game.Genres</p>
-                    }
-                    
+   <div class="container">
+     <div class="row">
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="Genrebox">
+                            <h6>Genres</h6>
+                            @foreach (var genre in Model.Game.Genres)
+                            {
+                                <span class="genre-item">@genre.Name</span>
+                            }
+                    </div>
                 </div>
-                <h2>@Model.Game.Title</h2>
-                <p>@Model.Game.Description</p>
+                <div class="col-lg-6">
+                        <div class="Featurebox">
+                            <h6>Features</h6>
+                            @foreach (var feature in Model.Game.Features)
+                            {
+                                <span class="feature-item">@feature.Name</span>
+                            }
+                    </div>
+                </div>
+  
+               
+                <div class="Title">
+                        <h2>@Model.Game.Title</h2>
+                </div>
+                
+                <div class="Description">
+                        <p>@Model.Game.Description</p>
+                </div>
+                
 
                 <h3>Specifications</h3>
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="card">
+                        <div class="card custom-card">
                             <div class="card-body">
                                 <h5 class="card-title">Minimum</h5>
                                 <table class="table">
@@ -118,13 +137,27 @@
                                             <th scope="row">Storage</th>
                                             <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Storage</td>
                                         </tr>
+                                        @if (Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Other != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Other</th>
+                                                <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Other</td>
+                                            </tr>
+                                        }
+                                        @if (Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Logins != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Other</th>
+                                                <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Logins</td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="card">
+                        <div class="card custom-card">
                             <div class="card-body">
                                 <h5 class="card-title">Recommended</h5>
                                 <table class="table">
@@ -153,6 +186,21 @@
                                             <th scope="row">Storage</th>
                                             <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Storage</td>
                                         </tr>
+                                        @if (Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Other != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Other</th>
+                                                <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Other</td>
+                                            </tr>
+                                        }
+                                        @if (Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Logins != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Other</th>
+                                                <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Logins</td>
+                                            </tr>
+                                        }
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -160,49 +208,11 @@
                     </div>
                 </div>
             </div>
-            </div>
-            <div class="col-lg-3">
-                <!-- You can add any additional information or widgets in this column -->
-                <h3>Additional Info</h3>
-                <p>Any extra details or features you'd like to mention.</p>
-            </div>
         </div>
-    </div>
+     </div>
+   </div>
     
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-
-
-@*<div class="container">
-    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            @foreach (var image in Model.Game.Images.Where(i => i.ImageType == "Detail"))
-            {
-                <button type="button" data-bs-target="#carousel" data-bs-slide-to="@Model.Game.Images.IndexOf(image)" class="@((Model.Game.Images.IndexOf(image) == 0) ? "active" : "")"></button>
-            }
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="@Model.Game.Trailer" allowfullscreen></iframe>
-                </div>
-            </div>
-            @foreach (var image in Model.Game.Images.Where(i => i.ImageType == "Detail"))
-            {
-                <div class="carousel-item">
-                    <img src="@image.ImageURL" class="d-block w-100" alt="@Model.Game.Title">
-                </div>
-            }
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>*@
