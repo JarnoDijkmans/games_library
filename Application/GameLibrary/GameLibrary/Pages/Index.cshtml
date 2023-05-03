@@ -11,81 +11,88 @@
     <title>Game Library</title> 
 </head>
     <body>
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-            @foreach (var game in Model.Games.OrderByDescending(g => g.ReleaseDate).Take(3))
-                {
-                    var images = game.Images.Where(image => image.ImageType == "Cover Art");
-                    var index = Model.Games.IndexOf(game);
-                    <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="@index" class="@((index == 0) ? "active" : "")" aria-current="@((index == 0).ToString().ToLower())" aria-label="Image @(index + 1)"></button>
-                }
-            </div>
-            <div class="carousel-inner" data-bs-wrap="true">
-            @foreach (var game in Model.Games.OrderByDescending(g => g.ReleaseDate).Take(3))
-            {
-                var images = game.Images.Where(image => image.ImageType == "Cover Art");
-                var index = Model.Games.IndexOf(game);
-                <div class="carousel-item @(index == 0 ? "active" : "")" data-bs-interval="4000">
-                    @foreach (var image in images)
-                    {
-                        <a href="/Details/@game.GameId">
-                            <img src="@image.ImageURL" class="d-block w-100" alt="Image Slideshow">
-                        </a>
-                    }
-                </div>
-            }
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        <div class="Container">
+            <div class="row">
+                <div class="col-md-12">
 
-        <main>
-            <div class="container">
-                <div class="row mt-5">
-                    @foreach (var game in Model.Games)
-                    {
-                        var artCoverImages = game.Images.Where(image => image.ImageType == "Spotlight");
-
-                        <div class="col-md-2 mb-2 card-column">
-                            <div class="card h-70">
-                                @foreach (var image in artCoverImages)
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        @foreach (var game in Model.Games.OrderByDescending(g => g.ReleaseDate).Take(3))
+                        {
+                            var images = game.Images.Where(image => image.ImageType == "Cover Art");
+                            var index = Model.Games.IndexOf(game);
+                            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="@index" class="@((index == 0) ? "active" : "") "carousel-indicator-btn" aria-current="@((index == 0).ToString().ToLower())" aria-label="Image @(index + 1)"></button>
+                        }
+                    </div>
+                    <div class="carousel-inner" data-bs-wrap="true">
+                        @foreach (var game in Model.Games.OrderByDescending(g => g.ReleaseDate).Take(3))
+                        {
+                            var images = game.Images.Where(image => image.ImageType == "Cover Art");
+                            var index = Model.Games.IndexOf(game);
+                            <div class="carousel-item @(index == 0 ? "active" : "")" data-bs-interval="500000">
+                                @foreach (var image in images)
                                 {
                                     <a href="/Details/@game.GameId">
-                                        <img src="@image.ImageURL" class="card-img-top" alt="@game.Title">
+                                        <img src="@image.ImageURL" class="d-block w-100" alt="Image Slideshow">
                                     </a>
                                 }
-                                <h5 class="card-title">@game.Title</h5>
-                                <div class="card-footer">
-                                    <small class="text-muted">Price: @game.Price.ToString("C")</small>
+                            </div>
+                        }
+                    </div>
+                        <div class="carousel-controls">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+                    <main>
+                        <div class="container">
+                            <div class="scrolling-container">
+                                <div class="d-flex flex-nowrap mt-5">
+                                    @foreach (var game in Model.Games)
+                                    {
+                                        var artCoverImages = game.Images.Where(image => image.ImageType == "Spotlight");
+
+                                        <div class="mb-2 card-column">
+                                            <div class="card h-70 card-custom">
+                                                @foreach (var image in artCoverImages)
+                                                {
+                                                    <a href="/Details/@game.GameId">
+                                                        <img src="@image.ImageURL" class="card-img-top" alt="@game.Title">
+                                                    </a>
+                                                }
+                                                <h5 class="card-title">@game.Title</h5>
+                                                <div class="card-footer">
+                                                    <small class="text-muted">Price: @game.Price.ToString("C")</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
-                    }
+                    </main>
+                            
                 </div>
             </div>
-        </main>
+            <div id="search" class="Search bar">
+                <form action="/search">
+                    <input type="text" id="search" name="search" placeholder="Search store" />
+                    <button type="submit">Search</button>
+                </form>
+            </div>
         </div>
-        <div id="search" class="Search bar">
-            <form action="/search">
-                <input type="text" id="search" name="search" placeholder="Search store" />
-                <button type="submit">Search</button>
-            </form>
-        </div>
+    </div>
+            
+        
     
     @section Scripts {  
        <partial name="_ValidationScriptsPartial" />
     }
     </body>
 </html>
-
-
-@*<div class="carousel-item active">
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="@Model.Game.Trailer" allowfullscreen></iframe>
-    </div>
-</div>*@

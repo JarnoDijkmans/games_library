@@ -29,16 +29,60 @@
       "PackagePath": "staticwebassets\\Images\\CyberPunk_Tumbnail.png"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\DeathStanding_Detail0.png",
+      "PackagePath": "staticwebassets\\Images\\DeathStanding_Detail0.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\DeathStanding_Detail1.png",
+      "PackagePath": "staticwebassets\\Images\\DeathStanding_Detail1.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\DeathStanding_Detail2.png",
+      "PackagePath": "staticwebassets\\Images\\DeathStanding_Detail2.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\DeathStanding_Detail3.png",
+      "PackagePath": "staticwebassets\\Images\\DeathStanding_Detail3.png"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\DeathStanding_Spotlight.png",
       "PackagePath": "staticwebassets\\Images\\DeathStanding_Spotlight.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\DeathStanding_Thumbnail.png",
+      "PackagePath": "staticwebassets\\Images\\DeathStanding_Thumbnail.png"
     },
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\GTA_CoverArt.png",
       "PackagePath": "staticwebassets\\Images\\GTA_CoverArt.png"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\GTA_Detail0.png",
+      "PackagePath": "staticwebassets\\Images\\GTA_Detail0.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\GTA_Detail1.png",
+      "PackagePath": "staticwebassets\\Images\\GTA_Detail1.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\GTA_Detail2.png",
+      "PackagePath": "staticwebassets\\Images\\GTA_Detail2.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\GTA_Detail3.png",
+      "PackagePath": "staticwebassets\\Images\\GTA_Detail3.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\GTA_Detail4.png",
+      "PackagePath": "staticwebassets\\Images\\GTA_Detail4.png"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\GTA_Spotlight.png",
       "PackagePath": "staticwebassets\\Images\\GTA_Spotlight.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\GTA_Thumbnail.png",
+      "PackagePath": "staticwebassets\\Images\\GTA_Thumbnail.png"
     },
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\ImageExample_1.png",
@@ -73,8 +117,32 @@
       "PackagePath": "staticwebassets\\Images\\LeagueOfLegends_Tumbnail.png"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Detail0.png",
+      "PackagePath": "staticwebassets\\Images\\StarWars_FallenOrder_Detail0.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Detail1.png",
+      "PackagePath": "staticwebassets\\Images\\StarWars_FallenOrder_Detail1.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Detail2.png",
+      "PackagePath": "staticwebassets\\Images\\StarWars_FallenOrder_Detail2.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Detail3.png",
+      "PackagePath": "staticwebassets\\Images\\StarWars_FallenOrder_Detail3.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Detail4.png",
+      "PackagePath": "staticwebassets\\Images\\StarWars_FallenOrder_Detail4.png"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Spotlight.png",
       "PackagePath": "staticwebassets\\Images\\StarWars_FallenOrder_Spotlight.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Thumbnail.png",
+      "PackagePath": "staticwebassets\\Images\\StarWars_FallenOrder_Thumbnail.png"
     },
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\imageLogin.png",
