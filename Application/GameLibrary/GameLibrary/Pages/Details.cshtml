@@ -67,6 +67,10 @@
                 <div id="PurchaseArea" class="Purchase Area">
                     <p>Purchase Area :)</p>
                     <p>Incoming very soon!</p>
+                    <form method="post">
+                        <input type="hidden" name="gameId" value="@Model.Game.GameId" />
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </form>
                 </div>
             </div>
         </div>

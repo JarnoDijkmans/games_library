@@ -87,3 +87,10 @@ C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\De
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Debug\net6.0\WebApp.genruntimeconfig.cache
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Debug\net6.0\ref\WebApp.dll
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Debug\net6.0\System.Security.Permissions.dll

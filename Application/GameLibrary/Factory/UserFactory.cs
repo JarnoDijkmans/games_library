@@ -10,7 +10,7 @@ namespace Factory
 		public static UserService userservice { get; } =
 		new UserService(new UserDAL());
 
-		public static Verify CreateLoginUser()
+		public static Verify VerifyeLoginUser()
 		{
 			return new Verify(new UserDAL());
 		}

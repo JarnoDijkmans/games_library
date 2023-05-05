@@ -153,6 +153,10 @@
       "PackagePath": "staticwebassets\\css\\Detail.css"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\css\\ShoppingCart.css",
+      "PackagePath": "staticwebassets\\css\\ShoppingCart.css"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\css\\index.css",
       "PackagePath": "staticwebassets\\css\\index.css"
     },

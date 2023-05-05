@@ -1,0 +1,50 @@
+﻿@page "/ShoppingCart/{gameId:int?}"
+@using WebApp.Pages;
+@model ShoppingCartModel
+@{
+    Layout = "_LayoutShoppigCart";
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<h1>Shopping Cart</h1>
+
+@if (Model.GamesInCart.Count == 0)
+{
+    <p>Your shopping cart is empty.</p>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                @foreach (var game in Model.GamesInCart)
+                {
+                    var artCoverImages = game.Images.Where(image => image.ImageType == "Spotlight");
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                @foreach (var image in artCoverImages)
+                                {
+                                    <img src="@image.ImageURL" alt="@game.Title" class="img-fluid">
+                                }
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">@game.Title</h5>
+                                    <p class="card-text">Price: @game.Price</p>
+                                    <a href="/RemoveFromCart/@game.GameId" class="btn btn-danger">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-md-3">
+                <div class="total-price-container">
+                    <p class="total-price">Total Price: €@Model.GamesInCart.Sum(g => g.Price)</p>
+                    <a href="/Checkout" class="btn btn-primary">Proceed to Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
