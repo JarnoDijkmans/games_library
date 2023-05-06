@@ -22,17 +22,34 @@ else
                     var artCoverImages = game.Images.Where(image => image.ImageType == "Spotlight");
                     <div class="card mb-3">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                @foreach (var image in artCoverImages)
-                                {
-                                    <img src="@image.ImageURL" alt="@game.Title" class="img-fluid">
-                                }
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">@game.Title</h5>
-                                    <p class="card-text">Price: @game.Price</p>
-                                    <a href="/RemoveFromCart/@game.GameId" class="btn btn-danger">Remove</a>
+                            <div class="col-12">
+                                <div class="card-inner d-flex flex-wrap">
+                                    <div class="card-image-wrapper">
+                                        @foreach (var image in artCoverImages)
+                                        {
+                                            <img src="@image.ImageURL" alt="@game.Title" class="img-fluid">
+                                        }
+                                    </div>
+                                    <div class="card-content-wrapper d-flex flex-grow-1">
+                                        <div class="card-info d-flex justify-content-between align-items-center w-100">
+                                            <div class="card-title">
+                                                <h5 class="card-title">@game.Title</h5>
+                                            </div>
+                                            <div class="card-price">
+                                                @if (game.Price == 0)
+                                                {
+                                                    <p class="card-text">Free</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="card-text">€@game.Price</p>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="card-footer mt-auto">
+                                            <a href="/RemoveFromCart/@game.GameId" class="btn btn-danger">Remove</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
