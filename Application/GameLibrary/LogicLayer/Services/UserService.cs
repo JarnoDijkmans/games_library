@@ -28,7 +28,15 @@ namespace LogicLayer.Services
 		{
 			
 			return dal.RegisterUser(user);
-		}		
+		}
 
-	} 
+        public User GetUserById(int id)
+        {
+            // Retrieve the user from the database using the provided ID
+            var user = dal.retrieveUsers().FirstOrDefault(u => u.Id == id);
+
+            return user;
+        }
+
+    } 
 }

@@ -96,3 +96,31 @@ body {
         max-height: 120px;
     }
 }
+
+.price-breakdown-card {
+    background-color: #333;
+    color: white;
+}
+
+    .price-breakdown-card .list-group-item {
+        background-color: transparent;
+        border: none;
+    }
+
+    .price-breakdown-card .game-title,
+    .price-breakdown-card .game-price {
+        color: white;
+    }
+
+    .price-breakdown-card .total-price {
+        font-weight: bold;
+    }
+
+    .price-breakdown-card .price-divider {
+        border-top: 1px solid white;
+        margin: 0.5rem 0;
+    }
+
+    .card-title-summary {
+        text-align:left;
+    }

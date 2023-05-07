@@ -81,8 +81,6 @@ namespace DataLayer.DAL
 			string accountQuery = $"INSERT INTO [Account_Credentials](userid, passwordhash, salt, username)" +
 				$"VALUES ({userId}, '{output.HashedPassword}', '{output.Salt}', '{user.Email}')";
 			return executeQuery(accountQuery) == 0 ? false : true;
-
-			
 		}
 	}
 }

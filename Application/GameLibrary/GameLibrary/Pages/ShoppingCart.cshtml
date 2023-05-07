@@ -6,62 +6,97 @@
     ViewData["Title"] = "Shopping Cart";
 }
 
-<h1>Shopping Cart</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-@if (Model.GamesInCart.Count == 0)
-{
-    <p>Your shopping cart is empty.</p>
-}
-else
-{
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                @foreach (var game in Model.GamesInCart)
-                {
-                    var artCoverImages = game.Images.Where(image => image.ImageType == "Spotlight");
-                    <div class="card mb-3">
-                        <div class="row g-0">
-                            <div class="col-12">
-                                <div class="card-inner d-flex flex-wrap">
-                                    <div class="card-image-wrapper">
-                                        @foreach (var image in artCoverImages)
-                                        {
-                                            <img src="@image.ImageURL" alt="@game.Title" class="img-fluid">
-                                        }
-                                    </div>
-                                    <div class="card-content-wrapper d-flex flex-grow-1">
-                                        <div class="card-info d-flex justify-content-between align-items-center w-100">
-                                            <div class="card-title">
-                                                <h5 class="card-title">@game.Title</h5>
-                                            </div>
-                                            <div class="card-price">
-                                                @if (game.Price == 0)
+    <head>
+
+    </head>
+
+    <body>
+        <h1>Shopping Cart</h1>
+
+        @if (Model.GamesInCart.Count == 0)
+        {
+            <p>Your shopping cart is empty.</p>
+        }
+        else
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        @foreach (var game in Model.GamesInCart)
+                        {
+                            var artCoverImages = game.Images.Where(image => image.ImageType == "Spotlight");
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-12">
+                                        <div class="card-inner d-flex flex-wrap">
+                                            <div class="card-image-wrapper">
+                                                @foreach (var image in artCoverImages)
                                                 {
-                                                    <p class="card-text">Free</p>
-                                                }
-                                                else
-                                                {
-                                                    <p class="card-text">€@game.Price</p>
+                                                    <img src="@image.ImageURL" alt="@game.Title" class="img-fluid">
                                                 }
                                             </div>
-                                        </div>
-                                        <div class="card-footer mt-auto">
-                                            <a href="/RemoveFromCart/@game.GameId" class="btn btn-danger">Remove</a>
+                                            <div class="card-content-wrapper d-flex flex-grow-1">
+                                                <div class="card-info d-flex justify-content-between align-items-center w-100">
+                                                    <div class="card-title">
+                                                        <h5 class="card-title">@game.Title</h5>
+                                                    </div>
+                                                    <div class="card-price">
+                                                        @if (game.Price == 0)
+                                                        {
+                                                            <p class="card-text">Free</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p class="card-text">€@game.Price</p>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer mt-auto">
+                                                    <a href="/RemoveFromCart/@game.GameId" class="btn btn-danger">Remove</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        }
+                    </div>
+                    <div class="col-md-3">
+                        <div class="total-price-container">
+                            <div class="card price-breakdown-card">
+                                <div class="card-body">
+                                    <h5 class="card-title-summary">Games Summary</h5>
+                                    <ul class="list-group list-group-flush">
+                                        @foreach (var game in Model.GamesInCart)
+                                        {
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <span class="game-title">@game.Title</span>
+                                            @if (game.Price == 0)
+                                            {
+                                                <span class="game-price">Free</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="game-price">€@game.Price</span>
+                                            }
+
+                                            </li>
+                                        }
+                                    </ul>
+                                    <hr class="price-divider" />
+                                    <div class="total-price mt-3">
+                                        <p>Subtotal: €@Model.GamesInCart.Sum(g => g.Price)</p>
+                                    </div>
+                                    <a href="/Checkout" class="btn btn-primary">Proceed to Checkout</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                }
-            </div>
-            <div class="col-md-3">
-                <div class="total-price-container">
-                    <p class="total-price">Total Price: €@Model.GamesInCart.Sum(g => g.Price)</p>
-                    <a href="/Checkout" class="btn btn-primary">Proceed to Checkout</a>
                 </div>
             </div>
-        </div>
-    </div>
-}
+        }
+    </body>
+</html>

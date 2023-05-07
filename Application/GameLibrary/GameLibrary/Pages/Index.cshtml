@@ -29,7 +29,7 @@
                         {
                             var images = game.Images.Where(image => image.ImageType == "Cover Art");
                             var index = Model.Games.IndexOf(game);
-                            <div class="carousel-item @(index == 0 ? "active" : "")" data-bs-interval="500000">
+                            <div class="carousel-item @(index == 0 ? "active" : "")" data-bs-interval="5000">
                                 @foreach (var image in images)
                                 {
                                     <a href="/Details/@game.GameId">
@@ -59,16 +59,25 @@
                                         var artCoverImages = game.Images.Where(image => image.ImageType == "Spotlight");
 
                                         <div class="mb-2 card-column">
-                                            <div class="card h-70 card-custom">
+                                            <div class="card h-55 card-custom">
                                                 @foreach (var image in artCoverImages)
                                                 {
                                                     <a href="/Details/@game.GameId">
                                                         <img src="@image.ImageURL" class="card-img-top" alt="@game.Title">
                                                     </a>
                                                 }
-                                                <h5 class="card-title">@game.Title</h5>
+                                                <div class="card-content">
+                                                    <h5 class="card-title">@game.Title</h5>
+                                                </div>
                                                 <div class="card-footer">
-                                                    <small class="text-muted">Price: @game.Price.ToString("C")</small>
+                                                    @if(game.Price == 0)
+                                                    {
+                                                        <small class="text-muted">Free</small>
+                                                    }
+                                                    else
+                                                    {
+                                                        <small class="text-muted">€@game.Price</small>
+                                                    }
                                                 </div>
                                             </div>
                                         </div>
@@ -86,16 +95,7 @@
                     <button type="submit">Search</button>
                 </form>
             </div>
-
-            <div id="ShoppingCart" class="shopping-cart">
-                <a href="/ShoppingCart">
-                    Cart
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-            </div>
         </div>
-            
-        
     
     @section Scripts {  
        <partial name="_ValidationScriptsPartial" />

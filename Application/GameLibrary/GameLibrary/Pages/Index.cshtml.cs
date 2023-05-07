@@ -20,6 +20,18 @@ namespace GameLibrary.Pages
             ModelState.Clear();
             GameService gameService = GameFactory.gameservice;
             Games = gameService.GetGames();
+
+            // Retrieve user ID
+            int? userId = HttpContext.Session.GetInt32("UserId");
+
+            // If the user is logged in, get the user information
+            if (userId.HasValue)
+            {
+                // Assuming you have a UserService to get user information
+                UserService userService = UserFactory.userservice;
+                var user = userService.GetUserById(userId.Value);
+                ViewData["User"] = user;
+            }
         }
     }
 }
