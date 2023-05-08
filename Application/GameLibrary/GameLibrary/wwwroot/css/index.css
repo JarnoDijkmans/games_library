@@ -6,10 +6,10 @@
 
 #carouselExampleInterval .carousel-item img {
     margin-top:20px !important;
-    max-width: 80%;
+    max-width: 70%;
     max-height: 70%;
     margin: 0 auto; 
-    margin-right: 10%;
+    margin-right: 15%;
 }
 
 .carousel-indicators {
@@ -28,11 +28,11 @@
     height: 400px;
 }
 .carousel-control-prev {
-    left: 0; /* adjust the horizontal position of the previous arrow */
+    left: 100px !important; /* adjust the horizontal position of the previous arrow */
 }
 
 .carousel-control-next {
-    right: 0; /* adjust the horizontal position of the next arrow */
+    right: 100px !important; /* adjust the horizontal position of the next arrow */
 }
 
 .card.card-custom {
@@ -46,7 +46,7 @@
 }
 
 .card-title {
-    font-size: 18px;
+    font-size: 14px;
     margin: 0;
     text-align: center;
 }
@@ -91,7 +91,7 @@
 }
 
 .card.h-55 {
-    height: 310px;
+    height: 280px;
 }
 
 .card-img-top {

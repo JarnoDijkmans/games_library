@@ -24,6 +24,10 @@ body {
     margin-left: 10px;
 }
 
+.game-title {
+    font-size: 13px;
+}
+
 .card-footer {
     text-align: right;
     border: none !important;
