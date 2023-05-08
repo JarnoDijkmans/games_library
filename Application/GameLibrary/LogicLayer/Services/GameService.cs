@@ -11,7 +11,6 @@ namespace LogicLayer.Services
     public class GameService
 	{
 		private readonly IGameDAL dal;
-		private List<Game> games = new List<Game>();
 
 		public GameService(IGameDAL dal)
 		{
