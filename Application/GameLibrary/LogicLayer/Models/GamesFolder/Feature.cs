@@ -8,8 +8,8 @@ namespace LogicLayer.Models.GamesFolder
 {
     public class Feature
     {
-        public int FeatureID { get; set; }
-        public string Name { get; set; }
+        public int FeatureID { get; private set; }
+        public string Name { get; private set; }
 
         public Feature (int featureID, string name)
         {

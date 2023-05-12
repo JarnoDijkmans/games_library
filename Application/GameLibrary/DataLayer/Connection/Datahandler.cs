@@ -22,31 +22,31 @@ namespace DataLayer.Connection
 		}
 
 		//Retrieves all data from the database
-		public DataTable ReadData()
-		{
-			DataTable dt = new DataTable();
-			try
-			{
-				con.Open();
-				using (var command = new SqlCommand())
-				{
-					command.Connection = (SqlConnection)con;
-					command.CommandText = cmd;
-					var data = command.ExecuteReader();
-					dt.Load(data);
-				}
-			}
-			catch
-			{
-				return null;
-			}
+		//public DataTable ReadData()
+		//{
+		//	DataTable dt = new DataTable();
+		//	try
+		//	{
+		//		con.Open();
+		//		using (var command = new SqlCommand())
+		//		{
+		//			command.Connection = (SqlConnection)con;
+		//			command.CommandText = cmd;
+		//			var data = command.ExecuteReader();
+		//			dt.Load(data);
+		//		}
+		//	}
+		//	catch
+		//	{
+		//		return null;
+		//	}
 
-			finally
-			{
-				con.Close();
-			}
-			return dt;
-		}
+		//	finally
+		//	{
+		//		con.Close();
+		//	}
+		//	return dt;
+		//}
 
 
 		//Executes a given SQL query and returns the number of rows affected

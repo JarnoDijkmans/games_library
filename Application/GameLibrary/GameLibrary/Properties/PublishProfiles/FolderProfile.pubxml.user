@@ -3,9 +3,4 @@
 https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
-  <PropertyGroup>
-    <_PublishTargetUrl>C:\Temp\WebApp</_PublishTargetUrl>
-    <History>True|2023-04-26T08:28:15.4044923Z;</History>
-    <LastFailureDetails />
-  </PropertyGroup>
 </Project>

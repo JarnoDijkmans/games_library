@@ -8,8 +8,8 @@ namespace LogicLayer.Models.GamesFolder
 {
     public class Genre
     {
-        public int GenreId { get; set; }
-        public string Name { get; set; }
+        public int GenreId { get; private set; }
+        public string Name { get; private set; }
 
         public Genre(int GenreId, string name)
         {

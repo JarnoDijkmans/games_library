@@ -53,11 +53,17 @@
             </div>
         </nav>
     </header>
-        <div class="container">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
+    <div id="ShoppingCart" class="shopping-cart">
+        <a href="/ShoppingCart">
+            Cart
+            <i class="fas fa-shopping-cart"></i>
+        </a>
+    </div>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
 
 
         <script src="~/lib/jquery/dist/jquery.min.js"></script>

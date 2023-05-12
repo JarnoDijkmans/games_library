@@ -117,40 +117,40 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row">OS</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").OS</td>
+                                            <td>@Model.Game.MinimumSpecs().OS</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Processor</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Processor</td>
+                                            <td>@Model.Game.MinimumSpecs().Processor</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Memory</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Memory</td>
+                                            <td>@Model.Game.MinimumSpecs().Memory</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Graphics</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Graphics</td>
+                                            <td>@Model.Game.MinimumSpecs().Graphics</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">DirectX</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").DirectX</td>
+                                            <td>@Model.Game.MinimumSpecs().DirectX</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Storage</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Storage</td>
+                                            <td>@Model.Game.MinimumSpecs().Storage</td>
                                         </tr>
-                                        @if (Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Other != null)
+                                        @if (Model.Game.MinimumSpecs().Other != null)
                                         {
                                             <tr>
                                                 <th scope="row">Other</th>
-                                                <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Other</td>
+                                                <td>@Model.Game.MinimumSpecs().Other</td>
                                             </tr>
                                         }
-                                        @if (Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Logins != null)
+                                        @if (Model.Game.MinimumSpecs().Logins != null)
                                         {
                                             <tr>
                                                 <th scope="row">Other</th>
-                                                <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Minimum").Logins</td>
+                                                <td>@Model.Game.MinimumSpecs().Logins</td>
                                             </tr>
                                         }
                                     </tbody>
@@ -166,40 +166,40 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row">OS</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").OS</td>
+                                            <td>@Model.Game.RecommendedSpecs().OS</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Processor</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Processor</td>
+                                            <td>@Model.Game.RecommendedSpecs().Processor</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Memory</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Memory</td>
+                                            <td>@Model.Game.RecommendedSpecs().Memory</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Graphics</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Graphics</td>
+                                            <td>@Model.Game.RecommendedSpecs().Graphics</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">DirectX</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").DirectX</td>
+                                            <td>@Model.Game.RecommendedSpecs().DirectX</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Storage</th>
-                                            <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Storage</td>
+                                            <td>@Model.Game.RecommendedSpecs().Storage</td>
                                         </tr>
-                                        @if (Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Other != null)
+                                        @if (Model.Game.RecommendedSpecs().Other != null)
                                         {
                                             <tr>
                                                 <th scope="row">Other</th>
-                                                <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Other</td>
+                                                <td>@Model.Game.RecommendedSpecs().Other</td>
                                             </tr>
                                         }
-                                        @if (Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Logins != null)
+                                        @if (Model.Game.RecommendedSpecs().Logins != null)
                                         {
                                             <tr>
                                                 <th scope="row">Other</th>
-                                                <td>@Model.Game.Specifications.FirstOrDefault(s => s.SpecificationType == "Recommended").Logins</td>
+                                                <td>@Model.Game.RecommendedSpecs().Logins</td>
                                             </tr>
                                         }
                                         

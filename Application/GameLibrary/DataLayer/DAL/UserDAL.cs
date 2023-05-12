@@ -29,7 +29,7 @@ namespace DataLayer.DAL
 		{
 			List<User> users = new List<User>();
 
-			DataTable dt = base.ReadData();
+			DataTable dt = base.ReadDataQuery(cmd);
 
 			foreach (DataRow dr in dt.Rows)
 			{

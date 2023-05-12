@@ -9,9 +9,9 @@ namespace LogicLayer.Models.GamesFolder
 {
     public class GameImage
     {
-        public int ImageId { get; set; }
-        public string ImageType { get; set; }
-        public string ImageURL { get; set; }
+        public int ImageId { get; private set; }
+        public string ImageType { get; private set; }
+        public string ImageURL { get; private set; }
 
         public GameImage (int imageId, string imageType, string imageURL) 
         {

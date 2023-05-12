@@ -8,16 +8,16 @@ namespace LogicLayer.Models.GamesFolder
 {
     public class Specification
     {
-        public int SpecificationID { get; set; }
-        public string SpecificationType { get; set; }
-        public string OS { get; set; }
-        public string Processor { get; set; }
-        public string Memory { get; set; }
-        public string Storage { get; set; }
-        public string DirectX { get; set; }
-        public string Graphics { get; set; }
-        public string Other { get; set; }
-        public string Logins { get; set; }
+        public int SpecificationID { get; private set; }
+        public string SpecificationType { get; private set; }
+        public string OS { get; private set; }
+        public string Processor { get; private set; }
+        public string Memory { get; private set; }
+        public string Storage { get; private set; }
+        public string DirectX { get; private set; }
+        public string Graphics { get; private set; }
+        public string Other { get; private set; }
+        public string Logins { get; private set; }
 
         public Specification(int specificationID, string SpecificationType, string os, string processor, string memory, string storage, string directX, string graphics, string other, string logins) 
         {
