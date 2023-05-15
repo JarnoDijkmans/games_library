@@ -5,7 +5,15 @@ C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Re
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\WebApp.deps.json
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\WebApp.runtimeconfig.json
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\WebApp.pdb
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Options.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Primitives.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\System.Data.SqlClient.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\System.Security.Permissions.dll
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\runtimes\win-arm64\native\sni.dll
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\runtimes\win-x64\native\sni.dll
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\obj\Release\net6.0\PubTmp\Out\runtimes\win-x86\native\sni.dll

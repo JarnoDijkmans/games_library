@@ -3,4 +3,9 @@
 https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Temp</_PublishTargetUrl>
+    <History>True|2023-05-12T10:55:41.5251756Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
 </Project>
