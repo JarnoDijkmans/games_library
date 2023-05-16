@@ -24,6 +24,15 @@ namespace WebApp.Pages
                 return NotFound();
             }
 
+            int? userId = HttpContext.Session.GetInt32("UserId");
+
+            if (userId.HasValue)
+            {
+                UserService userService = UserFactory.userservice;
+                var user = userService.GetUserById(userId.Value);
+                ViewData["User"] = user;
+            }
+
             return Page();
         }
 

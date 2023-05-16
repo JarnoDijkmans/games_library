@@ -6,6 +6,13 @@
     ViewData["Title"] = "Shopping Cart";
 }
 
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@{
+    var requestToken = Xsrf.GetAndStoreTokens(HttpContext).RequestToken;
+}
+
+<input type="hidden" id="RequestVerificationToken" value="@requestToken" />
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,9 +61,9 @@
                                                         }
                                                     </div>
                                                 </div>
-                                                <div class="card-footer mt-auto">
-                                                    <a href="/RemoveFromCart/@game.GameId" class="btn btn-danger">Remove</a>
-                                                </div>
+                                            <div class="card-footer mt-auto">
+                                                <a href="javascript:void(0);" onclick="removeFromCart('@game.GameId')" class="btn btn-danger">Remove</a>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
