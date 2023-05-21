@@ -150,3 +150,25 @@
     text-align:right;
     margin-right:20px;
 }
+
+#search {
+    display: flex;
+    justify-content:left;
+    padding: 20px;
+}
+
+#searchInput {
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid #495057;
+    padding: 0 20px;
+    font-size: 16px;
+    color: white;
+    outline: none;
+    background-color: black;
+}
+
+    #searchInput::placeholder {
+        color: #999;
+    }

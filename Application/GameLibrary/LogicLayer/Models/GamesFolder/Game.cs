@@ -52,6 +52,11 @@ namespace LogicLayer.Models.GamesFolder
             this.Specifications = specifications ?? new List<Specification>();
             this.Trailer = trailer;
         }
+
+        public Game()
+        {
+
+        }
     }
 
 

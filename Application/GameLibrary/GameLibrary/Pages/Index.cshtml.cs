@@ -33,5 +33,16 @@ namespace GameLibrary.Pages
                 ViewData["User"] = user;
             }
         }
+
+        public IActionResult OnGetAutocomplete(string term)
+        {
+            GameService gameService = GameFactory.gameservice;
+            var games = gameService.SearchGames(term)
+                    .Select(g => new { label = g.Title, id = g.GameId })
+                    .ToList();
+
+            return new JsonResult(games);
+        }
+
     }
 }

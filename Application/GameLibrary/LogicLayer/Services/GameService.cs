@@ -19,7 +19,6 @@ namespace LogicLayer.Services
 
 		public List<Game> GetGames()
 		{
-			// Get everything out of datalayer
 			return dal.RetrieveData();
 		}
 
@@ -34,6 +33,11 @@ namespace LogicLayer.Services
 		public Game GetGameById(int id)
 		{ 
 			return dal.GetGameById(id);
+		}
+
+		public List <Game> SearchGames(string name)
+		{
+			return dal.SearchGames(name);
 		}
 	}
 }
