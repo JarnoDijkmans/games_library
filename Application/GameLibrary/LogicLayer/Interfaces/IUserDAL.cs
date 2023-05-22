@@ -1,5 +1,5 @@
 ﻿using LogicLayer;
-using LogicLayer.Models;
+using LogicLayer.Models.UserFolder;
 
 namespace DataLayer.DAL
 {

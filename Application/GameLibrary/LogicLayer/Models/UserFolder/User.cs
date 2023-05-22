@@ -6,7 +6,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicLayer.Models
+namespace LogicLayer.Models.UserFolder
 {
     public abstract class User
     {

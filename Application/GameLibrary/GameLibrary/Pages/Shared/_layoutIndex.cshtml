@@ -1,4 +1,4 @@
-﻿@using LogicLayer.Models
+﻿@using LogicLayer.Models.UserFolder
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +32,7 @@
                     <ul class="navbar-nav">
                         @if (ViewData["User"] != null)
                         {
-                            var user = ViewData["User"] as LogicLayer.Models.User;
+                            var user = ViewData["User"] as User;
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     @user.Firstname

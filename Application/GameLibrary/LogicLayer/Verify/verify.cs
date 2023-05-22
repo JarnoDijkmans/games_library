@@ -1,5 +1,6 @@
 ﻿using DataLayer.DAL;
 using LogicLayer.Models;
+using LogicLayer.Models.UserFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
