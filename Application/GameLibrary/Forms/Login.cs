@@ -13,5 +13,10 @@ namespace Forms
             this.Hide();
             register.Show();
         }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

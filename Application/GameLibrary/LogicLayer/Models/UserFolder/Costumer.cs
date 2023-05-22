@@ -1,5 +1,4 @@
 ﻿using DataLayer.DAL;
-using LogicLayer.Models.UserFolder;
 using LogicLayer.Services;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicLayer.Models
+namespace LogicLayer.Models.UserFolder
 {
     public class Costumer : User
     {
@@ -22,17 +21,22 @@ namespace LogicLayer.Models
         {
 
         }
-        public Costumer(int id, string firstName, string lastName, string displayName, string email, string country, string address, string city, string password) : base(id, firstName, lastName, displayName, email, country, address, city, password)
+        public Costumer(int id, string firstName, string lastName, string displayName, string email, string birthdate, string phone, string country, string city, string address, string imageURL, string password, string username, int role) : base(id, firstName, lastName, displayName, email, birthdate, phone, country, city, address, imageURL, password, username, role)
         {
-            Id = id;
-            Firstname = firstName;
-            Lastname = lastName;
-            DisplayName = displayName;
-            Email = email;
-            Country = country;
-            Address = address;
-            City = city;
+            this.Id = id;
+            this.Firstname = firstName;
+            this.Lastname = lastName;
+            this.DisplayName = displayName;
+            this.Email = email;
+            this.Birthdate = birthdate;
+            this.Phone = phone;
+            this.Country = country;
+            this.City = city;
+            this.Address = address;
+            this.ImageUrl = imageURL;
             this.password = password;
+            this.username = username;
+            this.Role = role;
         }
         public bool RegisterNewCostumer(User user)
         {

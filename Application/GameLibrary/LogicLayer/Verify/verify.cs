@@ -38,6 +38,11 @@ namespace LogicLayer.Verify
                 {
                     foundUser = new Costumer(user.Id, user.Firstname, user.Lastname, user.DisplayName, user.Birthdate, user.Phone, user.Country, user.Address, user.City, user.ImageUrl, user.Role, user.Email, user.password, user.salt, user.username);
                 }
+
+                else if (user.Role == 2 )
+                {
+                    foundUser = new GameManagement(user.Id, user.Firstname, user.Lastname, user.DisplayName, user.Email, user.Birthdate, user.Phone, user.Country,user.City, user.Address, user.ImageUrl, user.password, user.username, user.Role);
+                }
             }
             return foundUser!;
         }

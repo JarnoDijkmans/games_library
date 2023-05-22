@@ -40,10 +40,10 @@ namespace DataLayer.DAL
 					user = ConvertDataCustomer.ConvertDataRowToCustomer(dr);
 					users.Add(user);
 				}
-				//else if (roleId == 2)
-				//{
-				//    //user = ConvertDataEmployee.ConvertDataRowToEmployee(dr);
-				//}
+				else if (roleId == 2)
+				{
+                    user = ConvertDataCustomer.ConvertDataRowToCustomer(dr);
+                }
 				else
 				{
 					throw new Exception($"Unknown role ID {roleId} for user with ID {dr["id"]}");
@@ -54,8 +54,8 @@ namespace DataLayer.DAL
 
 		public bool RegisterUser(User user)
 		{
-			string query = $"INSERT INTO [User] (firstname, lastname, displayname, email, country, address, city) OUTPUT INSERTED.id " +
-			  $"VALUES ('{user.Firstname}','{user.Lastname}', '{user.DisplayName}', '{user.Email}','{user.Country}','{user.Address}', '{user.City}' );";
+			string query = $"INSERT INTO [User] (firstname, lastname, displayname, email, birthday ,phone ,country, address, city, imageUrl) OUTPUT INSERTED.id " +
+			  $"VALUES ('{user.Firstname}','{user.Lastname}', '{user.DisplayName}', '{user.Email}','{user.Birthdate}','{user.Phone}','{user.Country}','{user.Address}','{user.City}', 'Null');";
 
 			int userId = executeIdScalar(query);
 
@@ -64,10 +64,22 @@ namespace DataLayer.DAL
 				return false;
 			}
 
-			string rolesQuery = $"INSERT INTO [Roles](userid, role)" +
-				$"VALUES ({userId},'{1}');";
+            string rolesQuery = "";
 
-			int Queryresult = executeQuery(rolesQuery);
+            if (user.Role == 1)
+            {
+                rolesQuery = $"INSERT INTO [Roles](userid, role, name)" +
+                    $"VALUES ({userId},1,'Customer');";
+            }
+            else if (user.Role == 2)
+            {
+                rolesQuery = $"INSERT INTO [Roles](userid, role, name)" +
+                    $"VALUES ({userId},2,'Employee');";
+            }
+
+            int Queryresult = executeQuery(rolesQuery);
+
+
 
 			if (Queryresult == 0)
 			{

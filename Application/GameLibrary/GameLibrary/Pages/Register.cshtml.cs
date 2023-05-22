@@ -10,6 +10,10 @@ using Factory;
 using LogicLayer.Services;
 using System.Text.Json;
 using LogicLayer.Models;
+using LogicLayer.Models.UserFolder;
+using System.Data;
+using System.Diagnostics.Metrics;
+using System.Net;
 
 namespace WebApp.Pages
 {
@@ -36,13 +40,13 @@ namespace WebApp.Pages
 			UserService userService = UserFactory.userservice;
 
 			Costumer user = new Costumer(0, FormRegister.FirstName, FormRegister.LastName,
-			FormRegister.DisplayName, FormRegister.Email, FormRegister.Country, FormRegister.Address,
-			FormRegister.City, FormRegister.Password);
+			FormRegister.DisplayName, FormRegister.Email, "null", "null",FormRegister.Country,
+            FormRegister.City, FormRegister.Address, "null", FormRegister.Password, FormRegister.Email, 1);
 			
 			userService.RegisterUser(user);
 
 			return RedirectToPage("Index");
-		}
+        }
 	}
 }
 

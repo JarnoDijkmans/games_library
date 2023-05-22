@@ -46,17 +46,22 @@ namespace LogicLayer.Models.UserFolder
             this.username = username;
         }
 
-        protected User(int id, string firstName, string lastName, string displayName, string email, string country, string city, string address, string password)
+        protected User(int id, string firstName, string lastName, string displayName, string email, string birthdate, string phone, string country, string city, string address, string imageURL, string password, string username, int role)
         {
-            Id = id;
-            Firstname = firstName;
-            Lastname = lastName;
-            DisplayName = displayName;
-            Email = email;
-            Country = country;
-            City = city;
-            Address = address;
-            this.password = password;
+            this.Id = id;
+            this.Firstname = firstName;
+            this.Lastname = lastName;
+            this.DisplayName = displayName;
+            this.Email = email;
+            this.Birthdate = birthdate;
+            this.Phone = phone;
+            this.Country= country;
+            this.City= city;
+            this.Address= address;
+            this.ImageUrl= imageURL;
+            this.password= password;
+            this.username= username;
+            this.Role = role;
         }
     }
 

@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LogicLayer.Models;
+using LogicLayer.Models.UserFolder;
 
 namespace DataLayer.Converting
 {
