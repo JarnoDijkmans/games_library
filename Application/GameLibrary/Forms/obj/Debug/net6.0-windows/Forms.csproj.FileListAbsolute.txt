@@ -49,3 +49,5 @@ C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\ne
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\net6.0-windows\LogicLayer.pdb
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\net6.0-windows\Forms.Index.resources
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\net6.0-windows\Forms.csproj.CopyComplete
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\net6.0-windows\Forms.AddGame.resources
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\net6.0-windows\Forms.GameEditForm.resources

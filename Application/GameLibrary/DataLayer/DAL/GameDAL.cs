@@ -28,11 +28,9 @@ namespace DataLayer.DAL
             List<Game> games = new List<Game>();
 
             DataTable dt = base.ReadDataQuery(cmd);
-            GameDAL gameDal = new GameDAL();
-
             foreach (DataRow dr in dt.Rows)
             {
-                Game game = DataConvertingGames.ConvertDataRowToGame(dr, gameDal);
+                Game game = DataConvertingGames.ConvertDataRowToGame(dr);
                 games.Add(game);
 
             }
@@ -55,27 +53,43 @@ namespace DataLayer.DAL
             if (dt.Rows.Count > 0)
             {
                 DataRow row = dt.Rows[0];
-                return DataConvertingGames.ConvertDataRowToGame(row, this);
+                return DataConvertingGames.ConvertDataRowToGame(row);
             }
             else { return null; }
         }
 
-        public List <Game> SearchGames(string name)
-        
+        public List<Game> SearchGames(string name)
+
         {
             string query = $@"SELECT Game.GameID, Game.Title, Game.Price, Game.Description, Game.Release_date, Game.Publisher, Game.Trailer, STUFF((SELECT DISTINCT ', ' + Genre.Name FROM GameGenre INNER JOIN Genre ON GameGenre.GenreID = Genre.GenreID WHERE GameGenre.GameID = Game.GameID FOR XML PATH('')), 1, 2, '') AS Genres, STUFF((SELECT DISTINCT ', ' + Feature.Name FROM GameFeature INNER JOIN Feature ON GameFeature.FeatureID = Feature.FeatureID WHERE GameFeature.GameID = Game.GameID FOR XML PATH('')), 1, 2, '') AS Features, STUFF((SELECT ',' + CAST(Genre.GenreID AS VARCHAR) FROM GameGenre INNER JOIN Genre ON GameGenre.GenreID = Genre.GenreID WHERE GameGenre.GameID = Game.GameID FOR XML PATH('')), 1, 1, '') AS GenreIDs, STUFF((SELECT ',' + CAST(Feature.FeatureID AS VARCHAR) FROM GameFeature INNER JOIN Feature ON GameFeature.FeatureID = Feature.FeatureID WHERE GameFeature.GameID = Game.GameID FOR XML PATH('')), 1, 1, '') AS FeatureIDs, (SELECT STUFF((SELECT ',' + CAST(GameImages.ImageID AS VARCHAR) FROM GameImages WHERE GameImages.GameID = Game.GameID FOR XML PATH('')), 1, 1, '')) AS ImageIDs, (SELECT STUFF((SELECT ',' + GameImages.ImageURL FROM GameImages WHERE GameImages.GameID = Game.GameID FOR XML PATH('')), 1, 1, '')) AS ImageURLs, (SELECT STUFF((SELECT ',' + GameImages.ImageType FROM GameImages WHERE GameImages.GameID = Game.GameID FOR XML PATH('')), 1, 1, '')) AS ImageTypes, (SELECT SpecificationID, SpecificationType, REPLACE(OS, CHAR(13) + CHAR(10), '') AS OS, REPLACE(Processor, CHAR(13) + CHAR(10), '') AS Processor, REPLACE(Memory, CHAR(13) + CHAR(10), '') AS Memory, REPLACE(Storage, CHAR(13) + CHAR(10), '') AS Storage, REPLACE(DirectX, CHAR(13) + CHAR(10), '') AS DirectX, REPLACE(Graphics, CHAR(13) + CHAR(10), '') AS Graphics, REPLACE(Other, CHAR(13) + CHAR(10), '') AS Other, REPLACE(Logins, CHAR(13) + CHAR(10), '') AS Logins FROM Specifications WHERE Specifications.GameID = Game.GameID FOR JSON AUTO) AS SpecificationsJson FROM Game LEFT JOIN GameGenre ON Game.GameID = GameGenre.GameID LEFT JOIN Genre ON GameGenre.GenreID = Genre.GenreID LEFT JOIN GameFeature ON Game.GameID = GameFeature.GameID LEFT JOIN Feature ON GameFeature.FeatureID = Feature.FeatureID WHERE game.Title LIKE '%{name}%' GROUP BY Game.GameID, Game.Title, Game.Price, Game.Description, Game.Release_date, Game.Publisher, Game.Trailer;";
-            
+
             List<Game> games = new List<Game>();
-            
+
             DataTable dt = ReadDataQuery(query);
 
             foreach (DataRow dr in dt.Rows)
             {
-                Game game = DataConvertingGames.ConvertDataRowToGame(dr, this);
+                Game game = DataConvertingGames.ConvertDataRowToGame(dr);
                 games.Add(game);
 
             }
             return games;
+        }
+
+        public List<Genre> GetAllGenres()
+        {
+            string query = $@"Select GenreID AS GenreIDs, Name AS Genres FROM Genre";
+
+            List<Genre> genres = new List<Genre>();
+
+            DataTable dt = ReadDataQuery(query);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                List<Genre> genresFromRow = DataConvertingGenre.ConvertDataRowToGenres(dr);
+                genres.AddRange(genresFromRow);
+            }
+            return genres;
         }
     }
 }

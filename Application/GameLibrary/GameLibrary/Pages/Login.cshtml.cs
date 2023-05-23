@@ -41,7 +41,7 @@ namespace WebApp.Pages
             if (FormLogin.Email != null && FormLogin.Password != null)
             {
                 User? loggedInUser = UserFactory.VerifyeLoginUser().validateUserCredentials(FormLogin.Email, FormLogin.Password);
-                if (loggedInUser != null)
+                if (loggedInUser != null && loggedInUser.Role == 1)
                 {
                     HttpContext.Session.SetInt32("UserId", loggedInUser.Id);
 

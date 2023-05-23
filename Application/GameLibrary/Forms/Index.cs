@@ -1,4 +1,7 @@
-﻿using LogicLayer.Models.UserFolder;
+﻿using Factory;
+using LogicLayer.Models.GamesFolder;
+using LogicLayer.Models.UserFolder;
+using LogicLayer.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +16,57 @@ namespace Forms
 {
     public partial class Index : Form
     {
+        GameService gameService = GameFactory.gameservice;
+        private Game selectedGame;
         public Index(User loggedinUser)
         {
             InitializeComponent();
+            lbl_Welcome.Text = $"Welcome{loggedinUser.DisplayName}!";
+        }
+
+        private void btn_showall_Click(object sender, EventArgs e)
+        {
+
+            var gamelist = gameService.GetGames();
+            lv_games.Items.Clear();
+            foreach (Game game in gamelist)
+            {
+                ListViewItem gameinfo = new ListViewItem(new[] { game.GameId.ToString(), game.Title, game.Price.ToString(), game.ReleaseDate, game.Publisher });
+                lv_games.Items.Add(gameinfo);
+            }
+        }
+
+        private void lv_games_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lv_games.SelectedItems.Count > 0)
+            {
+                txt_modify.Visible = true;
+                btn_Modify.Visible = true;
+                string selectedGameId = lv_games.SelectedItems[0].SubItems[0].Text;
+                int gameId = int.Parse(selectedGameId);
+                selectedGame = gameService.GetGameById(gameId);
+            }
+            else
+            { 
+                txt_modify.Visible = false;
+                btn_Modify.Visible = false;
+                selectedGame = null;
+            }
+        }
+
+        private void btn_Modify_Click(object sender, EventArgs e)
+        {
+            if (selectedGame != null)
+            {
+                GameEditForm editForm = new GameEditForm(selectedGame);
+                this.Hide();
+                editForm.Show();
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

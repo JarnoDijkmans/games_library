@@ -43,6 +43,7 @@ namespace DataLayer.DAL
 				else if (roleId == 2)
 				{
                     user = ConvertDataCustomer.ConvertDataRowToCustomer(dr);
+					users.Add(user);
                 }
 				else
 				{

@@ -5,8 +5,9 @@ namespace DataLayer.DAL
     public interface IGameDAL
     {
         bool AddGame(Game game);
-        public List<Game> RetrieveData();
-        public Game GetGameById(int id);
-        public List <Game> SearchGames(string name);
+        List<Genre> GetAllGenres();
+        Game GetGameById(int id);
+        List<Game> RetrieveData();
+        List<Game> SearchGames(string name);
     }
 }

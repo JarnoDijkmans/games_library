@@ -18,7 +18,7 @@ namespace DataLayer.Converting.GamesDataConvert
 {
     public static class DataConvertingGames
     {
-        public static Game ConvertDataRowToGame(DataRow row, GameDAL gameDal)
+        public static Game ConvertDataRowToGame(DataRow row)
         {
             int GameId = Convert.ToInt32(row["GameID"]);
             string Title = Convert.ToString(row["Title"])!;

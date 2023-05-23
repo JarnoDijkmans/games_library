@@ -39,5 +39,10 @@ namespace LogicLayer.Services
 		{
 			return dal.SearchGames(name);
 		}
+
+		public List<Genre> GetGenres()
+		{
+			return dal.GetAllGenres();
+		}
 	}
 }
