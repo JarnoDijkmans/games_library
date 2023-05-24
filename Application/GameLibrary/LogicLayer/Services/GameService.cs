@@ -44,5 +44,10 @@ namespace LogicLayer.Services
 		{
 			return dal.GetAllGenres();
 		}
+
+		public List <Feature> GetFeatures()
+		{
+			return dal.GetAllFeatures();
+		}
 	}
 }

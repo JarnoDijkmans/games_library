@@ -1,4 +1,5 @@
 ﻿using Factory;
+using LogicLayer.Models.Discount;
 using LogicLayer.Models.GamesFolder;
 using LogicLayer.Services;
 using System;
@@ -21,11 +22,12 @@ namespace Forms
         {
             InitializeComponent();
             gameToEdit = game;
-            populateCombobox();
+            populateGameToEdit();
+            populateGenreCombobox();
         }
 
 
-        private void populateCombobox()
+        private void populateGenreCombobox()
         {
             List <Genre> genres = gameService.GetGenres();
             foreach (var genre in genres)
@@ -34,6 +36,29 @@ namespace Forms
                 CB_Genre2.Items.Add(genre.Name);
                 CB_Genre3.Items.Add(genre.Name);
             }
+
+            if (gameToEdit.Genres != null)
+            {
+                if (gameToEdit.Genres.Count > 0)
+                    CB_Genre1.SelectedItem = gameToEdit.Genres[0].Name;
+
+                if (gameToEdit.Genres.Count > 1)
+                    CB_Genre2.SelectedItem = gameToEdit.Genres[1].Name;
+
+                if (gameToEdit.Genres.Count > 2)
+                    CB_Genre3.SelectedItem = gameToEdit.Genres[2].Name;
+            }
         }
+
+        private void populateGameToEdit()
+        {
+            txt_Title.Text = gameToEdit.Title;
+            txt_price.Text = gameToEdit.Price.ToString();
+            txt_description.Text = gameToEdit.Description;
+            txt_releasedate.Text= gameToEdit.ReleaseDate.ToString();
+            txt_publisher.Text = gameToEdit.Publisher;
+            txt_Trailerurl.Text = gameToEdit.Trailer;
+        }
+
     }
 }

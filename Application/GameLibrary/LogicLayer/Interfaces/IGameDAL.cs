@@ -6,6 +6,7 @@ namespace DataLayer.DAL
     {
         bool AddGame(Game game);
         List<Genre> GetAllGenres();
+        List<Feature> GetAllFeatures();
         Game GetGameById(int id);
         List<Game> RetrieveData();
         List<Game> SearchGames(string name);

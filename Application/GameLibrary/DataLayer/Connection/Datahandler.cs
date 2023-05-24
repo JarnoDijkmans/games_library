@@ -21,33 +21,6 @@ namespace DataLayer.Connection
 			this.con = base.GetConnection();
 		}
 
-		//Retrieves all data from the database
-		//public DataTable ReadData()
-		//{
-		//	DataTable dt = new DataTable();
-		//	try
-		//	{
-		//		con.Open();
-		//		using (var command = new SqlCommand())
-		//		{
-		//			command.Connection = (SqlConnection)con;
-		//			command.CommandText = cmd;
-		//			var data = command.ExecuteReader();
-		//			dt.Load(data);
-		//		}
-		//	}
-		//	catch
-		//	{
-		//		return null;
-		//	}
-
-		//	finally
-		//	{
-		//		con.Close();
-		//	}
-		//	return dt;
-		//}
-
 
 		//Executes a given SQL query and returns the number of rows affected
 		public int executeQuery(string query)
@@ -120,34 +93,5 @@ namespace DataLayer.Connection
             }
             return dt;
         }
-
-
-
-
-
-        //     private Game ExecuteQueryAndReturnGame(string query)
-        //     {
-        //         try
-        //{
-        //	con.Open();
-        //                using (SqlCommand command = new SqlCommand(query))
-        //                {
-        //                    using (SqlDataReader reader = command.ExecuteReader())
-        //                    {
-        //                       if (reader.Read())
-        //                       {
-        //                          // Convert the SqlDataReader to a DataRow
-        //                          DataTable dt = new DataTable();
-        //                          dt.Load(reader);
-        //                          DataRow row = dt.Rows[0];
-
-        //				// Call the CreateGameFromDataRow method
-        //                          return DataConvertingGames.ConvertDataRowToGame(row, GameDAL gameDal);
-        //                       }
-        //                    }
-        //                }
-        //         }
-        //                 return null;
-        //     }
     }
 }

@@ -156,7 +156,7 @@ namespace WebApp.Pages
             List<Game> gamesInCart = RetrieveCartGames();
             decimal subtotal = gamesInCart.Sum(g => g.Price);
 
-            Checkout checkout = DiscountFactory.checkout;
+            CheckoutService checkout = CheckoutFactory.checkout;
             checkout.ApplyDiscountByCode(discountCode);
             decimal discountedTotal = checkout.CalculateTotalPrice(subtotal);
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicLayer.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,25 @@ namespace LogicLayer.Models.Discount
             Code = code;
             DiscountType = discountType;
             DiscountValue = discountValue;
+        }
+
+
+        public static IDiscount GetDiscount(string type, decimal value)
+        {
+            IDiscount discount;
+            if (type == "Percentage")
+            {
+                discount = new PercentageDiscount(value);
+            }
+            else if (type == "FixedAmount")
+            {
+                discount = new FixedAmountDiscount(value);
+            }
+            else
+            {
+                throw new Exception($"Unrecognized discount type: {type}");
+            }
+            return discount; ;
         }
     }
 }

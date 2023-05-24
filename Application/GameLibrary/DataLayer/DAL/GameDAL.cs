@@ -91,5 +91,21 @@ namespace DataLayer.DAL
             }
             return genres;
         }
+
+        public List<Feature> GetAllFeatures()
+        {
+            string query = $@"Select FeatureID AS FeatureIDs, Name AS Features FROM Feature";
+
+            List<Feature> features = new List<Feature>();
+
+            DataTable dt = ReadDataQuery(query);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                List<Feature> featuresFromRow = DataConvertingFeatures.ConvertDataRowToFeatures(dr);
+                features.AddRange(featuresFromRow);
+            }
+            return features;
+        }
     }
 }
