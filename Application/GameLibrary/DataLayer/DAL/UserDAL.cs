@@ -55,7 +55,7 @@ namespace DataLayer.DAL
 
 		public bool RegisterUser(User user)
 		{
-			string query = $"INSERT INTO [User] (firstname, lastname, displayname, email, birthday ,phone ,country, address, city, imageUrl) OUTPUT INSERTED.id " +
+            string query = $"INSERT INTO [User] (firstname, lastname, displayname, email, birthday ,phone ,country, address, city, imageUrl) OUTPUT INSERTED.id " +
 			  $"VALUES ('{user.Firstname}','{user.Lastname}', '{user.DisplayName}', '{user.Email}','{user.Birthdate}','{user.Phone}','{user.Country}','{user.Address}','{user.City}', 'Null');";
 
 			int userId = executeIdScalar(query);

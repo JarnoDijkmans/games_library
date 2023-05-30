@@ -14,6 +14,7 @@ using LogicLayer.Models.UserFolder;
 using System.Data;
 using System.Diagnostics.Metrics;
 using System.Net;
+using System.Globalization;
 
 namespace WebApp.Pages
 {
@@ -36,11 +37,13 @@ namespace WebApp.Pages
 				return Page();
 			}
 
-			//TempData["Register"] = JsonSerializer.Serialize(FormRegister);
 			UserService userService = UserFactory.userservice;
 
-			Costumer user = new Costumer(0, FormRegister.FirstName, FormRegister.LastName,
-			FormRegister.DisplayName, FormRegister.Email, "null", "null",FormRegister.Country,
+            DateTime birthdate = DateTime.ParseExact(FormRegister.Birthdate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            string Birthdate = birthdate.ToString("yyyy-MM-dd");
+
+            Costumer user = new Costumer(0, FormRegister.FirstName, FormRegister.LastName,
+			FormRegister.DisplayName, FormRegister.Email, Birthdate, "null",FormRegister.Country,
             FormRegister.City, FormRegister.Address, "null", FormRegister.Password, FormRegister.Email, 1);
 			
 			userService.RegisterUser(user);

@@ -1,5 +1,6 @@
 ﻿@page "/ShoppingCart/{gameId:int?}"
 @using WebApp.Pages;
+@using LogicLayer.Models.UserFolder;
 @model ShoppingCartModel
 @{
     Layout = "_LayoutShoppigCart";
@@ -98,22 +99,34 @@
                                         @if(Model.Cart != null)
                                         {
                                             <p>Subtotal: €@Model.Cart.GamesInCart.Sum(g => g.Price)</p>
-                                            <p>Total after discount: €@Model.Cart.DiscountedTotal</p>
                                         }
                                     </div>
 
-                                    <form method="post">
-                                        <div class="form-group">
-                                            <label for="discountCode">Discount Code</label>
-                                            <input type="text" id="discountCode" name="discountCode" class="form-control" />
+                                    @if (ViewData["User"] != null)
+                                    {
+                                        <a href="/Checkout" class="btn btn-primary">Proceed to Checkout</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="btn btn-primary" id="loginPrompt">Proceed to Checkout</a>
+                                        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Login Required</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Please login first to proceed to checkout.
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <a href="/Login" class="btn btn-primary">Go to Login</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary" asp-page-handler="ApplyDiscount">Apply Discount</button>
-                                    </form>
-
-
-                                    <a href="/Checkout" class="btn btn-primary">Proceed to Checkout</a>
-
-                                  
+                                    }
                                 </div>
                             </div>
                         </div>

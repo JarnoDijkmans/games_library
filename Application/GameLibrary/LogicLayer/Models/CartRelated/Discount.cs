@@ -34,6 +34,10 @@ namespace LogicLayer.Models.Discount
             {
                 discount = new FixedAmountDiscount(value);
             }
+            else if (type == "BirthDate")
+            {
+                discount = new PercentageDiscount(value);
+            }
             else
             {
                 throw new Exception($"Unrecognized discount type: {type}");

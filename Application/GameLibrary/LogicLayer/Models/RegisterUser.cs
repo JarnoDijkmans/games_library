@@ -32,6 +32,9 @@ namespace LogicLayer.Models
 		[MinLength(8, ErrorMessage = "A Password should have a minimum of 8 characters")]
 		public string? Password { get; set; }
 
+		[Required(ErrorMessage = "Please enter your birthdate")]
+        [RegularExpression(@"^\d{4}-\d{2}-\d{2}$", ErrorMessage = "Birthdate must be in the format yyyy-MM-dd")]
+        public string? Birthdate { get; set; }
 		[Required(ErrorMessage = "A city is required")]
 		[MinLength(4, ErrorMessage = "A city should have a minimum of 4 characters")]
 		public string? City { get; set; }

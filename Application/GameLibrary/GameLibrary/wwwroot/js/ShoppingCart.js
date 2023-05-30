@@ -19,3 +19,10 @@
         }
     });
 }
+
+
+    $(document).ready(function(){
+        $('#loginPrompt').click(function () {
+            $('#loginModal').modal('show');
+        });
+    });

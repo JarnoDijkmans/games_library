@@ -68,6 +68,13 @@ body {
     border: none !important;
 }
 
+.modal-content {
+    background-color: black !important; 
+    color: white;
+    font-family: Arial, sans-serif;
+    top: 200px;
+}
+
 @media (max-width: 576px) {
     .card{
         max-height:125px

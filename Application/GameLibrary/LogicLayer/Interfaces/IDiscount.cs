@@ -9,5 +9,6 @@ namespace LogicLayer.Interfaces
     public interface IDiscount
     {
         decimal ApplyDiscount(decimal basePrice);
+        decimal ApplyBirthdayDiscount(decimal basePrice, DateTime birthdate);
     }
 }

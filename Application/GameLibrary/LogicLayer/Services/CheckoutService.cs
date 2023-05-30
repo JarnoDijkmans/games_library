@@ -33,7 +33,7 @@ namespace LogicLayer.Services
             return finalPrice;
         }
 
-        public void ApplyDiscountByCode(string discountCode)
+        public bool ApplyDiscountByCode(string discountCode)
         {
             var discounts = dal.RetrieveData();
             var discount = discounts.Find(d => d.Code == discountCode);
@@ -41,14 +41,27 @@ namespace LogicLayer.Services
             if (discount != null)
             {
                 IDiscount disc = Discount.GetDiscount(discount.DiscountType, discount.DiscountValue);
-                
-
                 SetDiscount(disc);
+                return true;
             }
             else
             {
-                throw new Exception($"Discount code not found: {discountCode}");
+                return false;
             }
+        }
+
+        public void ApplyBirthdayDiscount(string type)
+        {
+            IDiscount disc = Discount.GetDiscount(type, 5);
+
+            SetDiscount(disc);
+            
+        }
+
+        public decimal CalculateTotalPriceBirthDate(decimal baseprice, DateTime birthdate)
+        {
+            decimal finalPrice = _discount.ApplyBirthdayDiscount(baseprice, birthdate);
+            return finalPrice;
         }
     }
 }

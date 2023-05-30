@@ -20,5 +20,10 @@ namespace LogicLayer.Models.Discount
         {
             return basePrice - (basePrice * (_percentage / 100));
         }
+
+        public decimal ApplyBirthdayDiscount(decimal basePrice, DateTime birthdate)
+        {
+            return basePrice - (basePrice * (_percentage / 100));
+        }
     }
 }

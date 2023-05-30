@@ -20,5 +20,11 @@ namespace LogicLayer.Models.Discount
         {
             return basePrice - _fixedAmount;
         }
+
+        public decimal ApplyBirthdayDiscount(decimal basePrice, DateTime birthdate)
+        {
+            // No birthday discount is applied
+            return basePrice;
+        }
     }
 }
