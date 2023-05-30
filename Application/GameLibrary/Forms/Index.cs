@@ -18,10 +18,12 @@ namespace Forms
     {
         GameService gameService = GameFactory.gameservice;
         private Game selectedGame;
+        private User loggedInUser;
         public Index(User loggedinUser)
         {
             InitializeComponent();
-            lbl_Welcome.Text = $"Welcome{loggedinUser.DisplayName}!";
+            lbl_Welcome.Text = $"Welcome {loggedinUser.DisplayName}!";
+            this.loggedInUser = loggedinUser;
         }
 
         private void btn_showall_Click(object sender, EventArgs e)
@@ -47,7 +49,7 @@ namespace Forms
                 selectedGame = gameService.GetGameById(gameId);
             }
             else
-            { 
+            {
                 txt_modify.Visible = false;
                 btn_Modify.Visible = false;
                 selectedGame = null;
@@ -58,7 +60,7 @@ namespace Forms
         {
             if (selectedGame != null)
             {
-                GameEditForm editForm = new GameEditForm(selectedGame);
+                GameEditForm editForm = new GameEditForm(selectedGame, loggedInUser);
                 this.Hide();
                 editForm.Show();
             }
@@ -67,6 +69,13 @@ namespace Forms
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btn_AddNewGame_Click(object sender, EventArgs e)
+        {
+            AddGame addGame = new AddGame(loggedInUser);
+            this.Hide();
+            addGame.Show();
         }
     }
 }

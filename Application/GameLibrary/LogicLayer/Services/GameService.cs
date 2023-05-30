@@ -8,7 +8,7 @@ using LogicLayer.Models.GamesFolder;
 
 namespace LogicLayer.Services
 {
-    public class GameService
+	public class GameService
 	{
 		private readonly IGameDAL dal;
 
@@ -31,11 +31,11 @@ namespace LogicLayer.Services
 		}
 
 		public Game GetGameById(int id)
-		{ 
+		{
 			return dal.GetGameById(id);
 		}
 
-		public List <Game> SearchGames(string name)
+		public List<Game> SearchGames(string name)
 		{
 			return dal.SearchGames(name);
 		}
@@ -45,9 +45,31 @@ namespace LogicLayer.Services
 			return dal.GetAllGenres();
 		}
 
-		public List <Feature> GetFeatures()
+        public int GetGenreIdByName(string name)
+        {
+            var genre = dal.GetAllGenres().FirstOrDefault(g => g.Name == name);
+            return genre.GenreId;
+        }
+
+        public List<Feature> GetFeatures()
 		{
 			return dal.GetAllFeatures();
 		}
-	}
+
+		public bool UpdateGame(Game game)
+		{
+			if (dal.UpdateGame(game))
+			{
+				return true;
+			}
+			else { return false; }
+		}
+
+
+        public int GetFeatureIdByName(string name)
+        {
+            var feature = dal.GetAllFeatures().FirstOrDefault(g => g.Name == name);
+            return feature.FeatureID;
+        }
+    }
 }

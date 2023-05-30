@@ -10,5 +10,6 @@ namespace DataLayer.DAL
         Game GetGameById(int id);
         List<Game> RetrieveData();
         List<Game> SearchGames(string name);
+        bool UpdateGame (Game game);
     }
 }

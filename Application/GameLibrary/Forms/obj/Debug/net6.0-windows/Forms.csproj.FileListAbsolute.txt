@@ -51,3 +51,4 @@ C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\ne
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\net6.0-windows\Forms.csproj.CopyComplete
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\net6.0-windows\Forms.AddGame.resources
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\net6.0-windows\Forms.GameEditForm.resources
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\net6.0-windows\Forms.DetailImageForm.resources

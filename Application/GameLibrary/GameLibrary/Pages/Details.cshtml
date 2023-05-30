@@ -24,40 +24,36 @@
                                 <iframe id="game-trailer" src="@Model.Game.Trailer" frameborder="0" allowfullscreen></iframe>
                             </div>
                         </div>
-                        @foreach (var image in Model.Game.Images.Where(i => i.ImageType == "Detail"))
-                        {
-                            var activeClass = image == Model.Game.Images.FirstOrDefault() ? "active" : "";
-                            <div class="carousel-item @activeClass">
-                                <img src="@image.ImageURL" alt="DetailImage" class="d-block w-70">
-                            </div>
+
+                        @{
+                            bool firstImage = false; 
+                            foreach (var image in Model.Game.Images.Where(i => i.ImageType == "Detail"))
+                            {
+                                var activeClass = firstImage ? "active" : "";
+                                <div class="carousel-item @activeClass">
+                                    <img src="@image.ImageURL" alt="DetailImage" class="d-block w-70">
+                                </div>
+                            }
                         }
                     </div>
                     <!-- Indicator start -->
                     <div class="carousel-indicators-wrapper">
                         <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselsliderdemo" class="active img-thumbnail" data-bs-slide-to="0">
+                                <img src="@Model.Game.Images.FirstOrDefault(i => i.ImageType == "Thumbnail").ImageURL" alt="Video thumbnail" class="d-block w-100">
+                            </button>
                             @{
-                                foreach (var image in Model.Game.Images.Where(i => i.ImageType == "Thumbnail"))
+                                int indicatorIndex = 1;
+                                foreach (var image in Model.Game.Images.Where(i => i.ImageType == "Detail"))
                                 {
-                                    <button type="button" data-bs-target="#carouselsliderdemo" class="active img-thumbnail" data-bs-slide-to="0">
-                                        <img src="@image.ImageURL" alt="Video thumbnail" class="d-block w-100">
+                                    <button type="button" data-bs-target="#carouselsliderdemo" class="img-thumbnail" data-bs-slide-to="@indicatorIndex">
+                                        <img src="@image.ImageURL" alt="DetailImage" class="d-block w-100">
                                     </button>
+                                    indicatorIndex++;
                                 }
-                               
-                              }
-                               
-                                @{
-                                    int indicatorIndex = 1;
-                                    foreach (var image in Model.Game.Images.Where(i => i.ImageType == "Detail"))
-                                    {
-                                        <button type="button" data-bs-target="#carouselsliderdemo" class="img-thumbnail" data-bs-slide-to="@indicatorIndex">
-                                            <img src="@image.ImageURL" alt="DetailImage" class="d-block w-100">
-                                        </button>
-                                        indicatorIndex++;
-                                    }
-                                }
+                            }
                         </div>
                     </div>
-                    
                     <!-- Indicator Close -->
                 </div>
                 <hr class="custom-hr">
@@ -149,7 +145,7 @@
                                         @if (Model.Game.MinimumSpecs().Logins != null)
                                         {
                                             <tr>
-                                                <th scope="row">Other</th>
+                                                <th scope="row">Logins</th>
                                                 <td>@Model.Game.MinimumSpecs().Logins</td>
                                             </tr>
                                         }
@@ -198,7 +194,7 @@
                                         @if (Model.Game.RecommendedSpecs().Logins != null)
                                         {
                                             <tr>
-                                                <th scope="row">Other</th>
+                                                <th scope="row">Logins</th>
                                                 <td>@Model.Game.RecommendedSpecs().Logins</td>
                                             </tr>
                                         }
@@ -213,8 +209,6 @@
         </div>
      </div>
    </div>
-    
-    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

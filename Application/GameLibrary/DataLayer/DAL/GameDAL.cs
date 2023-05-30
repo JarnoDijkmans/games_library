@@ -11,6 +11,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DataLayer.DAL
 {
@@ -39,10 +40,31 @@ namespace DataLayer.DAL
 
         public bool AddGame(Game game)
         {
-            //Just a test.
-            string query = $"test";
-            int gameID = executeQuery(query);
-            return gameID > 0;
+            string query = $"INSERT INTO [Game](Title, Price, Description, Release_date, Publisher, Trailer) OUTPUT INSERTED.GameID " +
+                    $"VALUES ('{game.Title}',{game.Price},'{game.Description}','{game.ReleaseDate}','{game.Publisher}','{game.Trailer}')";
+            int gameID = executeIdScalar(query);
+            if (gameID == 0)
+            {
+                return false;
+            }
+            foreach (Genre newGenre in game.Genres)
+            {
+                AddGenreToGame(gameID, newGenre);
+            }
+            foreach (Feature newFeature in game.Features)
+            {
+                AddFeatureToGame(gameID, newFeature);
+            }
+            foreach (GameImage image  in game.Images) 
+            {
+                AddImagesToGame(gameID, image);
+            }
+            foreach (Specification specification in game.Specifications)
+            {
+                AddSpecificationsToGame(gameID, specification);
+            }
+
+            return true;
         }
 
         public Game GetGameById(int id)
@@ -57,6 +79,88 @@ namespace DataLayer.DAL
             }
             else { return null; }
         }
+
+        public bool UpdateGame(Game game)
+        {
+            string query = $@"UPDATE Game SET Title='{game.Title}', Price={game.Price}, Description='{game.Description}', Release_date='{game.ReleaseDate}', Publisher='{game.Publisher}', Trailer='{game.Trailer}' WHERE GameID={game.GameId}";
+
+            int queryresult = executeQuery(query);
+
+            if (queryresult == 0)
+            {
+                return false;
+            }
+            
+            List<Genre> currentGenres = GetCurrentGenres(game.GameId);
+            List<Genre> newGenres = new List<Genre>();
+            foreach (var genre in game.Genres)
+            {
+                newGenres.Add(genre);
+            }
+            foreach (Genre currentGenre in currentGenres)
+            {
+                RemoveGenreFromGame(game.GameId, currentGenre);
+            }
+            foreach (Genre newGenre in newGenres)
+            { 
+                AddGenreToGame(game.GameId, newGenre);
+            }
+
+
+            List<Feature> currentFeatures = GetCurrentFeatures(game.GameId);
+            List<Feature> newFeatures = new List<Feature>();
+            foreach (var feature in game.Features)
+            {
+                newFeatures.Add(feature);
+            }
+            foreach (Feature currentFeature in currentFeatures)
+            {
+                RemoveFeatureFromGame(game.GameId, currentFeature);
+            }
+            foreach (Feature newFeature in newFeatures)
+            {
+                AddFeatureToGame(game.GameId, newFeature);
+            }
+
+            List<Specification> NewSpecifications = game.Specifications;
+            foreach (Specification specification in NewSpecifications)
+            {
+                UpdateSpecifications(specification);
+            }
+
+            List<GameImage> currentImages = GetCurrentImages(game.GameId);
+            List<GameImage> newGameImages = game.Images;
+
+            foreach (GameImage currentImage in currentImages)
+            {
+                if (!newGameImages.Any(ni => ni.ImageId == currentImage.ImageId))
+                {
+                    DeleteImages( game.GameId, currentImage);
+                }
+            }
+
+            foreach (GameImage image in newGameImages)
+            {
+               if (!currentImages.Any(ci => ci.ImageId == image.ImageId))
+               {
+                    AddImagesToGame(game.GameId, image );
+               }
+
+               else 
+               {
+                  UpdateImages(image);
+               }
+                
+            }
+           
+
+            return true;
+
+
+
+        }
+    
+
 
         public List<Game> SearchGames(string name)
 
@@ -89,8 +193,56 @@ namespace DataLayer.DAL
                 List<Genre> genresFromRow = DataConvertingGenre.ConvertDataRowToGenres(dr);
                 genres.AddRange(genresFromRow);
             }
+
             return genres;
         }
+
+        private List<Genre> GetCurrentGenres(int id)
+        {
+            string query = $@"Select GameGenre.GenreID AS GenreIDs, Genre.Name AS Genres FROM GameGenre INNER JOIN GENRE ON GameGenre.GenreID = Genre.GenreID WHERE GameID = {id};";
+
+            List<Genre> genres = new List<Genre>();
+
+            DataTable dt = ReadDataQuery(query);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                List<Genre> genresFromRow = DataConvertingGenre.ConvertDataRowToGenres(dr);
+                genres.AddRange(genresFromRow);
+            }
+            return genres;
+        }
+
+        private bool AddGenreToGame(int id, Genre genre )
+        {
+            string queryAddNewGenre = $"INSERT INTO [GameGenre](GameID, GenreID)" +
+                        $"VALUES ({id}, {genre.GenreId}) ";
+            int addGenreResult = executeQuery(queryAddNewGenre);
+            if (addGenreResult == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        private bool RemoveGenreFromGame(int id, Genre genre)
+        {
+            string queryRemoveGenre = $"DELETE FROM GameGenre WHERE GameID = {id} AND GenreID = {genre.GenreId}";
+            int removeGenreResult = executeQuery(queryRemoveGenre);
+            if (removeGenreResult == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
 
         public List<Feature> GetAllFeatures()
         {
@@ -106,6 +258,133 @@ namespace DataLayer.DAL
                 features.AddRange(featuresFromRow);
             }
             return features;
+        }
+
+        private List<Feature> GetCurrentFeatures(int id)
+        {
+            string query = $@"Select GameFeature.FeatureID AS FeatureIDs, Feature.Name AS Features FROM GameFeature INNER JOIN Feature ON GameFeature.FeatureID = Feature.FeatureID WHERE GameID = {id};";
+
+            List<Feature> features = new List<Feature>();
+
+            DataTable dt = ReadDataQuery(query);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                List<Feature> featureFromRow = DataConvertingFeatures.ConvertDataRowToFeatures(dr);
+                features.AddRange(featureFromRow);
+            }
+            return features;
+        }
+
+        private bool RemoveFeatureFromGame(int id, Feature feature)
+        {
+            string queryRemoveFeature = $"DELETE FROM GameFeature WHERE GameID = {id} AND FeatureID = {feature.FeatureID}";
+            int removeFeatureResult = executeQuery(queryRemoveFeature);
+            if (removeFeatureResult == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool AddFeatureToGame(int id, Feature feature)
+        {
+            string queryAddNewFeature = $"INSERT INTO [GameFeature](GameID, FeatureID)" +
+                        $"VALUES ({id}, {feature.FeatureID}) ";
+            int addFeatureResult = executeQuery(queryAddNewFeature);
+            if (addFeatureResult == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool UpdateSpecifications (Specification specification)
+        {
+            string query = $@"Update Specifications SET OS='{specification.OS}', Processor='{specification.Processor}', Memory='{specification.Memory}', Storage= '{specification.Storage}', DirectX= '{specification.DirectX}', Graphics='{specification.Graphics}', Other='{specification.Other}', Logins='{specification.Logins}' WHERE SpecificationID= '{specification.SpecificationID}'";
+            int queryresult = executeQuery(query);
+
+            if (queryresult == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool AddSpecificationsToGame(int id ,Specification specification)
+        {
+            string query = $@"Insert INTO [Specifications] (GameID, SpecificationType, OS, Processor, Memory, Storage, DirectX, Graphics, Other, Logins)" +
+                $"VALUES ({id}, '{specification.SpecificationType}','{specification.OS}', '{specification.Processor}','{specification.Memory}','{specification.Storage}','{specification.DirectX}','{specification.Graphics}','{specification.Other}','{specification.Logins}')";
+            int queryresult = executeQuery(query);
+
+            if (queryresult == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool UpdateImages(GameImage images)
+        {
+            string query = $@"Update GameImages SET ImageType= '{images.ImageType}', ImageURL='{images.ImageURL}' WHERE ImageID = {images.ImageId}";
+            int queryresult = executeQuery(query);
+
+            if (queryresult == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool AddImagesToGame(int id, GameImage images)
+        {
+            string query = $@"INSERT INTO [GameImages](GameID, ImageType, ImageURL)" +
+                    $"VALUES ({id},'{images.ImageType}','{images.ImageURL}')";
+            int queryResult = executeQuery(query);
+            if (queryResult == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool DeleteImages (int id, GameImage images)
+        {
+            string query = $"DELETE FROM GameImages WHERE GameID = {id} AND ImageID = {images.ImageId}";
+            int queryResult = executeQuery(query);
+            if (queryResult == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private List <GameImage> GetCurrentImages (int id)
+        {
+            string query = $@"Select GameImages.ImageID AS ImageIDs, GameImages.ImageType AS ImageTypes, GameImages.ImageURL AS ImageURLs FROM GameImages WHERE GameID = {id};";
+
+            List<GameImage> images = new List<GameImage>();
+
+            DataTable dt = ReadDataQuery(query);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                List<GameImage> imageFromRow = DataConvertingImages.ConvertDataToImage(dr);
+                images.AddRange(imageFromRow);
+            }
+            return images;
         }
     }
 }

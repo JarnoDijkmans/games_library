@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btn_AddNewGame = new Button();
             lbl_Welcome = new Label();
             txt_modify = new Label();
             btn_Modify = new Button();
@@ -46,6 +47,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btn_AddNewGame);
             panel1.Controls.Add(lbl_Welcome);
             panel1.Controls.Add(txt_modify);
             panel1.Controls.Add(btn_Modify);
@@ -59,6 +61,17 @@
             panel1.Size = new Size(1477, 750);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // btn_AddNewGame
+            // 
+            btn_AddNewGame.Anchor = AnchorStyles.None;
+            btn_AddNewGame.Location = new Point(694, 698);
+            btn_AddNewGame.Name = "btn_AddNewGame";
+            btn_AddNewGame.Size = new Size(149, 23);
+            btn_AddNewGame.TabIndex = 17;
+            btn_AddNewGame.Text = "Add New Game";
+            btn_AddNewGame.UseVisualStyleBackColor = true;
+            btn_AddNewGame.Click += btn_AddNewGame_Click;
             // 
             // lbl_Welcome
             // 
@@ -196,5 +209,6 @@
         private Button btn_Modify;
         private Label txt_modify;
         private Label lbl_Welcome;
+        private Button btn_AddNewGame;
     }
 }

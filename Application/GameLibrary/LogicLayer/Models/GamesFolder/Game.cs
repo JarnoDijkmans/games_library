@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Security;
 using System.Text;
@@ -34,11 +36,20 @@ namespace LogicLayer.Models.GamesFolder
         }
         public Game(int gameId, string title, decimal price, string description, string releasDate, string publisher, List<GameImage> images, List<Genre> genres, List<Feature> features, List<Specification> specifications, string trailer)
         {
-            if (gameId <= 0) throw new ArgumentException($"{nameof(gameId)} must be greater than zero");
             if (string.IsNullOrWhiteSpace(title)) throw new ArgumentException($"{nameof(title)} may not be empty");
             if (price == null) throw new ArgumentException($"{nameof(price)} must be greater than zero");
+            if (description == null) throw new ArgumentException($"{nameof(title)} may not be empty");
+            DateTime parsedDate;
+            if (!DateTime.TryParseExact(releasDate, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+            {
+                throw new ValidationException("Release date format is not correct. Please enter in 'yyyy-MM-dd' format.");
+            }
             if (string.IsNullOrWhiteSpace(publisher)) throw new ArgumentException($"{nameof(publisher)} may not be empty");
             if (string.IsNullOrWhiteSpace(trailer)) throw new ArgumentException($"{nameof(trailer)} may not be empty");
+            //if (!images.All(image => image.ImageURL.StartsWith("/Images/") && image.ImageURL.EndsWith(".png")))
+            //{
+            //    throw new ArgumentException("All images must start with '/Images/' and end with '.png'");
+            //}
 
             this.GameId = gameId;
             this.Title = title;
