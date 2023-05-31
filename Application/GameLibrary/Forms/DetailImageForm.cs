@@ -1,4 +1,5 @@
 ﻿using LogicLayer;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,16 @@ namespace Forms
     public partial class DetailImageForm : Form
     {
         Result result;
+        private IConfiguration Configuration { get; }
         public string ImageUrl { get; set; }
         public DetailImageForm()
         {
             InitializeComponent();
             result = new Result("");
+            this.Configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .Build();
         }
 
         private void Btn_Ok_Click(object sender, EventArgs e)
@@ -47,6 +53,45 @@ namespace Forms
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void btn_select_detailImage_Click(object sender, EventArgs e)
+        {
+            string imagePath = SelectImage();
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                txt_Detail_Image.Text = imagePath;
+            }
+        }
+
+        private string SelectImage()
+        {
+            using (var openFileDialog = new OpenFileDialog())
+            {
+                string imagePath = Configuration["ImagePath"];
+
+                openFileDialog.InitialDirectory = Path.Combine(imagePath, "Images");
+                openFileDialog.Filter = "Image Files (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif";
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string fullPath = openFileDialog.FileName;
+                    if (fullPath.StartsWith(imagePath))
+                    {
+                        string relativePath = fullPath.Substring(imagePath.Length);
+
+                        if (!relativePath.StartsWith("\\"))
+                        {
+                            relativePath = "\\" + relativePath;
+                        }
+
+                        return relativePath;
+                    }
+                }
+            }
+
+            return string.Empty;
         }
     }
 }

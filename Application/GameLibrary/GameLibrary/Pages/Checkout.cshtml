@@ -1,5 +1,102 @@
 ﻿@page
 @model WebApp.Pages.CheckoutModel
 @{
-
+    Layout = "_LayoutCheckout";
 }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Checkout</title>
+</head>
+    <body>
+        <div class="container">
+            <div class="row">
+                    <div class="col-sm-7">
+                        <h2>Payment Options</h2>
+                        <div id="accordion">    
+                            @*Ideal*@
+                            <div class="card">
+                                <input type="radio" name="paymentMethod" value="Ideal" id="idealRadio" data-toggle="collapse" data-target="#collapseIdeal" />
+                                <label for="idealRadio" class="card-header payment-option" id="headingIdeal" style="cursor:pointer;">
+                                    <img src="/Images/Ideal.png" alt="Ideal Icon" class="img-fluid" /> Ideal
+                                </label>
+                                <div id="collapseIdeal" class="collapse payment-details" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <select class="form-control">
+                                            <option>Select Bank</option>
+                                            <option>Rabobank</option>
+                                            <option>Bank 2</option>
+                                            <option>Bank 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                                @*Paypal*@
+                            <div class="card">
+                                <input type="radio" name="paymentMethod" value="Paypal" id="PaypalRadio" data-toggle="collapse" data-target="#collapsePaypal" />
+                                <label for="PaypalRadio" class="card-header payment-option" id="headingPaypal" style="cursor:pointer;">
+                                    <img src="/Images/Paypal.png" alt="Paypal Icon" class="img-fluid" /> Paypal
+                                </label>
+                                <div id="collapsePaypal" class="collapse payment-details" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <input type="radio" name="PaypalRadioButton" value="CreditCard" /> Select here for paypal payment.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            @*Creditcard*@
+                            <div class="card">
+                                <input type="radio" name="paymentMethod" value="Creditcard" id="CreditcardRadio" data-toggle="collapse" data-target="#collapseCreditCard" />
+                                <label for="CreditcardRadio" class="card-header payment-option" id="headingCreditCard" style="cursor:pointer;">
+                                    <img src="/Images/CreditCard.png" alt="Credit Card Icon" class="img-fluid" /> Credit Card
+                                </label>
+                                <div id="collapseCreditCard" class="collapse payment-details" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <input type="text" class="form-control" placeholder="Card Number" />
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <input type="text" class="form-control" placeholder="Expiration Date" />
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <input type="text" class="form-control" placeholder="CVV" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 right-side d-flex flex-column min-vh-100">
+                        <h2>Order Summary</h2>
+                        <div id="order-summary">
+                            <ul class="list-group">
+                            @foreach (var game in Model.Cart.GamesInCart)
+                            {
+                                var spotlightImages = game.Images.Where(image => image.ImageType == "Spotlight");
+                                foreach (var image in spotlightImages)
+                                {
+                                 <div class="d-flex align-items-center">
+                                    <img src="@image.ImageURL" alt="Image" class="img-fluid game-image">
+                                    <span class="ml-3">@game.Title</span>
+                                </div>
+                                }
+                            }
+                            </ul>
+                            <div class="discount-code my-3">
+                                <input type="text" class="form-control" id="discount-code" placeholder="Enter discount code">
+                                <button type="submit" class="btn btn-primary mt-2">Apply</button>
+                            </div>
+                            <div class="total-price">
+                                <s id="original-price" class="mr-2">@Model.Cart.Subtotal.ToString("C")</s>
+                                <span id="discounted-price" class="font-weight-bold">@Model.Cart.Subtotal.ToString("C")</span>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </body>
+</html>

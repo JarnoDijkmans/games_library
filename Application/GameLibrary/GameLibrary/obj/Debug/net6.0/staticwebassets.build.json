@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dUEWJx0oI/dtpn0yXrPoBStHZnFEtPwWPJun+7HMmhM=",
+  "Hash": "mfrP1VO9DH4vNS6t/l2rHJ3bsy6nlpbNP6uPOCptux4=",
   "Source": "WebApp",
   "BasePath": "_content/WebApp",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\WebApp.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\css\\Checkout.css",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "css/Checkout.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Checkout.css"
     },
     {
       "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\css\\Detail.css",
@@ -236,6 +253,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Ark_Thumbnail.png"
+    },
+    {
+      "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CreditCard.png",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "Images/CreditCard.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\CreditCard.png"
     },
     {
       "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Detail0.png",
@@ -578,6 +612,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\GTA_Thumbnail.png"
     },
     {
+      "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\Ideal.png",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "Images/Ideal.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Ideal.png"
+    },
+    {
       "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\ImageExample_1.png",
       "SourceId": "WebApp",
       "SourceType": "Discovered",
@@ -850,6 +901,40 @@
       "OriginalItemSpec": "wwwroot\\Images\\NFS_Thumbnail.png"
     },
     {
+      "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\Paypal.png",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "Images/Paypal.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Paypal.png"
+    },
+    {
+      "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\Rabobank.png",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "Images/Rabobank.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Rabobank.png"
+    },
+    {
       "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Detail0.png",
       "SourceId": "WebApp",
       "SourceType": "Discovered",
@@ -967,6 +1052,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\StarWars_FallenOrder_Thumbnail.png"
+    },
+    {
+      "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\js\\Checkout.js",
+      "SourceId": "WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\",
+      "BasePath": "_content/WebApp",
+      "RelativePath": "js/Checkout.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Checkout.js"
     },
     {
       "Identity": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\js\\detail.js",

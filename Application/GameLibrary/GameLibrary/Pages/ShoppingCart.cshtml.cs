@@ -238,7 +238,7 @@ namespace WebApp.Pages
                 Cart.DiscountCode = discountCode;
             }
         }
-        public IActionResult OnPost(List<int> gameIds, User loggedInUser)
+        public IActionResult OnPost(List<int> gameIds)
         {
             int? userId = HttpContext.Session.GetInt32("UserId");
 
@@ -256,7 +256,6 @@ namespace WebApp.Pages
                 decimal totalPrice = Cart.Subtotal;
 
                 HttpContext.Session.SetString("TotalPrice", totalPrice.ToString());
-
                 string serializedCartData = JsonSerializer.Serialize(gameIds);
                 HttpContext.Session.SetString(cartDataKey, serializedCartData);
             }

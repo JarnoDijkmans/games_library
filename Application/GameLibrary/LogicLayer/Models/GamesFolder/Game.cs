@@ -46,9 +46,9 @@ namespace LogicLayer.Models.GamesFolder
             }
             if (string.IsNullOrWhiteSpace(publisher)) throw new ArgumentException($"{nameof(publisher)} may not be empty");
             if (string.IsNullOrWhiteSpace(trailer)) throw new ArgumentException($"{nameof(trailer)} may not be empty");
-            //if (!images.All(image => image.ImageURL.StartsWith("/Images/") && image.ImageURL.EndsWith(".png")))
+            //if (!images.All(image => image.ImageURL.StartsWith("\\Images\\") && image.ImageURL.EndsWith(".png")))
             //{
-            //    throw new ArgumentException("All images must start with '/Images/' and end with '.png'");
+                //throw new ArgumentException("All images must start with '\\Images\\' and end with '.png'");
             //}
 
             this.GameId = gameId;

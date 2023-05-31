@@ -63,25 +63,25 @@ namespace LogicLayer
             {
                 throw new ValidationException("Please enter a CoverArt Image");
             }
-            if (!coverart.Contains("/Images/") || !coverart.Contains(".png"))
+            if (!coverart.Contains("\\Images\\") || !coverart.Contains(".png"))
             {
-                throw new ValidationException("'/Images/' and '.png' should be included.");
+                throw new ValidationException("'\\Images\\' and '.png' should be included.");
             }
             if (string.IsNullOrEmpty(spotlight))
             {
                 throw new ValidationException("Please enter a spotlight Image");
             }
-            if (!spotlight.Contains("/Images/") || !spotlight.Contains(".png"))
+            if (!spotlight.Contains("\\Images\\") || !spotlight.Contains(".png"))
             {
-                throw new ValidationException("'/Images/' and '.png' should be included.");
+                throw new ValidationException("'\\Images\\' and '.png' should be included.");
             }
             if (string.IsNullOrEmpty(thumbnail))
             {
                 throw new ValidationException("Please enter a thumbnail Image");
             }
-            if (!thumbnail.Contains("/Images/") || !thumbnail.Contains(".png"))
+            if (!thumbnail.Contains("\\Images\\") || !thumbnail.Contains(".png"))
             {
-                throw new ValidationException("'/Images/' and '.png' should be included.");
+                throw new ValidationException("'\\Images\\' and '.png' should be included.");
             }
             return true;
         }
@@ -92,9 +92,9 @@ namespace LogicLayer
             {
                 throw new ValidationException("Please enter a detail Image");
             }
-            if (!detail.Contains("/Images/") || !detail.Contains(".png"))
+            if (!detail.Contains("\\Images\\") || !detail.Contains(".png"))
             {
-                throw new ValidationException("'/Images/' and '.png' should be included.");
+                throw new ValidationException("'\\Images\\' and '.png' should be included.");
             }
             return true;
         }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            Btn_Back = new Button();
             groupBox6 = new GroupBox();
             label20 = new Label();
             txt_recommended_Logins = new TextBox();
@@ -65,6 +66,9 @@
             label19 = new Label();
             btn_Modify = new Button();
             groupBox4 = new GroupBox();
+            btn_selectImage_thumbnail = new Button();
+            btn_selectImage_Spotlight = new Button();
+            btn_SelectImage = new Button();
             btn_Remove = new Button();
             btn_Add_Detail_Image = new Button();
             lv_ImageDetails = new ListView();
@@ -104,7 +108,6 @@
             txt_price = new TextBox();
             label1 = new Label();
             txt_Title = new TextBox();
-            Btn_Back = new Button();
             panel1.SuspendLayout();
             groupBox6.SuspendLayout();
             groupBox5.SuspendLayout();
@@ -129,6 +132,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1457, 862);
             panel1.TabIndex = 0;
+            // 
+            // Btn_Back
+            // 
+            Btn_Back.BackColor = Color.Black;
+            Btn_Back.ForeColor = Color.White;
+            Btn_Back.Location = new Point(1334, 20);
+            Btn_Back.Name = "Btn_Back";
+            Btn_Back.Size = new Size(94, 26);
+            Btn_Back.TabIndex = 27;
+            Btn_Back.Text = "Back";
+            Btn_Back.UseVisualStyleBackColor = false;
+            Btn_Back.Click += Btn_Back_Click;
             // 
             // groupBox6
             // 
@@ -510,6 +525,9 @@
             // 
             groupBox4.Anchor = AnchorStyles.None;
             groupBox4.BackColor = Color.Black;
+            groupBox4.Controls.Add(btn_selectImage_thumbnail);
+            groupBox4.Controls.Add(btn_selectImage_Spotlight);
+            groupBox4.Controls.Add(btn_SelectImage);
             groupBox4.Controls.Add(btn_Remove);
             groupBox4.Controls.Add(btn_Add_Detail_Image);
             groupBox4.Controls.Add(lv_ImageDetails);
@@ -528,6 +546,48 @@
             groupBox4.TabIndex = 17;
             groupBox4.TabStop = false;
             groupBox4.Text = "Game Genres";
+            // 
+            // btn_selectImage_thumbnail
+            // 
+            btn_selectImage_thumbnail.Anchor = AnchorStyles.None;
+            btn_selectImage_thumbnail.BackColor = Color.FromArgb(64, 64, 64);
+            btn_selectImage_thumbnail.ForeColor = Color.Yellow;
+            btn_selectImage_thumbnail.Location = new Point(270, 186);
+            btn_selectImage_thumbnail.Margin = new Padding(3, 2, 3, 2);
+            btn_selectImage_thumbnail.Name = "btn_selectImage_thumbnail";
+            btn_selectImage_thumbnail.Size = new Size(112, 27);
+            btn_selectImage_thumbnail.TabIndex = 27;
+            btn_selectImage_thumbnail.Text = "Select Image";
+            btn_selectImage_thumbnail.UseVisualStyleBackColor = false;
+            btn_selectImage_thumbnail.Click += btn_selectImage_thumbnail_Click;
+            // 
+            // btn_selectImage_Spotlight
+            // 
+            btn_selectImage_Spotlight.Anchor = AnchorStyles.None;
+            btn_selectImage_Spotlight.BackColor = Color.FromArgb(64, 64, 64);
+            btn_selectImage_Spotlight.ForeColor = Color.Yellow;
+            btn_selectImage_Spotlight.Location = new Point(270, 120);
+            btn_selectImage_Spotlight.Margin = new Padding(3, 2, 3, 2);
+            btn_selectImage_Spotlight.Name = "btn_selectImage_Spotlight";
+            btn_selectImage_Spotlight.Size = new Size(112, 27);
+            btn_selectImage_Spotlight.TabIndex = 26;
+            btn_selectImage_Spotlight.Text = "Select Image";
+            btn_selectImage_Spotlight.UseVisualStyleBackColor = false;
+            btn_selectImage_Spotlight.Click += btn_selectImage_Spotlight_Click;
+            // 
+            // btn_SelectImage
+            // 
+            btn_SelectImage.Anchor = AnchorStyles.None;
+            btn_SelectImage.BackColor = Color.FromArgb(64, 64, 64);
+            btn_SelectImage.ForeColor = Color.Yellow;
+            btn_SelectImage.Location = new Point(270, 62);
+            btn_SelectImage.Margin = new Padding(3, 2, 3, 2);
+            btn_SelectImage.Name = "btn_SelectImage";
+            btn_SelectImage.Size = new Size(112, 27);
+            btn_SelectImage.TabIndex = 25;
+            btn_SelectImage.Text = "Select Image";
+            btn_SelectImage.UseVisualStyleBackColor = false;
+            btn_SelectImage.Click += btn_SelectImage_Click;
             // 
             // btn_Remove
             // 
@@ -581,7 +641,7 @@
             txt_thumbnail.ForeColor = Color.White;
             txt_thumbnail.Location = new Point(24, 186);
             txt_thumbnail.Name = "txt_thumbnail";
-            txt_thumbnail.Size = new Size(358, 27);
+            txt_thumbnail.Size = new Size(253, 27);
             txt_thumbnail.TabIndex = 19;
             // 
             // txt_spotlight
@@ -590,7 +650,7 @@
             txt_spotlight.ForeColor = Color.White;
             txt_spotlight.Location = new Point(24, 120);
             txt_spotlight.Name = "txt_spotlight";
-            txt_spotlight.Size = new Size(358, 27);
+            txt_spotlight.Size = new Size(253, 27);
             txt_spotlight.TabIndex = 15;
             // 
             // txt_CoverArt
@@ -599,7 +659,7 @@
             txt_CoverArt.ForeColor = Color.White;
             txt_CoverArt.Location = new Point(24, 62);
             txt_CoverArt.Name = "txt_CoverArt";
-            txt_CoverArt.Size = new Size(358, 27);
+            txt_CoverArt.Size = new Size(253, 27);
             txt_CoverArt.TabIndex = 14;
             // 
             // label16
@@ -930,18 +990,6 @@
             txt_Title.Size = new Size(254, 27);
             txt_Title.TabIndex = 0;
             // 
-            // Btn_Back
-            // 
-            Btn_Back.BackColor = Color.Black;
-            Btn_Back.ForeColor = Color.White;
-            Btn_Back.Location = new Point(1334, 20);
-            Btn_Back.Name = "Btn_Back";
-            Btn_Back.Size = new Size(94, 26);
-            Btn_Back.TabIndex = 27;
-            Btn_Back.Text = "Back";
-            Btn_Back.UseVisualStyleBackColor = false;
-            Btn_Back.Click += Btn_Back_Click;
-            // 
             // GameEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1047,5 +1095,8 @@
         private TextBox txt_Minimum_Processor;
         private TextBox txt_Minimum_OS;
         private Button Btn_Back;
+        private Button btn_selectImage_thumbnail;
+        private Button btn_selectImage_Spotlight;
+        private Button btn_SelectImage;
     }
 }

@@ -4,10 +4,12 @@ using LogicLayer.Models.Discount;
 using LogicLayer.Models.GamesFolder;
 using LogicLayer.Models.UserFolder;
 using LogicLayer.Services;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -23,6 +25,7 @@ namespace Forms
         private Game gameToEdit;
         private User loggedInUser;
         GameService gameService = GameFactory.gameservice;
+        IConfiguration Configuration;
         Result result;
         public GameEditForm(Game game, User user)
         {
@@ -33,6 +36,10 @@ namespace Forms
             populateGenreCombobox();
             populateFeaturesCombobox();
             result = new Result("");
+            this.Configuration = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+               .Build();
         }
 
 
@@ -204,7 +211,7 @@ namespace Forms
         }
 
         private void btn_Modify_Click(object sender, EventArgs e)
-        {   
+        {
             try
             {
                 if (result != null)
@@ -217,7 +224,7 @@ namespace Forms
                     string releaseDate = txt_releasedate.Text;
                     string publisher = txt_publisher.Text;
                     string trailer = txt_Trailerurl.Text;
-                    
+
                     UpdateGameImages();
                     UpdateSpecifications();
                     UpdateGenre();
@@ -442,12 +449,69 @@ namespace Forms
             }
         }
 
+        private string SelectImage()
+        {
+            using (var openFileDialog = new OpenFileDialog())
+            {
+                string imagePath = Configuration["ImagePath"];
+
+                openFileDialog.InitialDirectory = Path.Combine(imagePath, "Images");
+                openFileDialog.Filter = "Image Files (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif";
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string fullPath = openFileDialog.FileName;
+                    if (fullPath.StartsWith(imagePath))
+                    {
+                        string relativePath = fullPath.Substring(imagePath.Length);
+
+                        if (!relativePath.StartsWith("\\"))
+                        {
+                            relativePath = "\\" + relativePath;
+                        }
+
+                        return relativePath;
+                    }
+                }
+            }
+
+            return string.Empty;
+        }
+
         private void Btn_Back_Click(object sender, EventArgs e)
         {
             Index index = new Index(loggedInUser);
             this.Hide();
             index.Show();
 
+        }
+
+        private void btn_SelectImage_Click(object sender, EventArgs e)
+        {
+            string imagePath = SelectImage();
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                txt_CoverArt.Text = imagePath;
+            }
+        }
+
+        private void btn_selectImage_Spotlight_Click(object sender, EventArgs e)
+        {
+            string imagePath = SelectImage();
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                txt_spotlight.Text = imagePath;
+            }
+        }
+
+        private void btn_selectImage_thumbnail_Click(object sender, EventArgs e)
+        {
+            string imagePath = SelectImage();
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                txt_thumbnail.Text = imagePath;
+            }
         }
     }
 }
