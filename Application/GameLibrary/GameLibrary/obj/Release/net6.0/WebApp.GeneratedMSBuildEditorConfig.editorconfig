@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Shared/_LayoutCheckout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRDaGVja291dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Shared/_layoutDetail.cshtml]

@@ -243,7 +243,7 @@ namespace WebApp.Pages
             int? userId = HttpContext.Session.GetInt32("UserId");
 
             if (userId.HasValue)
-            {
+            {        
                 string cartDataKey = $"CartData_{userId}";
 
                 string existingCartData = HttpContext.Session.GetString(cartDataKey);

@@ -52,3 +52,13 @@ C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\ne
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\net6.0-windows\Forms.AddGame.resources
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\net6.0-windows\Forms.GameEditForm.resources
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\obj\Debug\net6.0-windows\Forms.DetailImageForm.resources
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\net6.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\Forms\bin\Debug\net6.0-windows\appsettings.json

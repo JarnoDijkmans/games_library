@@ -3,6 +3,8 @@ using LogicLayer;
 using LogicLayer.Models.GamesFolder;
 using LogicLayer.Models.UserFolder;
 using LogicLayer.Services;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json.Bson;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +15,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.AspNetCore.Hosting;
 using static System.Net.Mime.MediaTypeNames;
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
 
 namespace Forms
 {
     public partial class AddGame : Form
     {
-
+        private IConfiguration Configuration { get; }
         GameService gameService = GameFactory.gameservice;
         Result result;
         private User loggedInUser;
@@ -31,8 +36,11 @@ namespace Forms
             populateFeaturesCombobox();
             this.loggedInUser = user;
             result = new Result("");
+            this.Configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .Build();
         }
-
 
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -280,6 +288,34 @@ namespace Forms
                 Feature newFeature = new Feature(genreId, CB_Feature3.Text);
                 features.Add(newFeature);
             }
+        }
+
+        private void btn_SelectImage_Click(object sender, EventArgs e)
+        {
+            string imagePath = SelectImage();
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                txt_CoverArt.Text = imagePath;
+            }
+        }
+
+        private string SelectImage()
+        {
+            using (var openFileDialog = new OpenFileDialog())
+            {
+                string imagePath = Configuration["ImagePath"];
+
+                openFileDialog.InitialDirectory = imagePath;
+                openFileDialog.Filter = "Image Files (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif";
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    return openFileDialog.FileName;
+                }
+            }
+
+            return string.Empty;
         }
     }
 }

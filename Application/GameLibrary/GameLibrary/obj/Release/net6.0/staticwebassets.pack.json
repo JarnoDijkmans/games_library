@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets\\WebApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\Ark_CoverArt.png",
+      "PackagePath": "staticwebassets\\Images\\Ark_CoverArt.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\Ark_Detail0.png",
+      "PackagePath": "staticwebassets\\Images\\Ark_Detail0.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\Ark_Detail1.png",
+      "PackagePath": "staticwebassets\\Images\\Ark_Detail1.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\Ark_Detail2.png",
+      "PackagePath": "staticwebassets\\Images\\Ark_Detail2.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\Ark_Spotlight.png",
+      "PackagePath": "staticwebassets\\Images\\Ark_Spotlight.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\Ark_Thumbnail.png",
+      "PackagePath": "staticwebassets\\Images\\Ark_Thumbnail.png"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\CyberPunk_Detail0.png",
       "PackagePath": "staticwebassets\\Images\\CyberPunk_Detail0.png"
     },
@@ -117,6 +141,34 @@
       "PackagePath": "staticwebassets\\Images\\LeagueOfLegends_Tumbnail.png"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\NFS_CoverArt.png",
+      "PackagePath": "staticwebassets\\Images\\NFS_CoverArt.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\NFS_Detail0.png",
+      "PackagePath": "staticwebassets\\Images\\NFS_Detail0.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\NFS_Detail1.png",
+      "PackagePath": "staticwebassets\\Images\\NFS_Detail1.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\NFS_Detail2.png",
+      "PackagePath": "staticwebassets\\Images\\NFS_Detail2.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\NFS_Detail3.png",
+      "PackagePath": "staticwebassets\\Images\\NFS_Detail3.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\NFS_Spotlight.png",
+      "PackagePath": "staticwebassets\\Images\\NFS_Spotlight.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\NFS_Thumbnail.png",
+      "PackagePath": "staticwebassets\\Images\\NFS_Thumbnail.png"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Detail0.png",
       "PackagePath": "staticwebassets\\Images\\StarWars_FallenOrder_Detail0.png"
     },
@@ -169,16 +221,20 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\js\\Index.js",
+      "PackagePath": "staticwebassets\\js\\Index.js"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\js\\ShoppingCart.js",
+      "PackagePath": "staticwebassets\\js\\ShoppingCart.js"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\js\\Trailer.js",
+      "PackagePath": "staticwebassets\\js\\Trailer.js"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\js\\detail.js",
       "PackagePath": "staticwebassets\\js\\detail.js"
-    },
-    {
-      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\js\\index.js",
-      "PackagePath": "staticwebassets\\js\\index.js"
-    },
-    {
-      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\lib\\bootstrap\\LICENSE",
