@@ -26,3 +26,23 @@
     width: 70px; 
     height: auto;
 }
+
+.list-group {
+    margin-bottom: 10px;
+}
+
+.align-items-center {
+    margin-bottom: 10px !important;
+}
+
+.GamePrice{
+    text-align:right;
+}
+
+.d-flex.align-items-center {
+    justify-content: space-between;
+}
+
+h2 {
+    margin-top: 20px;
+}

@@ -80,8 +80,13 @@
                                 foreach (var image in spotlightImages)
                                 {
                                  <div class="d-flex align-items-center">
-                                    <img src="@image.ImageURL" alt="Image" class="img-fluid game-image">
-                                    <span class="ml-3">@game.Title</span>
+                                    <div>  
+                                        <img src="@image.ImageURL" alt="Image" class="img-fluid game-image">
+                                        <span class="ml-3">@game.Title</span>
+                                     </div>
+                                    <div class="GamePrice">
+                                        <span id="price" class="font-weight-bold">@game.Price.ToString("C")</span>
+                                    </div>
                                 </div>
                                 }
                             }

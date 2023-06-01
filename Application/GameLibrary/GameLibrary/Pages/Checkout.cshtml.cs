@@ -37,7 +37,7 @@ namespace WebApp.Pages
                 {
                     gameIds = new List<int>();
                 }
-
+                
                 string totalPriceData = HttpContext.Session.GetString("TotalPrice");
                 if (!string.IsNullOrEmpty(totalPriceData))
                 {
