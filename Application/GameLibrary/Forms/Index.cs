@@ -77,5 +77,12 @@ namespace Forms
             this.Hide();
             addGame.Show();
         }
+
+        private void btn_See_payments_Click(object sender, EventArgs e)
+        {
+            PaymentForms payForms = new PaymentForms(loggedInUser);
+            this.Hide();
+            payForms.Show();
+        }
     }
 }

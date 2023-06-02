@@ -1,3 +1,7 @@
+using DataLayer.DAL;
+using LogicLayer.Interfaces;
+using LogicLayer.Models.CheckoutRelated;
+using LogicLayer.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Session;
 
@@ -15,6 +19,11 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+builder.Services.AddScoped<IDiscountDAL, DiscountDAL>();
+builder.Services.AddScoped<IDiscountFactory, DiscountFactory>();
+builder.Services.AddScoped<CheckoutService>();
+
 
 var app = builder.Build();
 

@@ -1,6 +1,5 @@
 ﻿using Factory;
 using LogicLayer;
-using LogicLayer.Models.Discount;
 using LogicLayer.Models.GamesFolder;
 using LogicLayer.Models.UserFolder;
 using LogicLayer.Services;

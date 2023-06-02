@@ -1,6 +1,4 @@
 ﻿using DataLayer.DAL;
-using LogicLayer.Interfaces;
-using LogicLayer.Models.Discount;
 using LogicLayer.Services;
 using System;
 using System.Collections.Generic;
@@ -10,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace Factory
 {
-    public class CheckoutFactory
+    public static class CheckoutFactory
     {
-        public static CheckoutService checkout { get; } =
+        public static CheckoutService checkoutservice { get; } =
             new CheckoutService(new CheckoutDAL());
-
-        
     }
 }

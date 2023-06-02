@@ -1,8 +1,7 @@
 ﻿using DataLayer.Connection;
 using DataLayer.Converting;
 using DataLayer.Converting.GamesDataConvert;
-using LogicLayer.Models.Discount;
-using LogicLayer.Models.GamesFolder;
+using LogicLayer.Models.CheckoutRelated;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.DAL
 {
-    public class CheckoutDAL : Datahandler, IDiscountDAL
+    public class CheckoutDAL : Datahandler, ICheckoutDAL
     {
         protected override string cmd
         {
@@ -21,19 +20,40 @@ namespace DataLayer.DAL
                 return "Select * FROM DiscountCodes";
             }
         }
-        public List<Discount> RetrieveData()
+        public List<CheckoutInfo> RetrieveData()
         {
-            List<Discount> discounts = new List<Discount>();
+            List<CheckoutInfo> Payments = new List<CheckoutInfo>();
 
             DataTable dt = base.ReadDataQuery(cmd);
 
             foreach (DataRow dr in dt.Rows)
             {
-                Discount discount = DataConvertDiscounts.ConvertDataRowToDiscount(dr);
-                discounts.Add(discount);
+                CheckoutInfo Payment = DataConvertPayments.ConvertDataRowToPayment(dr);
+                Payments.Add(Payment);
 
             }
-            return discounts;
+            return Payments;
+        }
+
+        public List <CheckoutInfo> GetPaymentInfoByUserID(int id)
+        {
+            string query = $@"SELECT P.*, G.* FROM Purchase P INNER JOIN PurchaseGame PG ON P.PurchaseID = PG.PurchaseID INNER JOIN Game G ON PG.GameID = G.GameID WHERE P.UserID = {id};";
+            
+            List<CheckoutInfo> Payments = new List<CheckoutInfo>();
+            
+            DataTable dt = ReadDataQuery(query);
+            
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    CheckoutInfo Payment = DataConvertPayments.ConvertDataRowToPayment(dr);
+                    Payments.Add(Payment);
+
+                }
+                return Payments;
+            }
+            else { return null; }
         }
     }
 }

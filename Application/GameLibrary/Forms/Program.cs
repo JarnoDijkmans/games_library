@@ -1,3 +1,12 @@
+using DataLayer.DAL;
+using LogicLayer.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace Forms
 {
     internal static class Program

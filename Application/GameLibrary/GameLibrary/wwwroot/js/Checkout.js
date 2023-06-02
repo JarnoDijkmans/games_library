@@ -1,14 +1,23 @@
 ﻿$(document).ready(function () {
-    $('.payment-option').click(function () {
-        var method = $(this).data('method');
-
-        $('.payment-details').hide();
-
-        $('.payment-details[data-method=' + method + ']').show();
-
-        $('input[type=radio][name=paymentMethod]').prop('checked
-        $('input[type=radio][name=paymentMethod]').prop('checked', false);
-
-        $('input[type=radio][name=paymentMethod][value=' + method + ']').prop('checked', true);
+    $('#removeDiscountCode').click(function () {
+        $('input[name=action]').val('remove');
+        $('#discountForm').submit();
     });
-});
+
+    function getSelectedPaymentType() {
+        if (document.getElementById('idealRadio').checked) {
+            return 'Ideal';
+        } else if (document.getElementById('PaypalRadio').checked) {
+            return 'Paypal';
+        } else if (document.getElementById('CreditcardRadio').checked) {
+            return 'Creditcard';
+        } else {
+            return '';
+        }
+    }
+
+    document.getElementById('paymentForm').addEventListener('submit', function (e) {
+        var selectedPaymentType = getSelectedPaymentType();
+        document.querySelector('input[name="checkoutInfo.PaymentType"]').value = selectedPaymentType;
+    });
+}); 

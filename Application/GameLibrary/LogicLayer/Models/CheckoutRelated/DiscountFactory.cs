@@ -1,29 +1,16 @@
 ﻿using LogicLayer.Interfaces;
+using LogicLayer.Models.CheckoutRelated;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicLayer.Models.Discount
+namespace LogicLayer.Models.CheckoutRelated
 {
-    public class Discount
+    public class DiscountFactory : IDiscountFactory
     {
-        public string Code { get; private set; }
-        public string DiscountType { get; private set; }
-        public int DiscountValue { get; private set; }
-
-        public Discount() { }
-
-        public Discount(string code, string discountType, int discountValue)
-        {
-            Code = code;
-            DiscountType = discountType;
-            DiscountValue = discountValue;
-        }
-
-
-        public static IDiscount GetDiscount(string type, decimal value)
+        public IDiscount GetDiscount(string type, decimal value)
         {
             IDiscount discount;
             if (type == "Percentage")
@@ -42,7 +29,7 @@ namespace LogicLayer.Models.Discount
             {
                 throw new Exception($"Unrecognized discount type: {type}");
             }
-            return discount; ;
+            return discount;
         }
     }
 }

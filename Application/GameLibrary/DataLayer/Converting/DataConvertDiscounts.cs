@@ -1,5 +1,5 @@
 ﻿using LogicLayer.Models;
-using LogicLayer.Models.Discount;
+using LogicLayer.Models.CheckoutRelated;
 using System;
 using System.Collections.Generic;
 using System.Data;

@@ -28,8 +28,9 @@
                                         <select class="form-control">
                                             <option>Select Bank</option>
                                             <option>Rabobank</option>
-                                            <option>Bank 2</option>
-                                            <option>Bank 3</option>
+                                            <option>ING</option>
+                                            <option>RegioBank</option>
+                                            <option>ABN Amro</option>
                                         </select>
                                     </div>
                                 </div>
@@ -42,7 +43,7 @@
                                 </label>
                                 <div id="collapsePaypal" class="collapse payment-details" data-parent="#accordion">
                                     <div class="card-body">
-                                        <input type="radio" name="PaypalRadioButton" value="CreditCard" /> Select here for paypal payment.
+                                        Paypal Selected.
                                     </div>
                                 </div>
                             </div>
@@ -71,33 +72,68 @@
                         </div>
                     </div>
                     <div class="col-sm-5 right-side d-flex flex-column min-vh-100">
-                        <h2>Order Summary</h2>
-                        <div id="order-summary">
-                            <ul class="list-group">
-                            @foreach (var game in Model.Cart.GamesInCart)
-                            {
-                                var spotlightImages = game.Images.Where(image => image.ImageType == "Spotlight");
-                                foreach (var image in spotlightImages)
-                                {
-                                 <div class="d-flex align-items-center">
-                                    <div>  
-                                        <img src="@image.ImageURL" alt="Image" class="img-fluid game-image">
-                                        <span class="ml-3">@game.Title</span>
-                                     </div>
-                                    <div class="GamePrice">
-                                        <span id="price" class="font-weight-bold">@game.Price.ToString("C")</span>
-                                    </div>
-                                </div>
-                                }
-                            }
-                            </ul>
-                            <div class="discount-code my-3">
-                                <input type="text" class="form-control" id="discount-code" placeholder="Enter discount code">
-                                <button type="submit" class="btn btn-primary mt-2">Apply</button>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h2>Order Summary</h2>
+                                <a href="/shoppingcart" class="text-decoration-none">
+                                    <i class="fas fa-times-circle text-danger fa-2x"></i>
+                                </a>
                             </div>
+                        
+                        <div id="order-summary">
+                                <ul class="list-group">
+                                    @foreach (var game in Model.Cart.GamesInCart)
+                                    {
+                                        var spotlightImages = game.Images.Where(image => image.ImageType == "Spotlight");
+                                        foreach (var image in spotlightImages)
+                                        {
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <img src="@image.ImageURL" alt="Image" class="img-fluid game-image">
+                                                    <span class="ml-3">@game.Title</span>
+                                                </div>
+                                                <div class="GamePrice">
+                                                    <span id="price" class="font-weight-bold">@game.Price.ToString("C")</span>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </ul>
+                            <form id="discountForm" method="post" asp-page-handler="ApplyDiscount">
+                                <input class="input-text" type="text" name="discountCode" placeholder="Enter discount code" />
+                                <button class="button" type="submit" name="action" value="apply">Apply Discount</button>
+                                @if (!string.IsNullOrEmpty(Model.Cart.DiscountCode))
+                                {
+                                    <p id="removeDiscountCode" class="remove-discount" style="cursor: pointer; text-decoration: underline;">Remove Discount Code: @Model.Cart.DiscountCode</p>
+                                }
+                            </form>
                             <div class="total-price">
-                                <s id="original-price" class="mr-2">@Model.Cart.Subtotal.ToString("C")</s>
-                                <span id="discounted-price" class="font-weight-bold">@Model.Cart.Subtotal.ToString("C")</span>
+                                        @{
+                                            decimal totalPrice = 0;
+
+                                            foreach (var game in @Model.Cart.GamesInCart)
+                                            {
+                                                totalPrice += game.Price;
+                                            }
+                                        }
+
+                                @if (totalPrice > Model.Cart.Subtotal)
+                                {
+                                    <div id="original-price" class="mr-2">
+                                        <span>Price:</span>
+                                        <span>@totalPrice.ToString("C")</span>
+                                    </div>
+                                }
+
+                                <div id="discounted-price" class="font-weight-bold">
+                                    <span>Price after Discount:</span>
+                                    <span>@Model.Cart.Subtotal.ToString("C")</span>
+                                </div>
+
+                            <form id="paymentForm" method="post" asp-page-handler="ProcessPayment">
+                                <input type="hidden" asp-for="checkoutInfo.PaymentType" name="checkoutInfo.PaymentType" />
+                                <button type="submit" class="btn btn-primary">Pay</button>
+                            </form>
+                                    
                             </div>
                         </div>
                     </div>

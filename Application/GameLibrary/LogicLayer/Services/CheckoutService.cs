@@ -1,6 +1,7 @@
 ﻿using DataLayer.DAL;
 using LogicLayer.Interfaces;
-using LogicLayer.Models.Discount;
+using LogicLayer.Models.CheckoutRelated;
+using LogicLayer.Models.GamesFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,25 +13,36 @@ namespace LogicLayer.Services
     public class CheckoutService
     {
         private IDiscount _discount;
+        private readonly ICheckoutDAL _checkout;
         private readonly IDiscountDAL dal;
+        private readonly IDiscountFactory discountFactory;
 
-        public CheckoutService(IDiscountDAL dal)
+        public CheckoutService(IDiscountDAL dal, IDiscountFactory discountFactory)
         {
             this.dal = dal;
+            this.discountFactory = discountFactory;
         }
 
-        public CheckoutService(IDiscount discount)
+        public CheckoutService(ICheckoutDAL checkout)
         {
-            _discount = discount;
+            this._checkout = checkout;
         }
+
         public void SetDiscount(IDiscount discount)
         {
             _discount = discount;
         }
         public decimal CalculateTotalPrice(decimal basePrice)
         {
-            decimal finalPrice = _discount.ApplyDiscount(basePrice);
-            return finalPrice;
+            if (_discount != null)
+            {
+                decimal finalPrice = _discount.ApplyDiscount(basePrice);
+                return finalPrice;
+            }
+            else
+            {
+                return basePrice;
+            }
         }
 
         public bool ApplyDiscountByCode(string discountCode)
@@ -40,7 +52,7 @@ namespace LogicLayer.Services
 
             if (discount != null)
             {
-                IDiscount disc = Discount.GetDiscount(discount.DiscountType, discount.DiscountValue);
+                IDiscount disc = discountFactory.GetDiscount(discount.DiscountType, discount.DiscountValue);
                 SetDiscount(disc);
                 return true;
             }
@@ -52,16 +64,26 @@ namespace LogicLayer.Services
 
         public void ApplyBirthdayDiscount(string type)
         {
-            IDiscount disc = Discount.GetDiscount(type, 5);
+            IDiscount disc = discountFactory.GetDiscount(type, 5);
 
             SetDiscount(disc);
-            
+
         }
 
         public decimal CalculateTotalPriceBirthDate(decimal baseprice, DateTime birthdate)
         {
             decimal finalPrice = _discount.ApplyBirthdayDiscount(baseprice, birthdate);
             return finalPrice;
+        }
+
+        public bool StoreCheckout(CheckoutInfo info)
+        {
+            return true;
+        }
+
+        public List <CheckoutInfo> GetPaymentById(int id)
+        {
+            return _checkout.GetPaymentInfoByUserID(id);
         }
     }
 }

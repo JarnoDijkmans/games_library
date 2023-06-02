@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ktmhq/q+bxLfPlYaVAXF7qCQYiauiZ+iLpWotikzFvs/ChL9JjwOYKTuutblPnRlAfEfxw6PhZWLniJv7qocEA==",
+  "dgSpecHash": "Tf3Oa3kKjVUdIreqbd07Nv9bJJD/VEpZZ0zrkDoxgJVRF0Pj7/EybgMXrjikYioNyjdCNq3ytLuvkjG2kRU9/g==",
   "success": true,
   "projectFilePath": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\Forms\\Forms.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.configuration.binder\\7.0.4\\microsoft.extensions.configuration.binder.7.0.4.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\7.0.0\\microsoft.extensions.configuration.fileextensions.7.0.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.configuration.json\\7.0.0\\microsoft.extensions.configuration.json.7.0.0.nupkg.sha512",
+    "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\7.0.0\\microsoft.extensions.fileproviders.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\7.0.0\\microsoft.extensions.fileproviders.physical.7.0.0.nupkg.sha512",

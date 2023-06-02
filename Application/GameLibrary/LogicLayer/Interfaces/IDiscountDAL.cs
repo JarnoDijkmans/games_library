@@ -1,4 +1,4 @@
-﻿using LogicLayer.Models.Discount;
+﻿using LogicLayer.Models.CheckoutRelated;
 
 namespace DataLayer.DAL
 {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicLayer.Models.Discount
+namespace LogicLayer.Models.CheckoutRelated
 {
     public class PercentageDiscount : IDiscount
     {
@@ -18,12 +18,12 @@ namespace LogicLayer.Models.Discount
 
         public decimal ApplyDiscount(decimal basePrice)
         {
-            return basePrice - (basePrice * (_percentage / 100));
+            return basePrice - basePrice * (_percentage / 100);
         }
 
         public decimal ApplyBirthdayDiscount(decimal basePrice, DateTime birthdate)
         {
-            return basePrice - (basePrice * (_percentage / 100));
+            return basePrice - basePrice * (_percentage / 100);
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicLayer.Models.Discount
+namespace LogicLayer.Models.CheckoutRelated
 {
     public class FixedAmountDiscount : IDiscount
     {

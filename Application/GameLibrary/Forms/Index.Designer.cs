@@ -42,11 +42,13 @@
             Price = new ColumnHeader();
             Releasedate = new ColumnHeader();
             Publisher = new ColumnHeader();
+            btn_See_payments = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(btn_See_payments);
             panel1.Controls.Add(btn_AddNewGame);
             panel1.Controls.Add(lbl_Welcome);
             panel1.Controls.Add(txt_modify);
@@ -179,6 +181,16 @@
             Publisher.Text = "Publisher";
             Publisher.Width = 140;
             // 
+            // btn_See_payments
+            // 
+            btn_See_payments.Location = new Point(131, 31);
+            btn_See_payments.Name = "btn_See_payments";
+            btn_See_payments.Size = new Size(114, 23);
+            btn_See_payments.TabIndex = 18;
+            btn_See_payments.Text = "See Payments";
+            btn_See_payments.UseVisualStyleBackColor = true;
+            btn_See_payments.Click += btn_See_payments_Click;
+            // 
             // Index
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -210,5 +222,6 @@
         private Label txt_modify;
         private Label lbl_Welcome;
         private Button btn_AddNewGame;
+        private Button btn_See_payments;
     }
 }

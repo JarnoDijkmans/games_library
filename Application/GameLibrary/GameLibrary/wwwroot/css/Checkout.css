@@ -44,5 +44,23 @@
 }
 
 h2 {
-    margin-top: 20px;
+    margin-top: 40px;
 }
+
+.remove-discount {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.input-text {
+    background-color: #2c2c2c;
+    color: white;
+    border-radius: 3px;
+}
+
+.button {
+    background-color: #2c2c2c;
+    color: white;
+    border-radius: 6px;
+}
+

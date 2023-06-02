@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KNJqFeC6O0FEmP0ZJKJ6HoKfOdP0DolFROp+yGl6m9ybKe9L4vsllLbmjq29QxwHx7nkLZ6BmTD+pbiSltd+ng==",
+  "dgSpecHash": "tLygmJCwQxw2qGmUBbe0WAkaEfOdstueoxAgSt7KGzu/6tf75L9vKoLsJ7EkO13cZ33R/UAypWQdU2vAygCJRg==",
   "success": true,
   "projectFilePath": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\LogicLayer\\LogicLayer.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.configuration.binder\\7.0.4\\microsoft.extensions.configuration.binder.7.0.4.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\7.0.0\\microsoft.extensions.configuration.fileextensions.7.0.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.configuration.json\\7.0.0\\microsoft.extensions.configuration.json.7.0.0.nupkg.sha512",
+    "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\7.0.0\\microsoft.extensions.fileproviders.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\jarno\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\7.0.0\\microsoft.extensions.fileproviders.physical.7.0.0.nupkg.sha512",
