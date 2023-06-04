@@ -59,7 +59,7 @@
             lbl_register.AutoSize = true;
             lbl_register.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point);
             lbl_register.ForeColor = Color.White;
-            lbl_register.Location = new Point(472, 549);
+            lbl_register.Location = new Point(475, 556);
             lbl_register.Name = "lbl_register";
             lbl_register.Size = new Size(176, 19);
             lbl_register.TabIndex = 4;
@@ -69,22 +69,27 @@
             // btn_login
             // 
             btn_login.Anchor = AnchorStyles.None;
-            btn_login.Location = new Point(524, 525);
+            btn_login.BackColor = Color.Black;
+            btn_login.ForeColor = Color.Yellow;
+            btn_login.Location = new Point(520, 528);
             btn_login.Margin = new Padding(3, 2, 3, 2);
             btn_login.Name = "btn_login";
-            btn_login.Size = new Size(82, 22);
+            btn_login.Size = new Size(91, 26);
             btn_login.TabIndex = 3;
             btn_login.Text = "Login";
-            btn_login.UseVisualStyleBackColor = true;
+            btn_login.UseVisualStyleBackColor = false;
             btn_login.Click += btn_login_Click;
             // 
             // txt_password
             // 
             txt_password.Anchor = AnchorStyles.None;
+            txt_password.BackColor = Color.Black;
             txt_password.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_password.ForeColor = Color.White;
             txt_password.Location = new Point(434, 495);
             txt_password.Margin = new Padding(3, 2, 3, 2);
             txt_password.Name = "txt_password";
+            txt_password.PasswordChar = '*';
             txt_password.PlaceholderText = "Password";
             txt_password.Size = new Size(268, 29);
             txt_password.TabIndex = 2;
@@ -93,7 +98,9 @@
             // txt_username
             // 
             txt_username.Anchor = AnchorStyles.None;
+            txt_username.BackColor = Color.Black;
             txt_username.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_username.ForeColor = Color.White;
             txt_username.Location = new Point(434, 452);
             txt_username.Margin = new Padding(3, 2, 3, 2);
             txt_username.Name = "txt_username";

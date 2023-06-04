@@ -142,6 +142,8 @@ namespace WebApp.Pages
         }
         public async Task<IActionResult> OnPostProcessPayment()
         {
+            CheckoutService checkoutservice = CheckoutFactory.checkoutservice;
+
             UserId = HttpContext.Session.GetInt32("UserId");
 
             if (UserId.HasValue)
@@ -177,7 +179,7 @@ namespace WebApp.Pages
                 if (checkoutInfo.PaymentType != null)
                 {
                     string paymentType = checkoutInfo.PaymentType.ToString();
-                    CheckoutInfo CheckoutInfo = new CheckoutInfo
+                    CheckoutInfo Checkout = new CheckoutInfo
                     (
                         0,
                         paymentType,
@@ -186,6 +188,8 @@ namespace WebApp.Pages
                         UserId,
                         DateTime.Now
                     );
+
+                    checkoutservice.StorePayment(Checkout);
 
                     return RedirectToPage("/Success");
                 }

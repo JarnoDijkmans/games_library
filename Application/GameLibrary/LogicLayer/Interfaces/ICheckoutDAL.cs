@@ -6,5 +6,6 @@ namespace DataLayer.DAL
     {
         List<CheckoutInfo> RetrieveData();
         public List <CheckoutInfo> GetPaymentInfoByUserID(int id);
+        public bool StorePayment(CheckoutInfo checkoutinfo);
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btn_See_payments = new Button();
             btn_AddNewGame = new Button();
             lbl_Welcome = new Label();
             txt_modify = new Label();
@@ -42,7 +43,6 @@
             Price = new ColumnHeader();
             Releasedate = new ColumnHeader();
             Publisher = new ColumnHeader();
-            btn_See_payments = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -64,15 +64,30 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // btn_See_payments
+            // 
+            btn_See_payments.Anchor = AnchorStyles.None;
+            btn_See_payments.BackColor = Color.Black;
+            btn_See_payments.ForeColor = Color.Yellow;
+            btn_See_payments.Location = new Point(131, 31);
+            btn_See_payments.Name = "btn_See_payments";
+            btn_See_payments.Size = new Size(118, 31);
+            btn_See_payments.TabIndex = 18;
+            btn_See_payments.Text = "See Payments";
+            btn_See_payments.UseVisualStyleBackColor = false;
+            btn_See_payments.Click += btn_See_payments_Click;
+            // 
             // btn_AddNewGame
             // 
             btn_AddNewGame.Anchor = AnchorStyles.None;
-            btn_AddNewGame.Location = new Point(694, 698);
+            btn_AddNewGame.BackColor = Color.Black;
+            btn_AddNewGame.ForeColor = Color.Yellow;
+            btn_AddNewGame.Location = new Point(694, 687);
             btn_AddNewGame.Name = "btn_AddNewGame";
-            btn_AddNewGame.Size = new Size(149, 23);
+            btn_AddNewGame.Size = new Size(149, 34);
             btn_AddNewGame.TabIndex = 17;
             btn_AddNewGame.Text = "Add New Game";
-            btn_AddNewGame.UseVisualStyleBackColor = true;
+            btn_AddNewGame.UseVisualStyleBackColor = false;
             btn_AddNewGame.Click += btn_AddNewGame_Click;
             // 
             // lbl_Welcome
@@ -102,39 +117,47 @@
             // btn_Modify
             // 
             btn_Modify.Anchor = AnchorStyles.None;
+            btn_Modify.BackColor = Color.Black;
+            btn_Modify.ForeColor = Color.Yellow;
             btn_Modify.Location = new Point(1289, 698);
             btn_Modify.Name = "btn_Modify";
             btn_Modify.Size = new Size(75, 23);
             btn_Modify.TabIndex = 14;
             btn_Modify.Text = "Modify";
-            btn_Modify.UseVisualStyleBackColor = true;
+            btn_Modify.UseVisualStyleBackColor = false;
             btn_Modify.Visible = false;
             btn_Modify.Click += btn_Modify_Click;
             // 
             // btn_showall
             // 
             btn_showall.Anchor = AnchorStyles.None;
+            btn_showall.BackColor = Color.Black;
+            btn_showall.ForeColor = Color.Yellow;
             btn_showall.Location = new Point(1256, 87);
             btn_showall.Name = "btn_showall";
             btn_showall.Size = new Size(108, 29);
             btn_showall.TabIndex = 4;
             btn_showall.Text = "Show all";
-            btn_showall.UseVisualStyleBackColor = true;
+            btn_showall.UseVisualStyleBackColor = false;
             btn_showall.Click += btn_showall_Click;
             // 
             // btn_search
             // 
             btn_search.Anchor = AnchorStyles.None;
+            btn_search.BackColor = Color.Black;
+            btn_search.ForeColor = Color.Yellow;
             btn_search.Location = new Point(370, 87);
             btn_search.Name = "btn_search";
             btn_search.Size = new Size(83, 28);
             btn_search.TabIndex = 3;
             btn_search.Text = "Search";
-            btn_search.UseVisualStyleBackColor = true;
+            btn_search.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
             textBox1.Anchor = AnchorStyles.None;
+            textBox1.BackColor = Color.Black;
+            textBox1.ForeColor = Color.White;
             textBox1.Location = new Point(131, 87);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(233, 23);
@@ -180,16 +203,6 @@
             // 
             Publisher.Text = "Publisher";
             Publisher.Width = 140;
-            // 
-            // btn_See_payments
-            // 
-            btn_See_payments.Location = new Point(131, 31);
-            btn_See_payments.Name = "btn_See_payments";
-            btn_See_payments.Size = new Size(114, 23);
-            btn_See_payments.TabIndex = 18;
-            btn_See_payments.Text = "See Payments";
-            btn_See_payments.UseVisualStyleBackColor = true;
-            btn_See_payments.Click += btn_See_payments_Click;
             // 
             // Index
             // 

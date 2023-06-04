@@ -85,5 +85,10 @@ namespace LogicLayer.Services
         {
             return _checkout.GetPaymentInfoByUserID(id);
         }
+
+        public bool StorePayment(CheckoutInfo payment)
+        {
+            return _checkout.StorePayment(payment);
+        }
     }
 }
