@@ -91,5 +91,14 @@ namespace DataLayer.DAL
                 return false;
             }
         }
+
+        public bool HasUserPurchasedGame(int userId, int gameId)
+        {
+            string query = $@"SELECT COUNT(*) FROM Purchase P INNER JOIN PurchaseGame PG ON P.PurchaseID = PG.PurchaseID WHERE P.UserID = {userId} AND PG.GameID = {gameId};";
+
+            int count = (int)executeIdScalar(query);
+
+            return count > 0;
+        }
     }
 }

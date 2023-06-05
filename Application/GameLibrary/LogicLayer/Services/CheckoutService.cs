@@ -88,7 +88,16 @@ namespace LogicLayer.Services
 
         public bool StorePayment(CheckoutInfo payment)
         {
+            GetPaymentById(payment.PaymentID);
             return _checkout.StorePayment(payment);
+        }
+        public bool HasUserPurchasedGame(int userId, int gameId)
+        {
+            if (_checkout.HasUserPurchasedGame(userId, gameId) == true)
+            {
+                return true;
+            }
+            else return false;
         }
     }
 }

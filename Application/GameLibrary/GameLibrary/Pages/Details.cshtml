@@ -61,10 +61,17 @@
             <!-- Carousel Close -->
             <div class="col-lg-3">
                 <div id="PurchaseArea" class="Purchase Area">
-                    <form id="addToCartForm" method="post">
-                        <input type="hidden" name="gameId" value="@Model.Game.GameId" />
-                        <button type="submit" class="btn btn-primary">Add to Cart</button>
-                    </form>
+                    @if ((bool)ViewData["HasPurchased"])
+                    {
+                        <span>Already Purchased</span>
+                    }
+                    else
+                    {
+                        <form id="addToCartForm" method="post">
+                            <input type="hidden" name="gameId" value="@Model.Game.GameId" />
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        </form>
+                    }
                 </div>
             </div>
         </div>

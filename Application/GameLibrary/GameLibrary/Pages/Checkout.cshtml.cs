@@ -191,7 +191,7 @@ namespace WebApp.Pages
 
                     checkoutservice.StorePayment(Checkout);
 
-                    return RedirectToPage("/Success");
+                    return RedirectToPage("/Library");
                 }
                 
             }

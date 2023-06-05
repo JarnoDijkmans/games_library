@@ -66,7 +66,7 @@ namespace Forms
 
                 }
                 else { MessageBox.Show("There are no payments for this particular person"); }
-            }
+            }  
             else
             {
                 listView1.Items.Clear();

@@ -25,20 +25,27 @@ namespace WebApp.Pages
             }
 
             int? userId = HttpContext.Session.GetInt32("UserId");
+            bool hasPurchased = false;
 
             if (userId.HasValue)
             {
                 UserService userService = UserFactory.userservice;
                 var user = userService.GetUserById(userId.Value);
                 ViewData["User"] = user;
+
+
+                CheckoutService checkoutService = CheckoutFactory.checkoutservice;
+                hasPurchased = checkoutService.HasUserPurchasedGame(userId.Value, id);
             }
+
+            ViewData["HasPurchased"] = hasPurchased;
 
             return Page();
         }
 
         public IActionResult OnPost(int gameId)
         {
-            List<int> gameIds = new List<int>();
+             List<int> gameIds = new List<int>();
 
             // Retrieve the existing gameIds from the session if they exist
             if (HttpContext.Session.GetString("CartData") != null)

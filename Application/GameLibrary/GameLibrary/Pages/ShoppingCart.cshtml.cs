@@ -18,25 +18,25 @@ namespace WebApp.Pages
         public void OnGet(int? gameId)
         {
             int? userId = HttpContext.Session.GetInt32("UserId");
+            string cartDataKey;
+            bool hasPurchased = false;
+
+            CheckoutService checkoutService = CheckoutFactory.checkoutservice;
+
 
             if (userId.HasValue)
             {
                 UserService userService = UserFactory.userservice;
                 var user = userService.GetUserById(userId.Value);
                 ViewData["User"] = user;
-            }
-            string cartDataKey;
-
-            if (userId.HasValue)
-            {
                 cartDataKey = $"CartData_{userId}";
+
+                hasPurchased = checkoutService.HasUserPurchasedGame(userId.Value, Convert.ToInt32(gameId));
             }
             else
             {
 
                 string tempId = HttpContext.Request.Cookies["TempId"];
-
-                // If the temporary identifier doesn't exist, create one and store it in a cookie
                 if (string.IsNullOrEmpty(tempId))
                 {
                     tempId = Guid.NewGuid().ToString();
@@ -45,6 +45,8 @@ namespace WebApp.Pages
 
                 cartDataKey = $"CartData_{tempId}";
             }
+            
+            ViewData["HasPurchased"] = hasPurchased;
 
             // Check if there's already cart data for the current user or session
             string existingCartData = HttpContext.Session.GetString(cartDataKey);
@@ -66,6 +68,12 @@ namespace WebApp.Pages
                 gameIds.Add(gameId.Value);
             }
 
+            if (userId.HasValue)
+            {
+                gameIds = gameIds.Where(id => !checkoutService.HasUserPurchasedGame(userId.Value, id)).ToList();
+            }
+
+
             // Serialize and store the updated list
             string serializedCartData = JsonSerializer.Serialize(gameIds);
             HttpContext.Session.SetString(cartDataKey, serializedCartData);
@@ -76,39 +84,6 @@ namespace WebApp.Pages
                 Cart = new CartViewModel();
             }
             Cart.GamesInCart = gameIds.Select(id => gameService.GetGameById(id)).ToList();
-        }
-
-
-        private List<Game> RetrieveCartGames()
-        {
-            int? userId = HttpContext.Session.GetInt32("UserId");
-            string cartDataKey;
-
-            if (userId.HasValue)
-            {
-                cartDataKey = $"CartData_{userId}";
-            }
-            else
-            {
-                string tempId = HttpContext.Request.Cookies["TempId"];
-                if (string.IsNullOrEmpty(tempId))
-                {
-                    tempId = Guid.NewGuid().ToString();
-                    HttpContext.Response.Cookies.Append("TempId", tempId);
-                }
-                cartDataKey = $"CartData_{tempId}";
-            }
-
-            string existingCartData = HttpContext.Session.GetString(cartDataKey);
-            List<int> gameIds = new List<int>();
-
-            if (!string.IsNullOrEmpty(existingCartData))
-            {
-                gameIds = JsonSerializer.Deserialize<List<int>>(existingCartData);
-            }
-
-            GameService gameService = GameFactory.gameservice;
-            return gameIds.Select(id => gameService.GetGameById(id)).ToList();
         }
 
 

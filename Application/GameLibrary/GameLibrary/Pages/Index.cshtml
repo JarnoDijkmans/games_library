@@ -1,4 +1,5 @@
 ﻿@page
+@using LogicLayer.Models.GamesFolder;
 @model IndexModel
 @{
     Layout = "_layoutIndex";
@@ -20,19 +21,17 @@
 
                 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        @foreach (var game in Model.Games.OrderByDescending(g => g.ReleaseDate).Take(3))
+                        @for (var i = 0; i < Model.Games.Take(3).Count(); i++)
                         {
-                            var images = game.Images.Where(image => image.ImageType == "Cover Art");
-                            var index = Model.Games.IndexOf(game);
-                            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="@index" class="@((index == 0) ? "active" : "") "carousel-indicator-btn" aria-current="@((index == 0).ToString().ToLower())" aria-label="Image @(index + 1)"></button>
+                            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="@i" class="@((i == 0) ? "active" : "") carousel-indicator-btn" aria-current="@((i == 0).ToString().ToLower())" aria-label="Image @(i + 1)"></button>
                         }
                     </div>
-                    <div class="carousel-inner" data-bs-wrap="true">
+                    <div class="carousel-inner">
                         @foreach (var game in Model.Games.OrderByDescending(g => g.ReleaseDate).Take(3))
                         {
                             var images = game.Images.Where(image => image.ImageType == "Cover Art");
-                            var index = Model.Games.IndexOf(game);
-                            <div class="carousel-item @(index == 0 ? "active" : "")" data-bs-interval="5000">
+                            var index = Model.Games.ToList().IndexOf(game);
+                            <div class="carousel-item @(index == 0 ? "active" : "")">
                                 @foreach (var image in images)
                                 {
                                     <a href="/Details/@game.GameId">
@@ -42,16 +41,18 @@
                             </div>
                         }
                     </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
 
                     <main>
                         <div class="container">
@@ -73,13 +74,20 @@
                                                     <h5 class="card-title">@game.Title</h5>
                                                 </div>
                                                 <div class="card-footer">
-                                                    @if(game.Price == 0)
+                                                    @if (Model.User != null && ViewData["PurchasedGames"] != null && ((List<Game>)ViewData["PurchasedGames"]).Any(pg => pg.GameId == game.GameId))
                                                     {
-                                                        <small class="text-muted">Free</small>
+                                                        <small class="text-muted">Purchased</small>
                                                     }
                                                     else
                                                     {
-                                                        <small class="text-muted">€@game.Price</small>
+                                                        if (game.Price == 0)
+                                                        {
+                                                            <small class="text-muted">Free</small>
+                                                        }
+                                                        else
+                                                        {
+                                                            <small class="text-muted">€@game.Price</small>
+                                                        }
                                                     }
                                                 </div>
                                             </div>

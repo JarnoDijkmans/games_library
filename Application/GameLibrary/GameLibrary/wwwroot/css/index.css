@@ -12,27 +12,25 @@
     margin-right: 15%;
 }
 
-.carousel-indicators {
-    position: absolute !important;
-    bottom: 40% !important; /* Adjust this value for larger screens */
-    display: flex !important;
-    justify-content: center;
-    margin: 0;
+.carousel .carousel-indicators {
+    bottom: 10px;
 }
 
-.carousel-control-prev, .carousel-control-next {
-    width: 5% !important;
-    position: absolute !important;
-    top: 30% !important;
-    transform: translateY(-55%);
-    height: 400px;
-}
-.carousel-control-prev {
-    left: 100px !important; /* adjust the horizontal position of the previous arrow */
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next {
+    top: 40%;
+    bottom: auto;
 }
 
-.carousel-control-next {
-    right: 100px !important; /* adjust the horizontal position of the next arrow */
+@media (max-width: 768px) {
+    .carousel .carousel-indicators {
+        bottom: 5px;
+    }
+
+    .carousel .carousel-control-prev,
+    .carousel .carousel-control-next {
+        top: 50%;
+    }
 }
 
 .card.card-custom {
@@ -109,12 +107,6 @@
     }
     .card.h-55 {
         height: 200px; 
-    }
-
-    .carousel-control-prev, .carousel-control-next {
-        height: 20px; /* Decrease the height for smaller screens */
-        top: 25% !important;
-        transform: translateY(-50%);
     }
 
     #carouselExampleInterval .carousel-item img {
