@@ -16,7 +16,6 @@ namespace WebApp.Pages
         public IActionResult OnGet(int id)
         {
             GameService gameService = GameFactory.gameservice;
-            // Fetch game data based on the ID, for example:
             Game = gameService.GetGameById(id);
 
             if (Game == null)
@@ -38,6 +37,7 @@ namespace WebApp.Pages
                 hasPurchased = checkoutService.HasUserPurchasedGame(userId.Value, id);
             }
 
+            //User purchased games
             ViewData["HasPurchased"] = hasPurchased;
 
             return Page();

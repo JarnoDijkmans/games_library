@@ -12,11 +12,13 @@
     <title>Checkout</title>
 </head>
     <body>
-        <div class="container">
-            <div class="row">
+        @if (Model.Cart.GamesInCart != null)
+        {
+            <div class="container">
+                <div class="row">
                     <div class="col-sm-7">
                         <h2>Payment Options</h2>
-                        <div id="accordion">    
+                        <div id="accordion">
                             @*Ideal*@
                             <div class="card">
                                 <input type="radio" name="paymentMethod" value="Ideal" id="idealRadio" data-toggle="collapse" data-target="#collapseIdeal" />
@@ -35,7 +37,7 @@
                                     </div>
                                 </div>
                             </div>
-                                @*Paypal*@
+                            @*Paypal*@
                             <div class="card">
                                 <input type="radio" name="paymentMethod" value="Paypal" id="PaypalRadio" data-toggle="collapse" data-target="#collapsePaypal" />
                                 <label for="PaypalRadio" class="card-header payment-option" id="headingPaypal" style="cursor:pointer;">
@@ -72,15 +74,15 @@
                         </div>
                     </div>
                     <div class="col-sm-5 right-side d-flex flex-column min-vh-100">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h2>Order Summary</h2>
-                                <a href="/shoppingcart" class="text-decoration-none">
-                                    <i class="fas fa-times-circle text-danger fa-2x"></i>
-                                </a>
-                            </div>
-                        
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2>Order Summary</h2>
+                            <a href="/shoppingcart" class="text-decoration-none">
+                                <i class="fas fa-times-circle text-danger fa-2x"></i>
+                            </a>
+                        </div>
+
                         <div id="order-summary">
-                                <ul class="list-group">
+                            <ul class="list-group">
                                     @foreach (var game in Model.Cart.GamesInCart)
                                     {
                                         var spotlightImages = game.Images.Where(image => image.ImageType == "Spotlight");
@@ -97,24 +99,28 @@
                                             </div>
                                         }
                                     }
-                                </ul>
+                            </ul>
                             <form id="discountForm" method="post" asp-page-handler="ApplyDiscount">
                                 <input class="input-text" type="text" name="discountCode" placeholder="Enter discount code" />
                                 <button class="button" type="submit" name="action" value="apply">Apply Discount</button>
+                                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                                {
+                                    <div id="errorMessage" class="errorMessage">@Model.ErrorMessage</div>
+                                }
                                 @if (!string.IsNullOrEmpty(Model.Cart.DiscountCode))
                                 {
                                     <p id="removeDiscountCode" class="remove-discount" style="cursor: pointer; text-decoration: underline;">Remove Discount Code: @Model.Cart.DiscountCode</p>
                                 }
                             </form>
                             <div class="total-price">
-                                        @{
-                                            decimal totalPrice = 0;
+                                @{
+                                    decimal totalPrice = 0;
 
-                                            foreach (var game in @Model.Cart.GamesInCart)
-                                            {
-                                                totalPrice += game.Price;
-                                            }
-                                        }
+                                    foreach (var game in @Model.Cart.GamesInCart)
+                                    {
+                                        totalPrice += game.Price;
+                                    }
+                                }
 
                                 @if (totalPrice > Model.Cart.Subtotal)
                                 {
@@ -129,15 +135,17 @@
                                     <span>@Model.Cart.Subtotal.ToString("C")</span>
                                 </div>
 
-                            <form id="paymentForm" method="post" asp-page-handler="ProcessPayment">
-                                <input type="hidden" asp-for="checkoutInfo.PaymentType" name="checkoutInfo.PaymentType" />
-                                <button type="submit" class="btn btn-primary">Pay</button>
-                            </form>
-                                    
+                                <form id="paymentForm" method="post" asp-page-handler="ProcessPayment">
+                                    <input type="hidden" asp-for="checkoutInfo.PaymentType" name="checkoutInfo.PaymentType" />
+                                    <button type="submit" class="btn btn-primary">Pay</button>
+                                    <div id="errorMessage" class="errorMessage">@TempData["ErrorMessage"]</div>
+                                </form>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
-        </div>
+        }
+    
     </body>
 </html>

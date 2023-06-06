@@ -28,202 +28,234 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            btn_See_payments = new Button();
-            btn_AddNewGame = new Button();
-            lbl_Welcome = new Label();
-            txt_modify = new Label();
-            btn_Modify = new Button();
-            btn_showall = new Button();
-            btn_search = new Button();
-            textBox1 = new TextBox();
-            lv_games = new ListView();
-            Id = new ColumnHeader();
-            Title = new ColumnHeader();
-            Price = new ColumnHeader();
-            Releasedate = new ColumnHeader();
-            Publisher = new ColumnHeader();
-            panel1.SuspendLayout();
-            SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_See_payments = new System.Windows.Forms.Button();
+            this.btn_AddNewGame = new System.Windows.Forms.Button();
+            this.lbl_Welcome = new System.Windows.Forms.Label();
+            this.txt_modify = new System.Windows.Forms.Label();
+            this.btn_Modify = new System.Windows.Forms.Button();
+            this.btn_showall = new System.Windows.Forms.Button();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.txt_Search = new System.Windows.Forms.TextBox();
+            this.lv_games = new System.Windows.Forms.ListView();
+            this.Id = new System.Windows.Forms.ColumnHeader();
+            this.Title = new System.Windows.Forms.ColumnHeader();
+            this.Price = new System.Windows.Forms.ColumnHeader();
+            this.Releasedate = new System.Windows.Forms.ColumnHeader();
+            this.Publisher = new System.Windows.Forms.ColumnHeader();
+            this.Btn_Logout = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(btn_See_payments);
-            panel1.Controls.Add(btn_AddNewGame);
-            panel1.Controls.Add(lbl_Welcome);
-            panel1.Controls.Add(txt_modify);
-            panel1.Controls.Add(btn_Modify);
-            panel1.Controls.Add(btn_showall);
-            panel1.Controls.Add(btn_search);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(lv_games);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1477, 750);
-            panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+            this.panel1.Controls.Add(this.Btn_Logout);
+            this.panel1.Controls.Add(this.btn_See_payments);
+            this.panel1.Controls.Add(this.btn_AddNewGame);
+            this.panel1.Controls.Add(this.lbl_Welcome);
+            this.panel1.Controls.Add(this.txt_modify);
+            this.panel1.Controls.Add(this.btn_Modify);
+            this.panel1.Controls.Add(this.btn_showall);
+            this.panel1.Controls.Add(this.btn_search);
+            this.panel1.Controls.Add(this.txt_Search);
+            this.panel1.Controls.Add(this.lv_games);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1688, 1000);
+            this.panel1.TabIndex = 0;
             // 
             // btn_See_payments
             // 
-            btn_See_payments.Anchor = AnchorStyles.None;
-            btn_See_payments.BackColor = Color.Black;
-            btn_See_payments.ForeColor = Color.Yellow;
-            btn_See_payments.Location = new Point(131, 31);
-            btn_See_payments.Name = "btn_See_payments";
-            btn_See_payments.Size = new Size(118, 31);
-            btn_See_payments.TabIndex = 18;
-            btn_See_payments.Text = "See Payments";
-            btn_See_payments.UseVisualStyleBackColor = false;
-            btn_See_payments.Click += btn_See_payments_Click;
+            this.btn_See_payments.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_See_payments.BackColor = System.Drawing.Color.Black;
+            this.btn_See_payments.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_See_payments.Location = new System.Drawing.Point(150, 48);
+            this.btn_See_payments.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_See_payments.Name = "btn_See_payments";
+            this.btn_See_payments.Size = new System.Drawing.Size(135, 41);
+            this.btn_See_payments.TabIndex = 18;
+            this.btn_See_payments.Text = "See Payments";
+            this.btn_See_payments.UseVisualStyleBackColor = false;
+            this.btn_See_payments.Click += new System.EventHandler(this.btn_See_payments_Click);
             // 
             // btn_AddNewGame
             // 
-            btn_AddNewGame.Anchor = AnchorStyles.None;
-            btn_AddNewGame.BackColor = Color.Black;
-            btn_AddNewGame.ForeColor = Color.Yellow;
-            btn_AddNewGame.Location = new Point(694, 687);
-            btn_AddNewGame.Name = "btn_AddNewGame";
-            btn_AddNewGame.Size = new Size(149, 34);
-            btn_AddNewGame.TabIndex = 17;
-            btn_AddNewGame.Text = "Add New Game";
-            btn_AddNewGame.UseVisualStyleBackColor = false;
-            btn_AddNewGame.Click += btn_AddNewGame_Click;
+            this.btn_AddNewGame.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_AddNewGame.BackColor = System.Drawing.Color.Black;
+            this.btn_AddNewGame.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_AddNewGame.Location = new System.Drawing.Point(793, 916);
+            this.btn_AddNewGame.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_AddNewGame.Name = "btn_AddNewGame";
+            this.btn_AddNewGame.Size = new System.Drawing.Size(170, 45);
+            this.btn_AddNewGame.TabIndex = 17;
+            this.btn_AddNewGame.Text = "Add New Game";
+            this.btn_AddNewGame.UseVisualStyleBackColor = false;
+            this.btn_AddNewGame.Click += new System.EventHandler(this.btn_AddNewGame_Click);
             // 
             // lbl_Welcome
             // 
-            lbl_Welcome.Anchor = AnchorStyles.None;
-            lbl_Welcome.AutoSize = true;
-            lbl_Welcome.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_Welcome.ForeColor = Color.White;
-            lbl_Welcome.Location = new Point(604, 44);
-            lbl_Welcome.Name = "lbl_Welcome";
-            lbl_Welcome.Size = new Size(0, 37);
-            lbl_Welcome.TabIndex = 16;
+            this.lbl_Welcome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_Welcome.AutoSize = true;
+            this.lbl_Welcome.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Welcome.ForeColor = System.Drawing.Color.White;
+            this.lbl_Welcome.Location = new System.Drawing.Point(690, 59);
+            this.lbl_Welcome.Name = "lbl_Welcome";
+            this.lbl_Welcome.Size = new System.Drawing.Size(0, 46);
+            this.lbl_Welcome.TabIndex = 16;
             // 
             // txt_modify
             // 
-            txt_modify.Anchor = AnchorStyles.None;
-            txt_modify.AutoSize = true;
-            txt_modify.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_modify.ForeColor = Color.White;
-            txt_modify.Location = new Point(1123, 675);
-            txt_modify.Name = "txt_modify";
-            txt_modify.Size = new Size(241, 20);
-            txt_modify.TabIndex = 15;
-            txt_modify.Text = "Modify selected game details here:";
-            txt_modify.Visible = false;
+            this.txt_modify.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txt_modify.AutoSize = true;
+            this.txt_modify.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_modify.ForeColor = System.Drawing.Color.White;
+            this.txt_modify.Location = new System.Drawing.Point(1283, 900);
+            this.txt_modify.Name = "txt_modify";
+            this.txt_modify.Size = new System.Drawing.Size(304, 25);
+            this.txt_modify.TabIndex = 15;
+            this.txt_modify.Text = "Modify selected game details here:";
+            this.txt_modify.Visible = false;
             // 
             // btn_Modify
             // 
-            btn_Modify.Anchor = AnchorStyles.None;
-            btn_Modify.BackColor = Color.Black;
-            btn_Modify.ForeColor = Color.Yellow;
-            btn_Modify.Location = new Point(1289, 698);
-            btn_Modify.Name = "btn_Modify";
-            btn_Modify.Size = new Size(75, 23);
-            btn_Modify.TabIndex = 14;
-            btn_Modify.Text = "Modify";
-            btn_Modify.UseVisualStyleBackColor = false;
-            btn_Modify.Visible = false;
-            btn_Modify.Click += btn_Modify_Click;
+            this.btn_Modify.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Modify.BackColor = System.Drawing.Color.Black;
+            this.btn_Modify.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_Modify.Location = new System.Drawing.Point(1472, 930);
+            this.btn_Modify.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Modify.Name = "btn_Modify";
+            this.btn_Modify.Size = new System.Drawing.Size(86, 31);
+            this.btn_Modify.TabIndex = 14;
+            this.btn_Modify.Text = "Modify";
+            this.btn_Modify.UseVisualStyleBackColor = false;
+            this.btn_Modify.Visible = false;
+            this.btn_Modify.Click += new System.EventHandler(this.btn_Modify_Click);
             // 
             // btn_showall
             // 
-            btn_showall.Anchor = AnchorStyles.None;
-            btn_showall.BackColor = Color.Black;
-            btn_showall.ForeColor = Color.Yellow;
-            btn_showall.Location = new Point(1256, 87);
-            btn_showall.Name = "btn_showall";
-            btn_showall.Size = new Size(108, 29);
-            btn_showall.TabIndex = 4;
-            btn_showall.Text = "Show all";
-            btn_showall.UseVisualStyleBackColor = false;
-            btn_showall.Click += btn_showall_Click;
+            this.btn_showall.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_showall.BackColor = System.Drawing.Color.Black;
+            this.btn_showall.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_showall.Location = new System.Drawing.Point(1435, 116);
+            this.btn_showall.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_showall.Name = "btn_showall";
+            this.btn_showall.Size = new System.Drawing.Size(123, 39);
+            this.btn_showall.TabIndex = 4;
+            this.btn_showall.Text = "Show all";
+            this.btn_showall.UseVisualStyleBackColor = false;
+            this.btn_showall.Click += new System.EventHandler(this.btn_showall_Click);
             // 
             // btn_search
             // 
-            btn_search.Anchor = AnchorStyles.None;
-            btn_search.BackColor = Color.Black;
-            btn_search.ForeColor = Color.Yellow;
-            btn_search.Location = new Point(370, 87);
-            btn_search.Name = "btn_search";
-            btn_search.Size = new Size(83, 28);
-            btn_search.TabIndex = 3;
-            btn_search.Text = "Search";
-            btn_search.UseVisualStyleBackColor = false;
+            this.btn_search.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_search.BackColor = System.Drawing.Color.Black;
+            this.btn_search.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_search.Location = new System.Drawing.Point(423, 116);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(95, 37);
+            this.btn_search.TabIndex = 3;
+            this.btn_search.Text = "Search";
+            this.btn_search.UseVisualStyleBackColor = false;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
-            // textBox1
+            // txt_Search
             // 
-            textBox1.Anchor = AnchorStyles.None;
-            textBox1.BackColor = Color.Black;
-            textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(131, 87);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(233, 23);
-            textBox1.TabIndex = 1;
+            this.txt_Search.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txt_Search.BackColor = System.Drawing.Color.Black;
+            this.txt_Search.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_Search.ForeColor = System.Drawing.Color.White;
+            this.txt_Search.Location = new System.Drawing.Point(151, 118);
+            this.txt_Search.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Search.Name = "txt_Search";
+            this.txt_Search.Size = new System.Drawing.Size(266, 31);
+            this.txt_Search.TabIndex = 1;
             // 
             // lv_games
             // 
-            lv_games.Anchor = AnchorStyles.None;
-            lv_games.BackColor = Color.Black;
-            lv_games.Columns.AddRange(new ColumnHeader[] { Id, Title, Price, Releasedate, Publisher });
-            lv_games.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lv_games.ForeColor = Color.White;
-            lv_games.FullRowSelect = true;
-            lv_games.Location = new Point(131, 122);
-            lv_games.Name = "lv_games";
-            lv_games.Size = new Size(1233, 550);
-            lv_games.TabIndex = 0;
-            lv_games.UseCompatibleStateImageBehavior = false;
-            lv_games.View = View.Details;
-            lv_games.SelectedIndexChanged += lv_games_SelectedIndexChanged;
+            this.lv_games.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lv_games.BackColor = System.Drawing.Color.Black;
+            this.lv_games.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Id,
+            this.Title,
+            this.Price,
+            this.Releasedate,
+            this.Publisher});
+            this.lv_games.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lv_games.ForeColor = System.Drawing.Color.White;
+            this.lv_games.FullRowSelect = true;
+            this.lv_games.Location = new System.Drawing.Point(150, 163);
+            this.lv_games.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lv_games.Name = "lv_games";
+            this.lv_games.Size = new System.Drawing.Size(1409, 732);
+            this.lv_games.TabIndex = 0;
+            this.lv_games.UseCompatibleStateImageBehavior = false;
+            this.lv_games.View = System.Windows.Forms.View.Details;
+            this.lv_games.Click += new System.EventHandler(this.lv_games_SelectedIndexChanged);
             // 
             // Id
             // 
-            Id.Text = "Id";
-            Id.Width = 40;
+            this.Id.Text = "Id";
+            this.Id.Width = 40;
             // 
             // Title
             // 
-            Title.Text = "Title";
-            Title.Width = 160;
+            this.Title.Text = "Title";
+            this.Title.Width = 160;
             // 
             // Price
             // 
-            Price.Text = "Price";
-            Price.Width = 50;
+            this.Price.Text = "Price";
+            this.Price.Width = 50;
             // 
             // Releasedate
             // 
-            Releasedate.Text = "Release date";
-            Releasedate.Width = 100;
+            this.Releasedate.Text = "Release date";
+            this.Releasedate.Width = 100;
             // 
             // Publisher
             // 
-            Publisher.Text = "Publisher";
-            Publisher.Width = 140;
+            this.Publisher.Text = "Publisher";
+            this.Publisher.Width = 140;
+            // 
+            // Btn_Logout
+            // 
+            this.Btn_Logout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Btn_Logout.BackColor = System.Drawing.Color.Black;
+            this.Btn_Logout.ForeColor = System.Drawing.Color.White;
+            this.Btn_Logout.Location = new System.Drawing.Point(1435, 48);
+            this.Btn_Logout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_Logout.Name = "Btn_Logout";
+            this.Btn_Logout.Size = new System.Drawing.Size(123, 34);
+            this.Btn_Logout.TabIndex = 19;
+            this.Btn_Logout.Text = "Logout";
+            this.Btn_Logout.UseVisualStyleBackColor = false;
+            this.Btn_Logout.Click += new System.EventHandler(this.Btn_Logout_Click);
             // 
             // Index
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(21, 28, 54);
-            ClientSize = new Size(1477, 750);
-            Controls.Add(panel1);
-            Name = "Index";
-            Text = "Index";
-            WindowState = FormWindowState.Maximized;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(28)))), ((int)(((byte)(54)))));
+            this.ClientSize = new System.Drawing.Size(1688, 1000);
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "Index";
+            this.Text = "Index";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
 
         private Panel panel1;
         private Button btn_search;
-        private TextBox textBox1;
+        private TextBox txt_Search;
         private ListView lv_games;
         private ColumnHeader Id;
         private ColumnHeader Title;
@@ -236,5 +268,6 @@
         private Label lbl_Welcome;
         private Button btn_AddNewGame;
         private Button btn_See_payments;
+        private Button Btn_Logout;
     }
 }

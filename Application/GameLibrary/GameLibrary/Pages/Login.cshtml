@@ -27,6 +27,7 @@
 
                 <div class="form-group">
                     <div class="text-center">
+                        <div id="errorMessage" class="errorMessage">@TempData["ErrorMessage"]</div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div>
                 </div>
@@ -41,7 +42,7 @@
                     </div>
                 </div>
 
-                @if (!ViewData.ModelState.IsValid)
+             @*   @if (!ViewData.ModelState.IsValid)
                 {
                     <div class="alert alert-danger">
                         <ul>
@@ -51,7 +52,7 @@
                             }
                         </ul>
                     </div>
-                }
+                }*@
             </form>
         </div>
     </div>

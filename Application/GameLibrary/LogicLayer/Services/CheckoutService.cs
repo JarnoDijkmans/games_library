@@ -17,14 +17,15 @@ namespace LogicLayer.Services
         private readonly IDiscountDAL dal;
         private readonly IDiscountFactory discountFactory;
 
-        public CheckoutService(IDiscountDAL dal, IDiscountFactory discountFactory)
+        public CheckoutService(ICheckoutDAL checkout)
+        {
+            this._checkout = checkout;
+        }
+
+        public CheckoutService(IDiscountDAL dal, IDiscountFactory discountFactory, ICheckoutDAL checkout)
         {
             this.dal = dal;
             this.discountFactory = discountFactory;
-        }
-
-        public CheckoutService(ICheckoutDAL checkout)
-        {
             this._checkout = checkout;
         }
 

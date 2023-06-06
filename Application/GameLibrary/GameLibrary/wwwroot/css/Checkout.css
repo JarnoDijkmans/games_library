@@ -64,3 +64,7 @@ h2 {
     border-radius: 6px;
 }
 
+.errorMessage {
+    color: orangered;
+    font-weight: bold;
+}

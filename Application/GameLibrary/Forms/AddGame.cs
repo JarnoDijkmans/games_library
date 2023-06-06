@@ -352,5 +352,12 @@ namespace Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Btn_Back_Click(object sender, EventArgs e)
+        {
+            Index index = new Index(loggedInUser);
+            this.Close();
+            index.Show();
+        }
     }
 }

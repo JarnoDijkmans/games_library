@@ -149,6 +149,34 @@
       "PackagePath": "staticwebassets\\Images\\LeagueOfLegends_Tumbnail.png"
     },
     {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\MK11_CoverArt.png",
+      "PackagePath": "staticwebassets\\Images\\MK11_CoverArt.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\MK11_Detail0.png",
+      "PackagePath": "staticwebassets\\Images\\MK11_Detail0.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\MK11_Detail1.png",
+      "PackagePath": "staticwebassets\\Images\\MK11_Detail1.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\MK11_Detail2.png",
+      "PackagePath": "staticwebassets\\Images\\MK11_Detail2.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\MK11_Detail3.png",
+      "PackagePath": "staticwebassets\\Images\\MK11_Detail3.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\MK11_Spotlight.png",
+      "PackagePath": "staticwebassets\\Images\\MK11_Spotlight.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\MK11_Thumbnail.png",
+      "PackagePath": "staticwebassets\\Images\\MK11_Thumbnail.png"
+    },
+    {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\NFS_CoverArt.png",
       "PackagePath": "staticwebassets\\Images\\NFS_CoverArt.png"
     },
@@ -183,6 +211,10 @@
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\Rabobank.png",
       "PackagePath": "staticwebassets\\Images\\Rabobank.png"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\ShoppingCart.png",
+      "PackagePath": "staticwebassets\\Images\\ShoppingCart.png"
     },
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\Images\\StarWars_FallenOrder_Detail0.png",
@@ -223,6 +255,10 @@
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\css\\Detail.css",
       "PackagePath": "staticwebassets\\css\\Detail.css"
+    },
+    {
+      "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\css\\Library.css",
+      "PackagePath": "staticwebassets\\css\\Library.css"
     },
     {
       "Id": "C:\\Users\\jarno\\Projects\\games-library\\Application\\GameLibrary\\GameLibrary\\wwwroot\\css\\ShoppingCart.css",

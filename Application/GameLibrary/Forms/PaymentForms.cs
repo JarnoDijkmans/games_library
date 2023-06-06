@@ -46,19 +46,20 @@ namespace Forms
                 if (payments != null)
                 {
                     var groupedPayments = payments
-                    .GroupBy(p => new { p.PaymentID, p.userID, p.DateOfPurchase })
+                    .GroupBy(p => new { p.PaymentID, p.userID, p.DateOfPurchase, p.TotalAmount })
                     .Select(group => new
                     {
                         PaymentID = group.Key.PaymentID,
                         UserID = group.Key.userID,
                         DateOfPurchase = group.Key.DateOfPurchase,
-                        GameIds = string.Join(", ", group.SelectMany(p => p.GameIds))
+                        GameIds = string.Join(", ", group.SelectMany(p => p.GameIds)),
+                        totalAmount = group.Key.TotalAmount
                     });
                     if (groupedPayments != null)
                     {
                         foreach (var payment in groupedPayments)
                         {
-                            ListViewItem gameinfo = new ListViewItem(new[] { payment.PaymentID.ToString(), payment.UserID.ToString(), payment.DateOfPurchase.ToString(), payment.GameIds });
+                            ListViewItem gameinfo = new ListViewItem(new[] { payment.PaymentID.ToString(), payment.UserID.ToString(), payment.DateOfPurchase.ToString(), payment.GameIds, payment.totalAmount.ToString()});
                             listView1.Items.Add(gameinfo);
                         }
                     }

@@ -143,10 +143,15 @@
     margin-right:20px;
 }
 
+.shopping-cart-image {
+    width: 40px !important;
+    height: 40px !important;
+    margin-top: 10px;
+}
+
 #search {
     display: flex;
     justify-content:left;
-    padding: 20px;
 }
 
 #searchInput {

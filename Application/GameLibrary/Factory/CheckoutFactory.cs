@@ -1,4 +1,5 @@
 ﻿using DataLayer.DAL;
+using LogicLayer.Models.CheckoutRelated;
 using LogicLayer.Services;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,6 @@ namespace Factory
     public static class CheckoutFactory
     {
         public static CheckoutService checkoutservice { get; } =
-            new CheckoutService(new CheckoutDAL());
+            //new CheckoutService(new DiscountFactory(), new DiscountDAL() new CheckoutDAL());
     }
 }

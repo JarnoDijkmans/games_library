@@ -22,6 +22,7 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddScoped<IDiscountDAL, DiscountDAL>();
 builder.Services.AddScoped<IDiscountFactory, DiscountFactory>();
+builder.Services.AddScoped<ICheckoutDAL, CheckoutDAL>();
 builder.Services.AddScoped<CheckoutService>();
 
 

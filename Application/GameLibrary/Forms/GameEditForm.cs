@@ -229,7 +229,13 @@ namespace Forms
                     UpdateGenre();
                     UpdateFeatures();
                     Game game = new Game(gameID, title, price, description, releaseDate, publisher, gameToEdit.Images, gameToEdit.Genres, gameToEdit.Features, gameToEdit.Specifications, trailer);
-                    gameService.UpdateGame(game);
+                    if (gameService.UpdateGame(game) == true )
+                    {
+                        MessageBox.Show("Game Succesfully updated!");
+                    }
+                    else { MessageBox.Show("Oops something went wrong, Please try again, or ask for help."); }
+
+
                 }
                 else { MessageBox.Show("Validation object is not initialized."); }
             }

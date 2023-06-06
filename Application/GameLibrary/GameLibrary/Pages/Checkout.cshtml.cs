@@ -15,21 +15,18 @@ namespace WebApp.Pages
     {
         [BindProperty]
         public CheckoutInfo checkoutInfo { get; set; }
+        public string ErrorMessage { get; set; }
         private int? UserId { get; set; }
         private readonly CheckoutService _checkoutService;
-
-
 
         public CheckoutModel(CheckoutService checkoutService)
         {
             _checkoutService = checkoutService;
         }
-
-
         public CartViewModel Cart { get; set; } = new CartViewModel();
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            
+
             UserId = HttpContext.Session.GetInt32("UserId");
 
             if (UserId.HasValue)
@@ -78,11 +75,15 @@ namespace WebApp.Pages
                     {
                         _checkoutService.ApplyBirthdayDiscount("BirthDate");
                         Cart.Subtotal = _checkoutService.CalculateTotalPriceBirthDate(Cart.Subtotal, userBirthdate);
-                        
+
                     }
                 }
                 HttpContext.Session.SetString("TotalPrice", Cart.Subtotal.ToString());
-
+                return Page();
+            }
+            else
+            {
+                return RedirectToPage("Index");
             }
         }
 
@@ -130,7 +131,7 @@ namespace WebApp.Pages
                     }
                     else
                     {
-                        // Handle invalid discount code
+                        ErrorMessage = "The discount code is invalid.";
                     }
                 }
                 if (action == "remove")
@@ -192,6 +193,11 @@ namespace WebApp.Pages
                     checkoutservice.StorePayment(Checkout);
 
                     return RedirectToPage("/Library");
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Please select a Payment option first.";
+                    return RedirectToPage("/Checkout");
                 }
                 
             }

@@ -39,6 +39,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="#">Profile</a>
+                                    <a class="dropdown-item" href="/Library">Library</a>
                                     <a class="dropdown-item" href="/Logout">Logout</a>
                                 </div>
                             </li>
@@ -53,12 +54,11 @@
                 </div>
             </nav>
         </header>
-    <div id="ShoppingCart" class="shopping-cart">
-        <a href="/ShoppingCart">
-            Cart
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-    </div>
+        <div id="ShoppingCart" class="shopping-cart">
+            <a href="/ShoppingCart">
+                <img src="/Images/ShoppingCart.png" class="shopping-cart-image" alt="Shopping Cart" />
+            </a>
+        </div>
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()

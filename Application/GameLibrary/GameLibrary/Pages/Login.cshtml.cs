@@ -18,7 +18,6 @@ namespace WebApp.Pages
 	{
 		private readonly ILogger<IndexModel> _logger;
 		public string Message { get; private set; }
-		//Verify Ac = UserFactory.VerifyeLoginUser();
 
 		[BindProperty]
 		public loginUser FormLogin { get; set; } = new loginUser();
@@ -75,15 +74,13 @@ namespace WebApp.Pages
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Combination incorrect, please enter email and password");
+                    TempData["ErrorMessage"] = "Combination incorrect, Please enter email and password.";
                     return Page();
                 }
             }
-
-            // Validate by simulating a database call (IsUserValid)
             else
 			{
-                ModelState.AddModelError(string.Empty, "Combination incorrect, please enter email and password");
+                TempData["ErrorMessage"] = "Combination incorrect, Please enter email and password.";
                 return Page();
 			}
 		}

@@ -65,12 +65,6 @@ namespace Forms
                 editForm.Show();
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_AddNewGame_Click(object sender, EventArgs e)
         {
             AddGame addGame = new AddGame(loggedInUser);
@@ -83,6 +77,45 @@ namespace Forms
             PaymentForms payForms = new PaymentForms(loggedInUser);
             this.Hide();
             payForms.Show();
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            string filterInput = txt_Search.Text;
+            FilterGames(filterInput);
+        }
+
+        public void FilterGames(string input)
+        {
+            var gamelist = gameService.GetGames();
+            lv_games.Items.Clear();
+
+            bool isInteger = Int32.TryParse(input, out int id);
+
+            List<Game> filteredGames;
+
+            if (isInteger)
+            {
+                filteredGames = gamelist.Where(game => game.GameId == id).ToList();
+            }
+            else
+            {
+                filteredGames = gamelist.Where(game => game.Title.Contains(input)).ToList();
+            }
+
+            foreach (Game game in filteredGames)
+            {
+                ListViewItem gameInfo = new ListViewItem(new[] { game.GameId.ToString(), game.Title, game.Price.ToString(), game.ReleaseDate, game.Publisher });
+                lv_games.Items.Add(gameInfo);
+            }
+
+        }
+
+        private void Btn_Logout_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            this.Close();
+            login.Show();
         }
     }
 }

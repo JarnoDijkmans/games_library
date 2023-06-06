@@ -53,7 +53,7 @@ namespace GameLibrary.Pages
                         }
                     }
                 }
-
+                //Retrieve the games that are already purchased
                 ViewData["PurchasedGames"] = purchasedGames;
             }
         }

@@ -35,13 +35,13 @@
                     <div class="col-md-9">
                         @foreach (var game in Model.Cart.GamesInCart)
                         {
-                            var artCoverImages = game.Images.Where(image => image.ImageType == "Spotlight");
+                            var SpotlightImages = game.Images.Where(image => image.ImageType == "Spotlight");
                             <div class="card mb-3">
                                 <div class="row g-0">
                                     <div class="col-12">
                                         <div class="card-inner d-flex flex-wrap">
                                             <div class="card-image-wrapper">
-                                                @foreach (var image in artCoverImages)
+                                                @foreach (var image in SpotlightImages)
                                                 {
                                                     <img src="@image.ImageURL" alt="@game.Title" class="img-fluid">
                                                 }
