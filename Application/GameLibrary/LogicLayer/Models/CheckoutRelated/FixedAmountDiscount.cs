@@ -21,10 +21,10 @@ namespace LogicLayer.Models.CheckoutRelated
             return basePrice - _fixedAmount;
         }
 
-        public decimal ApplyBirthdayDiscount(decimal basePrice, DateTime birthdate)
+        public decimal ApplyDiscount(decimal basePrice, DateTime birthdate)
         {
-            // No birthday discount is applied
-            return basePrice;
+            // Ignore birthdate for this type of discount
+            return ApplyDiscount(basePrice);
         }
     }
 }

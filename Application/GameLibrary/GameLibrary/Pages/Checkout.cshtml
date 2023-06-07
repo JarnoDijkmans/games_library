@@ -102,7 +102,8 @@
                             </ul>
                             <form id="discountForm" method="post" asp-page-handler="ApplyDiscount">
                                 <input class="input-text" type="text" name="discountCode" placeholder="Enter discount code" />
-                                <button class="button" type="submit" name="action" value="apply">Apply Discount</button>
+                                <input type="hidden" id="actionField" name="action" value="apply" /> 
+                                <button class="button" type="submit">Apply Discount</button> 
                                 @if (!string.IsNullOrEmpty(Model.ErrorMessage))
                                 {
                                     <div id="errorMessage" class="errorMessage">@Model.ErrorMessage</div>
@@ -110,6 +111,10 @@
                                 @if (!string.IsNullOrEmpty(Model.Cart.DiscountCode))
                                 {
                                     <p id="removeDiscountCode" class="remove-discount" style="cursor: pointer; text-decoration: underline;">Remove Discount Code: @Model.Cart.DiscountCode</p>
+                                }
+                                @if (Model.Cart.DiscountedTotal > 0)
+                                {
+                                    <p>Discount applied: @Model.Cart.DiscountedTotal.ToString("C")</p>
                                 }
                             </form>
                             <div class="total-price">
@@ -126,8 +131,8 @@
                                 {
                                     <div id="original-price" class="mr-2">
                                         <span>Price:</span>
-                                        <span>@totalPrice.ToString("C")</span>
-                                    </div>
+                                        <span style="text-decoration: line-through;">@totalPrice.ToString("C")</span>
+                                </div>
                                 }
 
                                 <div id="discounted-price" class="font-weight-bold">

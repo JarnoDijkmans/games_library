@@ -35,5 +35,23 @@ namespace DataLayer.DAL
             }
             return discounts;
         }
+
+        public Discount GetDiscountByCode(string code)
+        {
+            string query = @$"SELECT * FROM DiscountCodes WHERE DiscountCodes.Code = '{code}'";
+
+            DataTable dt = ReadDataQuery(query);
+
+            if (dt.Rows.Count > 0)
+            {
+
+                Discount discount = DataConvertDiscounts.ConvertDataRowToDiscount(dt.Rows[0]);
+                return discount;
+            }
+            else
+            {
+                throw new InvalidOperationException("No matching discount code found");
+            }
+        }
     }
 }

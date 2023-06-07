@@ -6,150 +6,151 @@ using LogicLayer.Interfaces;
 using LogicLayer.Services;
 using LogicLayer.Models.CheckoutRelated;
 using Factory;
+using LogicLayer.Models.CartRelated;
+using LogicLayer.Models.GamesFolder;
 
 public class CheckoutServiceTests
 {
-    private readonly Mock<IDiscountDAL> _mockDiscountDal;
-    private readonly Mock<IDiscountFactory> _mockDiscountFactory;
-    private readonly Mock<IDiscount> _mockDiscount;
-    private readonly Mock<ICheckoutDAL> _mockCheckoutDal;
-    private readonly CheckoutService _checkoutService;
-
+    private readonly Mock<IDiscountDAL> _discountDalMock;
+    private readonly Mock<ICheckoutDAL> _checkoutDalMock;
+    private readonly Mock<DiscountStrategyFactory> _strategyFactoryMock;
 
     public CheckoutServiceTests()
     {
-        _mockDiscountDal = new Mock<IDiscountDAL>();
-        _mockDiscountFactory = new Mock<IDiscountFactory>();
-        _mockDiscount = new Mock<IDiscount>();
-        _mockCheckoutDal = new Mock<ICheckoutDAL>();
-        _checkoutService = new CheckoutService(_mockDiscountDal.Object, _mockDiscountFactory.Object, _mockCheckoutDal.Object);
+        _discountDalMock = new Mock<IDiscountDAL>();
+        _checkoutDalMock = new Mock<ICheckoutDAL>();
+        _strategyFactoryMock = new Mock<DiscountStrategyFactory>();
     }
 
+    [Fact]
+    public void ApplyDiscount_Birthday_Discount_Applied()
+    {
+        var service = new CheckoutService(_strategyFactoryMock.Object, _discountDalMock.Object, _checkoutDalMock.Object);
+        var birthdate = DateTime.UtcNow;
+        var result = service.ApplyDiscount(null, 100m, birthdate);
+
+        Assert.True(result < 100m);
+    }
 
     [Fact]
-    public void CalculateTotalPrice_With_Null_Discount_Returns_BasePrice()
+    public void ApplyDiscount_CodeDiscount_Discount_Applied()
+    {
+        var service = new CheckoutService(_strategyFactoryMock.Object, _discountDalMock.Object, _checkoutDalMock.Object);
+        _discountDalMock.Setup(x => x.GetDiscountByCode("code")).Returns(new Discount ("code", "type", 1));
+
+        var result = service.ApplyDiscount("code", 100m, DateTime.UtcNow);
+
+        Assert.True(result < 100m);
+    }
+
+    [Fact]
+    public void HasUserPurchasedGame_UserHasPurchasedGame_ReturnsTrue()
+    {
+        var service = new CheckoutService(_strategyFactoryMock.Object, _discountDalMock.Object, _checkoutDalMock.Object);
+        _checkoutDalMock.Setup(x => x.HasUserPurchasedGame(It.IsAny<int>(), It.IsAny<int>())).Returns(true);
+
+        var result = service.HasUserPurchasedGame(1, 1);
+
+        Assert.True(result);
+    }
+
+    [Fact]
+    public void GetPaymentById_WithValidId_ReturnsPaymentInfo()
     {
         // Arrange
-        decimal basePrice = 100m;
+        var service = new CheckoutService(_strategyFactoryMock.Object, _discountDalMock.Object, _checkoutDalMock.Object);
+        var checkoutInfos = new List<CheckoutInfo> { new CheckoutInfo() };
+        _checkoutDalMock.Setup(x => x.GetPaymentInfoByUserID(It.IsAny<int>())).Returns(checkoutInfos);
 
         // Act
-        var totalPrice = _checkoutService.CalculateTotalPrice(basePrice);
+        var result = service.GetPaymentById(1);
 
         // Assert
-        Assert.Equal(basePrice, totalPrice);
+        Assert.Equal(checkoutInfos, result);
     }
 
     [Fact]
-    public void CalculateTotalPrice_With_Discount_Applies_Discount()
+    public void StorePayment_ValidPayment_ReturnsTrue()
     {
         // Arrange
-        decimal basePrice = 100m;
-        decimal expectedPrice = 90m;
-        _mockDiscount.Setup(d => d.ApplyDiscount(basePrice)).Returns(expectedPrice);
-        _checkoutService.SetDiscount(_mockDiscount.Object);
+        var service = new CheckoutService(_strategyFactoryMock.Object, _discountDalMock.Object, _checkoutDalMock.Object);
+        _checkoutDalMock.Setup(x => x.StorePayment(It.IsAny<CheckoutInfo>())).Returns(true);
 
         // Act
-        var totalPrice = _checkoutService.CalculateTotalPrice(basePrice);
-
-        // Assert
-        Assert.Equal(expectedPrice, totalPrice);
-    }
-
-    [Fact]
-    public void ApplyDiscountByCode_With_Valid_Code_Sets_Discount()
-    {
-        // Arrange
-        string discountCode = "CODE123";
-        var discountData = new Discount ( discountCode,"Percentage",10);
-        var discount = _mockDiscount.Object;
-
-        _mockDiscountDal.Setup(dal => dal.RetrieveData()).Returns(new List<Discount> { discountData });
-        _mockDiscountFactory.Setup(df => df.GetDiscount(discountData.DiscountType, discountData.DiscountValue)).Returns(discount);
-
-        // Act
-        var result = _checkoutService.ApplyDiscountByCode(discountCode);
+        var result = service.StorePayment(new CheckoutInfo());
 
         // Assert
         Assert.True(result);
     }
 
     [Fact]
-    public void ApplyBirthdayDiscount_Calls_DiscountFactory_And_Sets_Discount()
+    public void CalculateSubtotal_ValidCart_ReturnsCorrectSubtotal_And_Validates_GameObject()
     {
         // Arrange
-        string discountType = "Birthday";
-        var discount = _mockDiscount.Object;
-
-        _mockDiscountFactory.Setup(df => df.GetDiscount(discountType, 5)).Returns(discount);
+        var service = new CheckoutService(_strategyFactoryMock.Object, _discountDalMock.Object, _checkoutDalMock.Object);
+        var cart = new CartViewModel
+        {
+            GamesInCart = new List<Game>
+            {
+               new Game(
+                1,
+                "a",
+                60m,
+                "test",
+                "1990-05-01",
+                "test",
+                new List<GameImage>{ new GameImage(1, "test", "\\Images\\.png") },
+                new List<Genre>{ new Genre(1, "test") },
+                new List<Feature>{ new Feature(1, "test") },
+                new List<Specification>{ new Specification(1, "test", "test", "test", "test", "test", "test", "test", "test", "test") },
+                "test"
+                ),
+               new Game(
+                2,
+                "b",
+                25m,
+                "test",
+                "1990-05-01",
+                "test",
+                new List<GameImage>{ new GameImage(2, "test", "\\Images\\.png") },
+                new List<Genre>{ new Genre(2, "test") },
+                new List<Feature>{ new Feature(2, "test") },
+                new List<Specification>{ new Specification(2, "test", "test", "test", "test", "test", "test", "test", "test", "test") },
+                "test"
+                ),
+               new Game(
+                3,
+                "c",
+                15m,
+                "test",
+                "1990-05-01",
+                "test",
+                new List<GameImage>{ new GameImage(3, "test","\\Images\\.png") },
+                new List<Genre>{ new Genre(3, "test") },
+                new List<Feature>{ new Feature(3, "test") },
+                new List<Specification>{ new Specification(3, "test", "test", "test", "test", "test", "test", "test", "test", "test") },
+                "test"
+                )
+            }
+        };
 
         // Act
-        _checkoutService.ApplyBirthdayDiscount(discountType);
+        var result = service.CalculateSubtotal(cart);
 
         // Assert
-        _mockDiscountFactory.Verify(df => df.GetDiscount(discountType, 5), Times.Once);
+        Assert.Equal(100m, result);
     }
 
     [Fact]
-    public void CalculateTotalPriceBirthDate_Applies_Birthday_Discount()
+    public void CalculateAmountDiscount_ValidPrices_ReturnsCorrectDiscount()
     {
         // Arrange
-        decimal basePrice = 100m;
-        decimal expectedPrice = 90m;
-        DateTime birthdate = new DateTime(1990, 6, 6);
-        _mockDiscount.Setup(d => d.ApplyBirthdayDiscount(basePrice, birthdate)).Returns(expectedPrice);
-        _checkoutService.SetDiscount(_mockDiscount.Object);
+        var service = new CheckoutService(_strategyFactoryMock.Object, _discountDalMock.Object, _checkoutDalMock.Object);
 
         // Act
-        var totalPrice = _checkoutService.CalculateTotalPriceBirthDate(basePrice, birthdate);
+        var result = service.CalculateAmountDiscount(100m, 90m);
 
         // Assert
-        Assert.Equal(expectedPrice, totalPrice);
-    }
-
-    [Fact]
-    public void StorePayment_Calls_GetPaymentById_And_StorePayment()
-    {
-        // Arrange
-        var checkoutInfo = new CheckoutInfo(1, "Ideal", 60m, new List<int> { 1 }, 1, new DateTime(2002, 5, 2));
-
-        // Act
-        _checkoutService.StorePayment(checkoutInfo);
-
-        // Assert
-        _mockCheckoutDal.Verify(dal => dal.GetPaymentInfoByUserID(Convert.ToInt32(checkoutInfo.userID)), Times.Once);
-        _mockCheckoutDal.Verify(dal => dal.StorePayment(checkoutInfo), Times.Once);
-    }
-
-    [Fact]
-    public void HasUserPurchasedGame_Returns_True()
-    {
-        // Arrange
-        int userId = 1;
-        int gameId = 1;
-        //Cause of the true statement the mockdata will be true.
-        _mockCheckoutDal.Setup(dal => dal.HasUserPurchasedGame(userId, gameId)).Returns(true);
-
-        // Act
-        var hasUserPurchasedGame = _checkoutService.HasUserPurchasedGame(userId, gameId);
-
-        // Assert
-        Assert.True(hasUserPurchasedGame);
-    }
-
-    [Fact]
-    public void HasUserPurchasedGame_Returns_False()
-    {
-        // Arrange
-        int userId = 1;
-        int gameId = 1;
-
-        //Cause of the false statement the mockdata will be false.
-        _mockCheckoutDal.Setup(dal => dal.HasUserPurchasedGame(userId, gameId)).Returns(false);
-
-        // Act
-        var hasUserPurchasedGame = _checkoutService.HasUserPurchasedGame(userId, gameId);
-
-        // Assert
-        Assert.False(hasUserPurchasedGame);
+        Assert.Equal(10m, result);
     }
 }

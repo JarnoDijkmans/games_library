@@ -12,6 +12,6 @@ namespace Factory
     public static class CheckoutFactory
     {
         public static CheckoutService checkoutservice { get; } =
-            //new CheckoutService(new DiscountFactory(), new DiscountDAL() new CheckoutDAL());
+            new CheckoutService(new DiscountStrategyFactory(), new DiscountDAL(), new CheckoutDAL());
     }
 }

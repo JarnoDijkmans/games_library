@@ -20,10 +20,6 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-builder.Services.AddScoped<IDiscountDAL, DiscountDAL>();
-builder.Services.AddScoped<IDiscountFactory, DiscountFactory>();
-builder.Services.AddScoped<ICheckoutDAL, CheckoutDAL>();
-builder.Services.AddScoped<CheckoutService>();
 
 
 var app = builder.Build();

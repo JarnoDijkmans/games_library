@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace LogicLayer.Interfaces
 {
-    public interface IDiscountFactory
+    public interface IDiscountStrategy
     {
-        IDiscount GetDiscount(string type, decimal value);
+        decimal ApplyDiscount(decimal basePrice, DateTime birthdate = default);
     }
 }

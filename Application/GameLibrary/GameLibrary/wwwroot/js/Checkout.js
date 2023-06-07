@@ -1,6 +1,8 @@
 ﻿$(document).ready(function () {
     $('#removeDiscountCode').click(function () {
-        $('input[name=action]').val('remove');
+        console.log('Remove clicked');
+        $('#actionField').val('remove');
+        console.log($('#actionField').val());
         $('#discountForm').submit();
     });
 

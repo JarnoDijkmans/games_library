@@ -1,5 +1,6 @@
 ﻿using DataLayer.DAL;
 using LogicLayer.Interfaces;
+using LogicLayer.Models.CartRelated;
 using LogicLayer.Models.CheckoutRelated;
 using LogicLayer.Models.GamesFolder;
 using System;
@@ -14,73 +15,56 @@ namespace LogicLayer.Services
     {
         private IDiscount _discount;
         private readonly ICheckoutDAL _checkout;
-        private readonly IDiscountDAL dal;
-        private readonly IDiscountFactory discountFactory;
+        private readonly IDiscountDAL _dal;
+        private DiscountStrategyFactory _strategyFactory;
+        private IDiscount _birthdateDiscount;
+        private IDiscount _codeDiscount;
 
-        public CheckoutService(ICheckoutDAL checkout)
+
+        public CheckoutService(DiscountStrategyFactory strategyFactory, IDiscountDAL dal, ICheckoutDAL checkout)
         {
+            this._strategyFactory = strategyFactory;
+            this._dal = dal;
             this._checkout = checkout;
         }
 
-        public CheckoutService(IDiscountDAL dal, IDiscountFactory discountFactory, ICheckoutDAL checkout)
+        public decimal ApplyDiscount(string discountCode, decimal basePrice, DateTime birthdate)
         {
-            this.dal = dal;
-            this.discountFactory = discountFactory;
-            this._checkout = checkout;
-        }
-
-        public void SetDiscount(IDiscount discount)
-        {
-            _discount = discount;
-        }
-        public decimal CalculateTotalPrice(decimal basePrice)
-        {
-            if (_discount != null)
+            if (birthdate.Day == DateTime.UtcNow.Day && birthdate.Month == DateTime.UtcNow.Month)
             {
-                decimal finalPrice = _discount.ApplyDiscount(basePrice);
-                return finalPrice;
+                if (_birthdateDiscount == null)
+                {
+                    _birthdateDiscount = _strategyFactory.CreateStrategy("BirthDate", 5);
+                }
+                if (_birthdateDiscount != null)
+                {
+                    basePrice = _birthdateDiscount.ApplyDiscount(basePrice);
+                }
             }
-            else
+            _codeDiscount = null;
+            // Apply additional discounts based on discount code
+            if (!string.IsNullOrEmpty(discountCode))
             {
-                return basePrice;
+                Discount discount = _dal.GetDiscountByCode(discountCode);
+                if (discount.Code == discountCode)
+                {
+                    if (_codeDiscount == null)
+                    {
+                        _codeDiscount = _strategyFactory.CreateStrategy(discount.DiscountType, discount.DiscountValue);
+                    }
+                    if (_codeDiscount != null)
+                    {
+                        basePrice = _codeDiscount.ApplyDiscount(basePrice);
+                    }
+                }
+                else
+                {
+                    //Error Message
+                }
             }
+            return basePrice;
         }
 
-        public bool ApplyDiscountByCode(string discountCode)
-        {
-            var discounts = dal.RetrieveData();
-            var discount = discounts.Find(d => d.Code == discountCode);
-
-            if (discount != null)
-            {
-                IDiscount disc = discountFactory.GetDiscount(discount.DiscountType, discount.DiscountValue);
-                SetDiscount(disc);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public void ApplyBirthdayDiscount(string type)
-        {
-            IDiscount disc = discountFactory.GetDiscount(type, 5);
-
-            SetDiscount(disc);
-
-        }
-
-        public decimal CalculateTotalPriceBirthDate(decimal baseprice, DateTime birthdate)
-        {
-            decimal finalPrice = _discount.ApplyBirthdayDiscount(baseprice, birthdate);
-            return finalPrice;
-        }
-
-        public bool StoreCheckout(CheckoutInfo info)
-        {
-            return true;
-        }
 
         public List <CheckoutInfo> GetPaymentById(int id)
         {
@@ -89,7 +73,6 @@ namespace LogicLayer.Services
 
         public bool StorePayment(CheckoutInfo payment)
         {
-            GetPaymentById(payment.PaymentID);
             return _checkout.StorePayment(payment);
         }
         public bool HasUserPurchasedGame(int userId, int gameId)
@@ -99,6 +82,18 @@ namespace LogicLayer.Services
                 return true;
             }
             else return false;
+        }
+
+        public decimal CalculateSubtotal(CartViewModel cart)
+        {
+            decimal subtotal = cart.GamesInCart.Sum(game => game.Price);
+            return subtotal;
+        }
+
+        public decimal CalculateAmountDiscount(decimal totalPriceBeforeDiscount, decimal totalpriceAfterDiscount)
+        {
+            decimal discount = totalPriceBeforeDiscount - totalpriceAfterDiscount;
+            return discount;
         }
     }
 }

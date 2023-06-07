@@ -40,7 +40,7 @@ namespace Forms
         {
             if (CB_UserIDS.Text != null && CB_UserIDS.Text != "None" && CB_UserIDS.Text != "")
             {
-                var payments = _checkoutService.GetPaymentById(Convert.ToInt32(CB_UserIDS.Text));
+                var payments = _checkoutService.GetPaymentById(Convert.ToInt32(CB_UserIDS.SelectedValue));
                 listView1.Items.Clear();
 
                 if (payments != null)
@@ -59,7 +59,7 @@ namespace Forms
                     {
                         foreach (var payment in groupedPayments)
                         {
-                            ListViewItem gameinfo = new ListViewItem(new[] { payment.PaymentID.ToString(), payment.UserID.ToString(), payment.DateOfPurchase.ToString(), payment.GameIds, payment.totalAmount.ToString()});
+                            ListViewItem gameinfo = new ListViewItem(new[] { payment.UserID.ToString(), payment.PaymentID.ToString(), payment.DateOfPurchase.ToString(), payment.GameIds, payment.totalAmount.ToString()});
                             listView1.Items.Add(gameinfo);
                         }
                     }
@@ -81,10 +81,12 @@ namespace Forms
         {
             List<User> users = userService.GetUsers();
             CB_UserIDS.Items.Add("None");
-            foreach (var user in users)
-            {
-                CB_UserIDS.Items.Add(user.Id);
-            }
+
+            CB_UserIDS.Items.Clear();
+            CB_UserIDS.DataSource= null;
+            CB_UserIDS.DataSource= users;
+            CB_UserIDS.DisplayMember = "DisplayName";
+            CB_UserIDS.ValueMember = "Id";
         }
 
         private void btn_back_Click(object sender, EventArgs e)

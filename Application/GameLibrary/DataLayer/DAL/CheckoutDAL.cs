@@ -6,6 +6,7 @@ using LogicLayer.Models.UserFolder;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,7 +62,7 @@ namespace DataLayer.DAL
         {
             try
             {
-                string insertPaymentQuery = $"INSERT INTO Purchase (UserID, TotalPrice, PaymentType, DateOfPurchase) OUTPUT INSERTED.PurchaseID VALUES ({checkoutinfo.userID}, {checkoutinfo.TotalAmount},'{checkoutinfo.PaymentType}', '{checkoutinfo.DateOfPurchase.ToString("yyyy-MM-dd HH:mm:ss")}')";
+                string insertPaymentQuery = $"INSERT INTO Purchase (UserID, TotalPrice, PaymentType, DateOfPurchase) OUTPUT INSERTED.PurchaseID VALUES ({checkoutinfo.userID}, {checkoutinfo.TotalAmount.ToString(CultureInfo.InvariantCulture)},'{checkoutinfo.PaymentType}', '{checkoutinfo.DateOfPurchase.ToString("yyyy-MM-dd HH:mm:ss")}')";
 
                 int PurchaseID = executeIdScalar(insertPaymentQuery);
                 if (PurchaseID > 0)

@@ -24,9 +24,6 @@ namespace LogicLayer.Services
 
 		public bool AddGame(Game game)
 		{
-			if (game.Title.Length > 25)
-				throw new InvalidOperationException("Title can not extend 25 chars");
-
 			return dal.AddGame(game);
 		}
 
