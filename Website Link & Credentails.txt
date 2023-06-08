@@ -1,0 +1,6 @@
+https://i513745.luna.fhict.nl
+
+Credentials: Website Example: Email: voorbeeld@gmail.com
+			      Password: 12345678
+	     Desktop Example: Email: test@gmail.com
+			      Password: 12345678

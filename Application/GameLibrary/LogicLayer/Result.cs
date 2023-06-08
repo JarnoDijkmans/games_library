@@ -99,5 +99,61 @@ namespace LogicLayer
             return true;
         }
 
+
+        public bool ValidateRegisterFields(string firstName, string lastName, string email, string birthdate, string phone, string country, string city, string txt_address, string password)
+        {
+
+            if (string.IsNullOrEmpty(firstName))
+            {
+                throw new ValidationException("Please enter a First Name.");
+            }
+
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ValidationException("Please enter a Last Name.");
+            }
+
+            if (string.IsNullOrEmpty(email))
+            {
+                throw new ValidationException("Please enter an Email.");
+            }
+
+            if (!email.Contains("@"))
+            {
+                throw new ValidationException("Invalid email address.");
+            }
+
+            if (string.IsNullOrEmpty(birthdate))
+            {
+                throw new ValidationException("Please enter a birthdate.");
+            }
+
+            if (string.IsNullOrEmpty(phone))
+            {
+                throw new ValidationException("Please enter a Phone number.");
+            }
+
+            if (string.IsNullOrEmpty(country))
+            {
+                throw new ValidationException("Please enter a Country.");
+            }
+
+            if (string.IsNullOrEmpty(city))
+            {
+                throw new ValidationException("Please enter a City.");
+            }
+
+            if (string.IsNullOrEmpty(txt_address))
+            {
+                throw new ValidationException("Please enter an Address.");
+            }
+
+            if (string.IsNullOrEmpty(password))
+            {
+                throw new ValidationException("Please enter a Password.");
+            }
+            return true;
+
+        }
     }
 }

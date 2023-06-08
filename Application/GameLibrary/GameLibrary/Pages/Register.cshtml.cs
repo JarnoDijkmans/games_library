@@ -46,9 +46,18 @@ namespace WebApp.Pages
 			FormRegister.DisplayName, FormRegister.Email, Birthdate, "null",FormRegister.Country,
             FormRegister.City, FormRegister.Address, "null", FormRegister.Password, FormRegister.Email, 1);
 			
-			userService.RegisterUser(user);
+			if (userService.RegisterUser(user))
+			{
+                return RedirectToPage("Login");
+            }
+			else 
+			{ 
+				TempData["ErrorMessage"] = "Something went wrong, Please try again.";
+                return RedirectToPage("Register");
+            }
+			
 
-			return RedirectToPage("Index");
+			
         }
 	}
 }

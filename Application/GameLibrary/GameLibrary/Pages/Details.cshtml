@@ -70,6 +70,10 @@
                         <form id="addToCartForm" method="post">
                             <input type="hidden" name="gameId" value="@Model.Game.GameId" />
                             <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            @if (TempData["Message"] != null)
+                            {
+                                <div>@TempData["Message"].ToString()</div>
+                            }
                         </form>
                     }
                 </div>

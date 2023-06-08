@@ -50,3 +50,15 @@ C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Re
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\Microsoft.Extensions.Primitives.dll
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\Newtonsoft.Json.dll
 C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\System.Security.Permissions.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\System.Text.Encodings.Web.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\System.Text.Json.dll
+C:\Users\jarno\Projects\games-library\Application\GameLibrary\GameLibrary\bin\Release\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll

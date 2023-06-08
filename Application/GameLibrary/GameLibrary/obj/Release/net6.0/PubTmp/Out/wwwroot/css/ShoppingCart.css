@@ -26,6 +26,7 @@ body {
 
 .game-title {
     font-size: 13px;
+    text-align:left;
 }
 
 .card-footer {
@@ -66,6 +67,13 @@ body {
 .btn-danger:hover {
     background-color: transparent !important;
     border: none !important;
+}
+
+.modal-content {
+    background-color: #2c2c2c !important;
+    color: white;
+    font-family: Arial, sans-serif;
+    top: 200px;
 }
 
 @media (max-width: 576px) {

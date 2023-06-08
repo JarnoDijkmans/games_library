@@ -1,0 +1,70 @@
+.card {
+    background-color: #2c2c2c !important;
+    color: white;
+    margin-bottom: 20px;
+}
+.card-header {
+    font-size: 1.5em;
+}
+.card-body {
+    font-size: 1.1em;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.form-control {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.right-side {
+    background-color: #172040;
+}
+
+.game-image {
+    width: 70px; 
+    height: auto;
+}
+
+.list-group {
+    margin-bottom: 10px;
+}
+
+.align-items-center {
+    margin-bottom: 10px !important;
+}
+
+.GamePrice{
+    text-align:right;
+}
+
+.d-flex.align-items-center {
+    justify-content: space-between;
+}
+
+h2 {
+    margin-top: 40px;
+}
+
+.remove-discount {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.input-text {
+    background-color: #2c2c2c;
+    color: white;
+    border-radius: 3px;
+}
+
+.button {
+    background-color: #2c2c2c;
+    color: white;
+    border-radius: 6px;
+}
+
+.errorMessage {
+    color: orangered;
+    font-weight: bold;
+}

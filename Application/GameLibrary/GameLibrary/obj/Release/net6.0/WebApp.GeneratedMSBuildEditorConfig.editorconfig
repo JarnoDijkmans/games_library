@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Library.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlicmFyeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -58,6 +62,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Shared/_layoutIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9sYXlvdXRJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Shared/_LayoutLibrary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRMaWJyYXJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jarno/Projects/games-library/Application/GameLibrary/GameLibrary/Pages/Shared/_layoutLogin.cshtml]
