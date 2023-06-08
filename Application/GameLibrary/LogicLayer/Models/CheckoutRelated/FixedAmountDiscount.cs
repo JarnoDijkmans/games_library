@@ -18,7 +18,12 @@ namespace LogicLayer.Models.CheckoutRelated
 
         public decimal ApplyDiscount(decimal basePrice)
         {
-            return basePrice - _fixedAmount;
+            if (basePrice != 0) 
+            {
+				return basePrice - _fixedAmount;
+			}
+            return 0;
+            
         }
 
         public decimal ApplyDiscount(decimal basePrice, DateTime birthdate)

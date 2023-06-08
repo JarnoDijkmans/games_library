@@ -50,7 +50,7 @@ namespace DataLayer.DAL
             }
             else
             {
-                throw new InvalidOperationException("No matching discount code found");
+                return null;
             }
         }
     }

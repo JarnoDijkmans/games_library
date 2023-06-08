@@ -7,6 +7,7 @@ using LogicLayer.Services;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Common;
 using System.Text.Json;
 
@@ -100,15 +101,26 @@ namespace WebApp.Pages
                 
                 if (action == "apply")
                 {
-                    if (!string.IsNullOrEmpty(user.Birthdate))
-                    {
-                        DateTime.TryParse(user.Birthdate, out DateTime parsedBirthdate);
-                        var totalBeforeDiscount = Cart.Subtotal;
-                        Cart.Subtotal = checkoutservice.ApplyDiscount(discountCode, Cart.Subtotal, parsedBirthdate);
-                        Cart.DiscountedTotal = checkoutservice.CalculateAmountDiscount(totalBeforeDiscount, Cart.Subtotal);
-                        Cart.DiscountCode = discountCode;
-                    }
-                    else
+					if (!string.IsNullOrEmpty(user.Birthdate))
+					{
+						DateTime.TryParse(user.Birthdate, out DateTime parsedBirthdate);
+						var totalBeforeDiscount = Cart.Subtotal;
+
+						try
+						{
+							checkoutservice.ValidateDiscountCode(discountCode);
+							Cart.Subtotal = checkoutservice.ApplyDiscount(discountCode, Cart.Subtotal, parsedBirthdate);
+							Cart.DiscountedTotal = checkoutservice.CalculateAmountDiscount(totalBeforeDiscount, Cart.Subtotal);
+							Cart.DiscountCode = discountCode;
+						}
+						catch (ValidationException ex)
+						{
+							ErrorMessage = ex.Message;
+							Cart.Subtotal = checkoutservice.ApplyDiscount("", Cart.Subtotal, parsedBirthdate);
+							Cart.DiscountedTotal = checkoutservice.CalculateAmountDiscount(totalBeforeDiscount, Cart.Subtotal);
+						}
+					}
+					else
                     {
                         ErrorMessage = "Something went wrong.";
                     }

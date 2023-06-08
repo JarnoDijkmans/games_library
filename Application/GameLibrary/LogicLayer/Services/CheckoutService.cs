@@ -5,6 +5,7 @@ using LogicLayer.Models.CheckoutRelated;
 using LogicLayer.Models.GamesFolder;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,45 +29,46 @@ namespace LogicLayer.Services
             this._checkout = checkout;
         }
 
-        public decimal ApplyDiscount(string discountCode, decimal basePrice, DateTime birthdate)
-        {
-            if (birthdate.Day == DateTime.UtcNow.Day && birthdate.Month == DateTime.UtcNow.Month)
-            {
-                if (_birthdateDiscount == null)
-                {
-                    _birthdateDiscount = _strategyFactory.CreateStrategy("BirthDate", 5);
-                }
-                if (_birthdateDiscount != null)
-                {
-                    basePrice = _birthdateDiscount.ApplyDiscount(basePrice);
-                }
-            }
-            _codeDiscount = null;
-            // Apply additional discounts based on discount code
-            if (!string.IsNullOrEmpty(discountCode))
-            {
-                Discount discount = _dal.GetDiscountByCode(discountCode);
-                if (discount.Code == discountCode)
-                {
-                    if (_codeDiscount == null)
-                    {
-                        _codeDiscount = _strategyFactory.CreateStrategy(discount.DiscountType, discount.DiscountValue);
-                    }
-                    if (_codeDiscount != null)
-                    {
-                        basePrice = _codeDiscount.ApplyDiscount(basePrice);
-                    }
-                }
-                else
-                {
-                    //Error Message
-                }
-            }
-            return basePrice;
-        }
+		public decimal ApplyDiscount(string discountCode, decimal basePrice, DateTime birthdate)
+		{
+			if (birthdate.Day == DateTime.UtcNow.Day && birthdate.Month == DateTime.UtcNow.Month)
+			{
+				if (_birthdateDiscount == null)
+				{
+					_birthdateDiscount = _strategyFactory.CreateStrategy("BirthDate", 5);
+				}
+				basePrice = _birthdateDiscount.ApplyDiscount(basePrice);
+			}
+
+			_codeDiscount = null;
+			// apply discount code, if any
+			if (!string.IsNullOrEmpty(discountCode))
+			{
+				List<Discount> discounts = _dal.RetrieveData();
+				bool discountFound = false;
+
+				foreach (Discount discount in discounts)
+				{
+					if (discount.Code == discountCode)
+					{
+						discountFound = true;
+
+						if (_codeDiscount == null)
+						{
+							_codeDiscount = _strategyFactory.CreateStrategy(discount.DiscountType, discount.DiscountValue);
+						}
+
+						basePrice = _codeDiscount.ApplyDiscount(basePrice);
+						break;
+					}
+				}
+			}
+
+			return basePrice;
+		}
 
 
-        public List <CheckoutInfo> GetPaymentById(int id)
+		public List <CheckoutInfo> GetPaymentById(int id)
         {
             return _checkout.GetPaymentInfoByUserID(id);
         }
@@ -95,5 +97,26 @@ namespace LogicLayer.Services
             decimal discount = totalPriceBeforeDiscount - totalpriceAfterDiscount;
             return discount;
         }
-    }
+
+		public bool ValidateDiscountCode(string discountCode)
+		{
+			if (string.IsNullOrEmpty(discountCode))
+			{
+				return true; 
+			}
+			else
+			{
+				List<Discount> discounts = _dal.RetrieveData();
+				foreach (Discount discount in discounts)
+				{
+					if (discount.Code == discountCode)
+					{
+						return true;  
+					}
+				}
+			}
+
+			throw new ValidationException("Invalid DiscountCode, Try again.");  
+		}
+	}
 }
