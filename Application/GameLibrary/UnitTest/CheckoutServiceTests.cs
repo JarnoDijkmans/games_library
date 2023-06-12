@@ -45,7 +45,7 @@ public class CheckoutServiceTest
 		var result = _checkoutService.ApplyDiscount(discountCode, basePrice, DateTime.UtcNow);
 
 		// Assert
-		//Discount Bithdate 5%, will make it 95 - 0 = 95
+		//Discount Bithdate 5%, will make it 100 - 95 - 0 = 95
 		Assert.Equal(expectedDiscountedPrice, result);
 	}
 
